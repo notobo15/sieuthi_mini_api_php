@@ -35,7 +35,7 @@ if ($account->login()) {
     'modifiedAt' => $account->modifiedAt,
     'permissions' => $account->permissions
   );
-  setcookie("account", json_encode($arr), time() + (60 * 5), "/");
+  setcookie("account", json_encode($arr), time() + (60 * 60 * 24), "/");
   print_r(json_encode($arr));
 } else {
   http_response_code(200);

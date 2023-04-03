@@ -60,7 +60,7 @@ class Account
         JOIN group_permission T2 ON T1.per_id = T2.permission_id 
           JOIN groups T3 ON T3.group_id = T2.group_id
           JOIN account t4 ON t3.group_id = t4.group_id
-        WHERE T4.id = ;';
+        WHERE T4.id = ? ;';
         $stm2 = $this->con->prepare($q);
         $stm2->bindParam(1, $this->id);
         if ($stm2->execute()) {
