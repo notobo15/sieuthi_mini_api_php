@@ -7,7 +7,7 @@ if (!isset($image_file)) {
 }
 
 $imageFileType = pathinfo($image_file["name"], PATHINFO_EXTENSION);
-$allowtypes = array('jpg', 'png', 'jpeg', 'gif');
+$allowtypes = array('jpg', 'png', 'jpeg', 'gif', 'jfif');
 if (!in_array($imageFileType, $allowtypes)) {
   die('Chỉ được upload các định dạng JPG, PNG, JPEG, GIF');
 }
