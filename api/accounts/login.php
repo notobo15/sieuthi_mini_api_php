@@ -2,21 +2,21 @@
 require_once "../../configs/ConnectDB.php";
 require_once "../../configs/headers.php";
 require_once "../../models/Account.php";
-$data = json_decode(file_get_contents("php://input"));
+$data = json_decode(file_get_contents("php://input"), TRUE);
 
-if (empty($data->name)) {
+if (empty($_POST['name'])) {
   http_response_code(400);
   die(json_encode(array("message" => "name is require")));
 }
-if (empty($data->password)) {
+if (empty($_POST['password'])) {
   http_response_code(400);
   die(json_encode(array("message" => "password is require")));
 }
 $db = new ConnectDB();
 $conn = $db->getConnect();
 $account = new Account($conn);
-$account->name = $data->name;
-$account->password = $data->password;
+$account->name = $_POST['name'];
+$account->password = $_POST['password'];
 if ($account->login()) {
   $arr = array(
     'id' => $account->id,
@@ -35,7 +35,8 @@ if ($account->login()) {
     'modifiedAt' => $account->modifiedAt,
     'permissions' => $account->permissions
   );
-  setcookie("account", json_encode($arr), time() + (60 * 60 * 24), "/");
+  $_SESSION["account"] = $arr;
+  // setcookie("account", json_encode($arr), time() + (60 * 60 * 24), "/");
   print_r(json_encode($arr));
 } else {
   http_response_code(200);

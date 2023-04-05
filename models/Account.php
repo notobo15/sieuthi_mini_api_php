@@ -31,6 +31,30 @@ class Account
     $stm->execute();
     return $stm;
   }
+
+  public function getListOrder()
+  {
+    $query = "SELECT T1.id, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' : ',  T2.quantity,' : ' ,'<br/>') as product_detail
+    FROM orders T1 
+    JOIN order_detail T2 ON T1.id = T2.order_id 
+    JOIN product T3 ON T3.id = T2.product_id 
+    WHERE T1.account_id = '$this->id'
+    GROUP BY T1.id;";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    $arr_order = [];
+    while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+      $item = array(
+        'id' => $id,
+        'status' => $status,
+        'totalPrice' => $totalPrice,
+        'product_detail' => $product_detail,
+      );
+      $arr_order[] = $item;
+    }
+    return $arr_order;
+  }
   public function login()
   {
 
@@ -57,10 +81,10 @@ class Account
         $this->modifiedAt = $row['modifiedAt'];
 
         $q = 'SELECT T1.code_name FROM permission T1 
-        JOIN group_permission T2 ON T1.per_id = T2.permission_id 
+        JOIN groups_permission T2 ON T1.per_id = T2.permission_id
           JOIN groups T3 ON T3.group_id = T2.group_id
           JOIN account t4 ON t3.group_id = t4.group_id
-        WHERE T4.id = ? ;';
+        WHERE T4.id = ?;';
         $stm2 = $this->con->prepare($q);
         $stm2->bindParam(1, $this->id);
         if ($stm2->execute()) {

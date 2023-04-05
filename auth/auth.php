@@ -1,8 +1,7 @@
 <?php
-if (isset($_COOKIE["account"])) {
-  $account = json_decode($_COOKIE["account"]);
+if (isset($_SESSION["account"])) {
   $url = $_SERVER["REQUEST_URI"];
-  $per = $account->permissions;
+  $per = $_SESSION["account"]['permissions'];
   $isPermission = 0;
   foreach ($per as  $value) {
     if (str_contains($url, $value)) {

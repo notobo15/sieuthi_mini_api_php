@@ -1,0 +1,27 @@
+.icon-prev{
+    background-color: red;
+    opacity: 0;
+    padding: 10px;
+    transform: translate(-250%,0);
+    transition: 1s;
+}
+.icon-next {
+    background-color: red;
+    opacity: 0;
+    padding: 10px;
+    transform: translate(250%,0);
+    transition: 1s;
+}
+.mySlider:hover .icon-next{
+    opacity: 1;
+    transform: translate(100%,0);
+    transition: 1s;
+}
+.mySlider:hover .icon-prev{
+    opacity: 1;
+    transform: translate(-100%,0);
+    transition: 1s;
+}
+.list-img-slider{
+    background-color: rgb(217, 101, 101) !important;
+}

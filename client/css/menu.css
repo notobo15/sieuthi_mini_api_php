@@ -1,0 +1,109 @@
+.myMenu-navbar {
+    /* position: absolute; */
+    position: fixed;
+    top: 125px;
+    height: 100%;
+    background-color: #fff;
+    
+}
+.container-list-group {
+    width: 100%;
+    max-height: 600px !important;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none ;
+}
+.container-list-group::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+  }
+@media only screen and (min-width: 1400px) {
+    .myMenu-navbar {
+        /* position: absolute; */
+        width: 320px;
+
+    }
+}
+@media only screen and (max-width: 1386px) {
+    .container-list-group {
+        width: 270px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .container-list-group {
+        width: 230px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .container-list-group {
+        width: 170px;
+    }
+    .container-list-group a {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .container-list-group a span i {
+        display: none;
+    }
+   .myMenu-navbar {
+    display: none;
+    position: relative;
+    top: 0;
+    width: 100%;
+   }
+   .container-list-group {
+    width: 100%;
+}
+}
+@media only screen and (min-width: 775px) {
+   .myMenu-navbar {
+    display: block !important;
+   }
+}
+.icon-menu-RPS {
+    width: 60px;
+}
+.icon-menu-RPS .icon-close-menu {
+    display: none;
+}
+.menu_RPS {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(216, 61, 61);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.menu_RPS i {
+    font-size: 20px;
+    color: #fff;
+}
+.input-myMenu-RPS {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.input-myMenu-RPS input {
+    width: 100%;
+    border: none;
+    padding: 5px 20px;
+    outline: none;
+    border-radius: 5px;
+}
+.input-myMenu-RPS span {
+    position: absolute;
+    right: 20px;
+
+}
+.myMenu-RPS {
+    display: none;
+}
+@media only screen and (max-width: 769px) {
+    .myMenu-RPS {
+        display: block;
+    }
+}

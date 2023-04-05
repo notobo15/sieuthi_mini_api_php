@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/groupcate.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/grounpfeature.css">
+    <link rel="stylesheet" href="./css/modal-card.css">
+    <link rel="stylesheet" href="./css/modal-info-product.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/modal_oder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/slider.css">
+    <title>Siêu thị mini</title>
+</head>
+<body >
+    
+    <div class="main">
+      <!-- oppen header -->
+      <section class="myHeader " style="background-color:#f6f6f6 ;">
+        <div class="">
+          <div class="intro-repost">
+           <h3 class="fs-6 text-center pt-2">Siêu khuyễn mãi từ<strong> 3/6/2023</strong> đến <strong>4/4/2023</strong> <strong style="color: red;">Mua Ngay !</strong> 
+             
+           </h3>
+           <div class="repos">
+             <div class="repos-header">
+                 <div class="logorepos">
+                     <svg width="30px"  height="30px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: none;">
+                         <circle cx="50" cy="50" r="34.4107" fill="none" ng-attr-stroke="{{config.c1}}" ng-attr-stroke-width="{{config.width}}" stroke="rgb(255,0,0)" stroke-width="20" class="">
+                             <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1.5" keySplines="0 0.2 0.8 1" begin="-0.75s" repeatCount="indefinite" class="">
+           
+                             </animate>
+                             <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1.5" keySplines="0.2 0 0.8 1" begin="-0.75s" repeatCount="indefinite" class="">
+           
+                             </animate>
+                         </circle>
+                         <circle cx="50" cy="50" r="15.3017" fill="none" ng-attr-stroke="{{config.c2}}" ng-attr-stroke-width="{{config.width}}" stroke="rgb(255,0,0)" stroke-width="20" class="">
+                             <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="1.5" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite" class="">
+           
+                             </animate>
+                             <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="1.5" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite" class="">
+           
+                             </animate>
+                         </circle>
+                     </svg>
+                 </div>
+             </div>
+           </div>
+          </div>
+         </div>
+        <div class="container">
+         <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-2 col-sm-3 col-3 py-2 img-header ">
+                  <img src="./img/images-removebg-preview.png" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-5 col-sm-9 col-9 py-3">
+                  <div class="input-group mt-1 input-myheader">
+                      <input type="text" class="form-control" placeholder="Từ khóa tìm kiếm ?" aria-label="Recipient's username" aria-describedby="basic-addon2" style="box-shadow: none; border: 1px solid #e7e7e7; border-right: none;">
+                      <span class="input-group-text text-danger" id="basic-addon2" style="border: 1px solid #e7e7e7;" ><i class="fa-solid fa-magnifying-glass"></i></span>
+                    </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-6 py-3">
+              
+                          <div class="container-address-header">
+                            <div class=" text-center address-header bg-danger">
+                              <a href="#" class="text-white"><i class="fa-solid fa-location-dot"></i></a>
+                              <a href="#" style="font-size: 13px ;">Chọn địa chỉ để<br>xem chính sác giá</a>
+                            </div>
+                          </div>
+              </div>
+              <div class="col-md-2 col-sm-6 col-6 py-3">
+                  <div class="row">
+                      <div class="col-4">
+                          <a type="button" class=" icon-oder position-relative">
+                             <span class="fs-3 text-danger"><i class="fa-solid fa-truck-fast"></i></span>
+                              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                9+
+                                <span class="visually-hidden">unread messages</span>
+                              </span>
+                            </a>
+                      </div>
+                      <div class="col-4">
+                          <a type="button" class=" icon-card position-relative">
+                              <span class="fs-3 text-danger" data-bs-toggle="modal" data-bs-target="#modal-card"><i class="fa-solid fa-cart-shopping"></i></span>
+                               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                 7+
+                                 <span class="visually-hidden">unread messages</span>
+                               </span>
+                             </a>
+                      </div>
+                      <div class="col-4">
+                        <a href="login_register.html" style="text-decoration: none;" class="text-danger"><i class="fa-solid fa-user icon-user fs-3"></i></a>
+
+                      </div>
+                  </div>
+              </div>
+             </div>
+          </div>
+         </div>
+        </div>
+       </section>
+      <!-- end header -->
+       <!-- ----------------------------------------------------------Modal thông tin giỏ hàng----------------------------------------------------------------------- -->
+        <div class="modal_card">
+          <div class="modal_overlay_card">
+          </div>
+            <div class="modal_body_card">
+              <div class="modal_body_card_header">
+                <h2 class="text-center py-4">THÔNG TIN GIỎ HÀNG</h2>
+                <span class="icon-close-card"><i class="fa-solid fa-x"></i></span>
+                <!-- <a href="#" class="icon-close-card"><i class="fa-solid fa-x"></i></a> -->
+              </div>
+              <div class="container moda-card-info"> 
+               <table id="cart" class="table table-hover table-condensed"> 
+                <thead > 
+                 <tr> 
+                  <th style="width:40%" class="bg-danger">Tên sản phẩm</th> 
+                  <th style="width:13%" class="bg-danger">Giá</th> 
+                  <th style="width:20%" class="bg-danger">Số lượng</th> 
+                  <th style="width:14%" class="text-center bg-danger">Thành tiền</th> 
+                  <th style="width:12%" class="bg-danger"> </th> 
+                 </tr> 
+                </thead> 
+                <tbody class="add-card-product" id="card-product-info">
+                  <!-- <tr> 
+                 <td data-th="Sản Phẩm" class="my-3"> 
+                  <div class="row"> 
+                   <div class="col-sm-4 hidden-md"><img src="img/product/mi-kho-ga-cay-samyang-goi-140g-202302271042338764.png" alt="Sản phẩm 1" class="img-responsive" width="100">
+                   </div> 
+                   <div class="col-sm-8 fs-6"> 
+                    <h4 class="nomargin fs-6">Mì gà siêu cay</h4> 
+                    <p>Nhập khẩu trực tiếp từ Korea</p> 
+                   </div> 
+                  </div> 
+                 </td> 
+                 <td data-th="Giá">200.000 đ</td> 
+                 <td data-th="Số lượng">
+                  <div class="number_card">
+                    <span class="minus_card"><i class="fa-solid fa-minus"></i></span>
+                    <input type="text" value="1" min="1"/>
+                    <span class="plus_card"><i class="fa-solid fa-plus"></i></span>
+                  </div>
+                 </td> 
+                 <td data-th="Tổng tiền" class="text-center">200.000 đ</td> 
+                 <td class="actions" data-th="">
+                  <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+                  </button> 
+                  <button class="btn btn-danger btn-sm text-black"><i class="fa-solid fa-trash"></i>
+                  </button>
+                 </td> 
+                </tr>  -->
+                </tbody>
+               </table>
+              </div>
+              <div class="footer-modal-card py-3">
+                <div class="row">
+                  <div class=" col-lg-4 col-md-4 col-sm-12">
+                    <div class="btn-home" style="display: flex; justify-content: center; align-items: center; width: 210px;">
+                      <a href="" class="btn btn-warning text-white mx-3" style="width: 200px;">
+                        <i class="fa fa-angle-left "></i>
+                        Tiếp tục mua hàng
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 " style="display: flex; justify-content: center; align-items: center;" >
+                    <div class="btn-sum-price"style="display: flex; justify-content: center; align-items: center; width: 240px;">
+                      <p style="width: 235px;">Tổng tiền Hàng : <strong>2.000.000 </strong>đ</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12  ">
+                      <div class="btn-pay"style="display: flex; justify-content: center; align-items: center;">
+                        <a href="" class="btn btn-danger btn-block" style="width: 200px;">Thanh toán <i class="fa fa-angle-right"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+            </div>
+       <!-- ----------------------------------------------------------Modal tình trạng đơn hàng----------------------------------------------------------------------- -->
+       <div class="modal_oder">
+        <div class="modal_overlay_oder">
+        </div>
+          <div class="modal_body_oder">
+            <div class="modal_body_oder_header">
+              <h2 class=" py-4">THÔNG TIN ĐƠN HÀNG</h2>
+              <a href="#" class="icon-close-oder"><i class="fa-solid fa-x"></i></a>
+            </div>
+            <div class="container moda-card-info"> 
+             <table id="cart" class="table table-hover table-condensed"> 
+              <thead > 
+               <tr> 
+                <th style="width:18%" class="bg-white">Mã đơn hàng</th> 
+                <th style="width:15%" class="bg-white">Thời gian</th> 
+                <th style="width:20%" class="bg-white">Email người nhân</th> 
+                <th style="width:10%" class="text-center bg-white">Tổng tiền</th> 
+                <th style="width:22%" class="text-center bg-white">Tình trạng đơn hàng</th> 
+                <th style="width:15%" class="bg-white"> Chỉnh sửa </th> 
+               </tr> 
+              </thead> 
+              <tbody>
+                <tr> 
+               <td data-th="Mã đơn hàng :" class="my-3"> 
+                    <strong class="text-danger MDH">S0000020</strong>
+               </td> 
+               <td data-th="Thời gian :">10:34 20/02/2023</td> 
+               <td data-th="Email :">
+                 <ins class="text-danger :">skt@gmai.com</ins>
+               </td> 
+               <td data-th="Tổng tiền :">200.000 đ</td> 
+               <td data-th="Tình trạng :">
+                 Chưa thanh toán
+               </td>
+               <td class="actions-2" data-th="">
+                <button class="btn btn-danger btn-sm text-black"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
+                </button>
+               </td> 
+              </tr> 
+               
+              </tbody>
+             </table>
+            </div>
+             </div>
+          </div>
+      <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <!----------------------------------------------------------Nội dung chính trang web----------------------------------------------------------------------------------->
+      <div class="container content-container">
+        <div class="row">
+          <div class="col-md-3">
+            <!-- menu reponsive -->
+            <div class="myMenu-RPS">
+              <div class="menu_RPS pe-4">
+                <div class="icon-menu-RPS">
+                  <i class="fa-solid fa-bars px-3 icon-oppen-menu"></i>
+                  <i class="fa-solid fa-x px-3 icon-close-menu"></i>
+                </div>
+                <!-- <div class="input-myMenu-RPS">
+                  <input type="text" placeholder="Nhập sản phẩm tìm kiếm ?">
+                  <span> <i class="fa-solid fa-magnifying-glass text-danger"></i></span>
+                </div> -->
+                </div>
+            </div>
+              <!-- oppen menu -->
+            <div class="myMenu-navbar mb-2 ">
+              <div class="list-group container-list-group">
+                <a href="#" class="list-group-item list-group-item-action active bg-danger" aria-current="true" style="border: none;">
+                  <span><i class="fa-solid fa-bars px-3"></i>DANH MỤC SẢN PHẨM</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Thịt cá trứng hải sản</a>
+                <a href="#" class="list-group-item list-group-item-action">Rau củ quả trái cấy</a>
+                <a href="#" class="list-group-item list-group-item-action">Dầu ăn, Nước chấm, Gia vi</a>
+                <a href="#" class="list-group-item list-group-item-action">Kem, Thực phẩm đông mát</a>
+                <a href="#" class="list-group-item list-group-item-action">Gạo, Bột, Đồ khô</a>
+                <a href="#" class="list-group-item list-group-item-action">Mì, Miến, Cháo, Phở</a>
+                <a href="#" class="list-group-item list-group-item-action">Bia, Nước giải khát</a>
+                <a href="#" class="list-group-item list-group-item-action">Sữa các loại</a>
+                <a href="#" class="list-group-item list-group-item-action">Bánh kẹo các loại</a>
+                <a href="#" class="list-group-item list-group-item-action">Chăm sóc cá nhân</a>
+                <a href="#" class="list-group-item list-group-item-action">Sản phẩm cho mẹ bé</a>
+                <a href="#" class="list-group-item list-group-item-action">vệ sinh nhà cửa</a>
+                <a href="#" class="list-group-item list-group-item-action">Đồ dùng gia đình</a>
+                <a href="#" class="list-group-item list-group-item-action">Chăm sóc thú cưng</a>
+                <a href="#" class="list-group-item list-group-item-action">Sim, thẻ cào</a>
+                <a href="#" class="list-group-item list-group-item-action">Trả góp điện nước</a>
+                <a href="#" class="list-group-item list-group-item-action">Mua phiếu mua hàng</a>
+              </div>
+          </div>
+          <!-- end menu -->
+          </div>
+          <div class="col-md-9">
+            
+             <!-- opent slider -->
+             <section class="mySlider">
+              
+                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                   <div class="carousel-indicators">
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active list-img-slider" aria-current="true" aria-label="Slide 1"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8" class="list-img-slider"></button>
+                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9" class="list-img-slider"></button>
+                   </div>
+                   <div class="carousel-inner">
+                     <div class="carousel-item active">
+                       <img src="./img/slider/bia-0203202318544.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/khuyen-mai-gia-vi-hot-04032023114352.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/nuoc-xa-vai-giam-den-30-mua-2-tang-1-0203202311050.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/game-unilever-02032023132837.png" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/nuoc-giai-khat-mua-2-tang-1-030320231129.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/sua-chua-can-tet-06022023142653.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/ta-chinh-hang-28022023154536.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/thuc-pham-gia-vi-gia-tot-03032023143032.jpg" class="d-block w-100" alt="...">
+                     </div>
+                     <div class="carousel-item">
+                       <img src="./img/slider/valentine-0303202313823.jpg" class="d-block w-100" alt="...">
+                     </div>
+                   </div>
+                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                     <span class="carousel-control-prev-icon icon-prev" aria-hidden="true"></span>
+                     <span class="visually-hidden ">Previous</span>
+                   </button>
+                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                     <span class="carousel-control-next-icon icon-next" aria-hidden="true"></span>
+                     <span class="visually-hidden">Next</span>
+                   </button>
+                 </div>
+              
+             </section>
+             <!-- end slider -->
+             <!-- oppen grounpcate -->
+                <section class="myGroupcate py-3">
+             <div class="" style="background-color: #fff; border-radius: 5px;">
+               <h2 class="fs-5 pt-2 px-3">NHÓM HÀNG THƯỜNG MUA</h2>
+               <div class="row group_Category">
+                 <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                    <a href="#">
+                     <div class="img-group-cate pt-2"><img src="./img/group-cate/kem-cay-kem-hop-202212151650258532.v202303060950.png" alt="vui lòng đợi"></div>
+                     <p class="text-center">Kem cây, hộp</p>
+                    </a>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                   <a href="#">
+                    <div class="img-group-cate pt-2"><img src="./img/group-cate/rau-cu-trai-cay-202205261519146845.v202303060950.png" alt="vui lòng đợi"></div>
+                    <p class="text-center">Rau củ quả</p>
+                   </a>
+                 </div>
+                 <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                   <a href="#">
+                    <div class="img-group-cate pt-2"><img src="./img/group-cate/sua-tuoi-202210311320147075.v202303060950.png" alt="vui lòng đợi"></div>
+                    <p class="text-center">Sữa tươi</p>
+                   </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                 <a href="#">
+                  <div class="img-group-cate pt-2"><img src="./img/group-cate/nuoc-ngot-202210311315510981.v202303060950.png" alt="vui lòng đợi"></div>
+                  <p class="text-center">Nước ngọt</p>
+                 </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                 <a href="#">
+                  <div class="img-group-cate pt-2"><img src="./img/group-cate/mi-an-lien-202302221454329838.v202303060950.png" alt="vui lòng đợi"></div>
+                  <p class="text-center">Mì ăn liền</p>
+                 </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 col-4  groupcate-item">
+                 <a href="#">
+                  <div class="img-group-cate pt-2"><img src="./img/group-cate/icon_2464.v202303060950.png" alt="vui lòng đợi"></div>
+                  <p class="text-center">Nước giặt</p>
+                 </a>
+                </div>
+               </div>
+             </div>
+                </section>
+             <!-- end Groupcate -->
+             <section class="myProduct">
+               <div class=" container-product">
+                 <div class="pt-2 title-product ">
+                   <h2 class="fs-5 mb-3">CÁC SẢN PHẨM KHUYẾN MÃI</h2>
+                 </div>
+                 <div class="row pb-2 px-3 product-list">
+                   <!-- render _ API -->
+                  </div>
+               </div>
+               <div class="container see-more-container">
+                 <div class="see-more-product">
+                   <a href="#"> Xem thêm sản phẩm...</a>
+                        </div>
+               </div>
+             </section>
+            <!-- oppen modal --------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-- modal xem thông tin sản phẩm --------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông tin sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row mt-2 p-3">
+                      <div class="col-md-6">
+                        <img src="./img/product/MÌ ăn liền/thung-30-goi-mi-hao-hao-tom-chua-cay-75g-202205161558511020_300x300.jpg" alt="" width="100%" height="280px" class="rounded"/>
+                      </div>
+                      <div class="col-md-6">
+                        <h2 class="product_name">Mì ăn liền</h2>
+                        <div class="product-price">
+                          <h4 class=" my-2 text-danger "><strong>20.000 đ</strong> </h4>
+                          <p class="text-decoration-line-through mx-1">35.000 đ</p>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="number">
+                              <span class="minus"><i class="fa-solid fa-minus"></i></span>
+                              <input type="text" value="1" min="1"/>
+                              <span class="plus"><i class="fa-solid fa-plus"></i></span>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <button class="btn btn-danger mt-2 bg-danger" width="120px" >Mua Ngay</button>
+                          </div>
+                        </div>
+                        <div class="infoto">
+                          <div class="infotoColor"></div>
+                          Thông tin sản phẩm 
+                        </div>
+                        <p style="box-sizing: border-box;" class="prpduct-desc"> xin chao mon hang cua ban that tuwy vowi do nha hau fa sdf sad fsad fsad fas fsa f asf asd fsa fas </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+                
+                <!--end Modal product-->
+             <!-- oppen groupture sữa tươi -->
+             <section class="myGrounpFeature1">
+              <!-- select-API -->
+              <!-- <div class="container-grounpfreature">
+                <div class="title-grounpfeature" style=" background: linear-gradient(to left top, rgb(244, 248, 136), green);">
+                  <h3 class="fs-4">DẦU ĂN, NƯỚC, CHẤM, GIA VỊ</h3>
+                </div>
+                <div class="row pb-2">
+                  <div class="col-md-3 col-sm-6 col-6">
+                    <div class="product-box">
+                      <div class="product-inner-box position-relative">
+                        <div class="icons position-absolute">
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-heart"></i></a>
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-eye"></i></a>
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-cart-plus"></i></a>
+                        </div>
+                        <div class="onsale position-absolute top-0 start-0">
+                          <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i> 45%</span>
+                        </div>
+                        <div class="product-img">
+                          <img src="./img/product/nc-Mắm/nuoc-cham-ca-com-3-mien-chai-800ml-202212050958542568_300x300.jpg" alt="woodan chair" class="img-fluid">
+                        </div>
+                        <div class="cart-btn">
+                          <button class="btn btn-white bg-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-shopping"></i>Mua Ngay</button>
+                        </div>
+                      </div>
+                      <div class="product-info">
+                        <div class="product-name">
+                          <h3>woodan chari</h3>
+                        </div>
+                        <div class="product-price">
+                          <span>32000 </span>đ
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class=" see-more-container my-2">
+                <div class="see-more-grounpfeature">
+                  <a href="#"> Xem thêm sản phẩm...</a>
+                       </div>
+              </div> -->
+             </section>
+            
+             <!-- end groupfeature -->
+             <!-- oppen groupfeature Mì ăn liền -->
+             <section class="myGrounpFeature">
+              <!-- <div class="container-grounpfreature-2">
+                <div class="title-grounpfeature-2">
+                  <div class="heart-grounpfeature-2"></div>
+                  <h3 class="fs-4">MÌ, MIẾN, CHÁO, PHỞ</h3>
+                </div>
+                <div class="row pb-2 px-3">
+                  <div class="col-md-3 col-sm-6 col-6 p-0 ">
+                    <div class="product-box">
+                      <div class="product-inner-box position-relative">
+                        <div class="icons position-absolute">
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-eye"></i></a>
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-cart-plus"></i></a>
+                        </div>
+                        <div class="onsale position-absolute top-0 start-0">
+                          <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i> 45%</span>
+                        </div>
+                        <div class="product-img">
+                          <img src="./img/product/MÌ ăn liền/thung-24-ly-mi-modern-lau-thai-tom-65g-202205171454334430_300x300.jpg" alt="woodan chair" class="img-fluid">
+                        </div>
+                        <div class="cart-btn">
+                          <button class="btn btn-white bg-white shadow-sm rounded-pill"><i class="fa-solid fa-cart-shopping"></i>Mua Ngay</button>
+                        </div>
+                      </div>
+                      <div class="product-info">
+                        <div class="product-name">
+                          <h3>woodan chari</h3>
+                        </div>
+                        <div class="product-price">
+                          <span>32000 </span>đ
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    
+                </div>
+              </div>
+              <div class=" see-more-container my-2">
+                <div class="see-more-grounpfeature">
+                  <a href="#"> Xem thêm sản phẩm...</a>
+                </div>
+              </div> -->
+            </section>
+             <!-- end groupfeature mì ăn liền -->
+             <section class="myFooter">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h3>GIỚI THIỆU</h3>
+                  <P>Minimart.com.vn-Happy Shopping</P>
+                  <p><i class="fa-solid fa-house"></i>Khu đô thị - HCM</p>
+                  <p><i class="fa-solid fa-envelope"></i>info@gmail.com</p>
+                  <p><i class="fa-solid fa-phone"></i>0969675342</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                  <p>Hướng dẫn mua hàng</p>
+                  <p>Hình thức thanh toán</p>
+                  <p>Chính sách bảo hành</p>
+                  <p>Chính sách bảo mật</p>
+                  <p>Tìm kiếm</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h3>ĐĂNG KÍ NHẬN TIN</h3>
+                  <div class="email_footer">
+                    <div class="input-group mt-1 input-myheader">
+                      <input type="text" class="form-control fs-6" placeholder="Nhập email liên hệ ?" aria-label="Recipient's username" aria-describedby="basic-addon2" style="box-shadow: none; border: 1px solid #e7e7e7; border-right: none;">
+                      <span class="input-group-text text-danger" id="basic-addon2" style="border: 1px solid #e7e7e7;" ><i class="fa-solid fa-paper-plane icon_email_footer"></i></span>
+                    </div>
+                  </div>
+                  <p class="mt-3">Hãy nhập thông tin của bạn vào đây để nhận thông tin !</p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>  
+                  <div class="import-end pb-2">
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-ms-3 col-3 text-center">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-ms-3 col-3 text-center">
+                        <a href="#"> <i class="fa-brands fa-youtube"></i></a>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-ms-3 col-3 text-center">
+                        <a href="#"><i class="fa-brands fa-instagram"></i> </a>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-ms-3 col-3 text-center">
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </section>
+             <section class="end-page text-center my-2 ">
+                Web được thiết kế bởi Nhóm ... N123@gmail.com  mọi thông tin chi tiết <br> xin vui lòng liên hệ độ ngũ của chúng tôi
+                nếu có thắc mắc hay máy chủ không hoạt động cho chúng tôi biết
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./javascript/GrounpFeature.js"></script>
+<script src="./javascript/product.js"></script>
+<!-- <script src="./javascript/test_javascript.js"></script> -->
+<script src="./javascript/modal_info_product.js"></script>
+<script src="./javascript/menu.js"></script>
+<script src="./javascript/modal_card.js"></script>
+<script src="./javascript/modal_oder.js"></script>
+</html>

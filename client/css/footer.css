@@ -1,0 +1,60 @@
+.myFooter {
+    background-color: #fff !important;
+}
+.myFooter h3 {
+    padding: 10px 10px 10px 20px;
+    font-size: 16px;
+    font-weight: 550;
+    color: back;
+}
+.myFooter p {
+    padding: 0 20px;
+    font-size: 14px;
+}
+.myFooter p i {
+    padding: 0 10px;
+}
+.myFooter .email_footer {
+    margin-left: 20px;
+}
+/* .myFooter .email_footer input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #000 ;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.myFooter .email_footer a{
+    color: #000;
+}
+.myFooter .email_footer .icon_email_footer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+} */
+
+.end-page {
+    color: #7d7474;
+    font-size: 13px;
+}
+.img_footer .logo-footer img {
+    height: 30px;
+}
+.import-end {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.import-end i {
+    padding: 5px 6px;
+    color: #000;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+@media only screen and (max-width: 770px) {
+    .import-end {
+        width: 100%;
+    }
+}
