@@ -3,9 +3,9 @@
 class ConnectDB
 {
   private $host = "localhost";
-  private $user = "root";
-  private $password = "";
-  private $db_name = "sieuthi_mini";
+  private $user = "notobo_sieuthimini";
+  private $password = "notobo_sieuthimini";
+  private $db_name = "notobo_sieuthimini";
   private $port = 3306;
   private $con = null;
   // private 
@@ -17,6 +17,7 @@ class ConnectDB
     try {
       $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
       $this->con = new PDO($dsn, $this->user, $this->password);
+      $this->con->exec("set names utf8mb4");
       $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $this->con;
     } catch (PDOException $e) {

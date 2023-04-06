@@ -19,41 +19,35 @@
 
 </html>
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 include_once "../configs/Connect.php";
+
+try {
+
 $con = new Connect();
 $mysql = $con->con;
-if (isset($_POST['name']) && isset($_POST["password"])) {
-  $name = $_POST['name'];
-  $password = $_POST['password'];
-  $query = "SELECT * FROM  account where name = '$name' and password= MD5('$password');";
-  $stmt = $mysql->prepare($query);
-
+  $query = "SELECT * FROM tbl_product;";
   $result = $mysql->query($query);
-  $item = null;
+  $arr = [];
   if ($result) {
     while ($row = $result->fetch_assoc()) {
-      extract($row);
+     
       $item = array(
-        'id' => $id,
-        'account_id' => $account_id,
-        'name' => $name,
-        'password' => $password,
-        'first_name' => $first_name,
-        'last_name' => $last_name,
-        'phone' => $phone,
-        'birth_date' => $birth_date,
-        'delivery_address' => $delivery_address,
-        'gender' => $gender,
-        'group_id' => $group_id,
-        'isDeleted' => $isDeleted,
-        'createAt' => $createAt,
-        'modifiedAt' => $modifiedAt
+        'id' => $row['id'],
       );
+      $arr[] = $item;
     }
-    session_start();
-    $_SESSION["account"] = $item;
-  } else {
-    printf('No record found.<br />');
   }
-  print_r($item);
+  print_r(json_encode($arr));
 }
+
+//catch exception
+catch(Exception $e) {
+  echo 'Message: ' .$e->getMessage();
+}
+
+
+
+

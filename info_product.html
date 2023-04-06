@@ -61,7 +61,10 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-2 col-sm-3 col-3 py-2 img-header ">
+                <a href="./index.html">
+
                   <img src="./img/images-removebg-preview.png" alt="" class="img-fluid">
+                </a>
               </div>
               <div class="col-md-5 col-sm-9 col-9 py-3">
                   <div class="input-group mt-1 input-myheader">
@@ -99,7 +102,7 @@
                              </a>
                       </div>
                       <div class="col-4">
-                        <a href="http://localhost/wordShop/sieuthi_mini/client/login_register.html" style="text-decoration: none;" class="text-danger"><i class="fa-solid fa-user icon-user fs-3"></i></a>
+                        <a href="login_register.html" style="text-decoration: none;" class="text-danger"><i class="fa-solid fa-user icon-user fs-3"></i></a>
 
                       </div>
                   </div>
@@ -412,12 +415,109 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./javascript/info_Product_API.js"></script>
-<script src="./javascript/GrounpFeature.js"></script>
-<script src="./javascript/product.js"></script>
+<!-- <script src="./javascript/info_Product_API.js"></script> -->
+<!-- <script src="./javascript/GrounpFeature.js"></script> -->
+<!-- <script src="./javascript/product.js"></script> -->
 <!-- <script src="./javascript/test_javascript.js"></script> -->
 <script src="./javascript/modal_info_product.js"></script>
 <script src="./javascript/menu.js"></script>
 <script src="./javascript/modal_card.js"></script>
 <script src="./javascript/modal_oder.js"></script>
+
+<script>
+
+
+$(document).ready(function () {
+  let url = new URL(location.href);
+  let id = url.searchParams.get("id");
+  console.log(url);
+  $.ajax({
+    type: "GET",
+    url: `./api/product/detail.php?id=${id}`,
+    success: function (data) {
+      console.log(data);
+      let html = " ";
+      html = `
+            <div class="myInfoProduct_Header">   
+            <h4> <a href="#">Trang chủ</a> <span> > </span> <a href="#">Thịt</a> <span> > </span> <a href="#">Thịt nướng hàn quốc</a></h4>
+        </div>
+        <div class="row pt-4">
+            <div class="col-lg-6 col-md-12 infoProduc_img">
+                <img  src="./images/products/${
+                  data.img
+                }" alt="" style="object-fit: contain;">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <h3> ${data.name} </h3>
+                <p>HSD còn 1 năm</p>
+                <div class="Infoproduct_price">
+                    <h3><strong class="text-danger">${parseFloat(
+                      data.price
+                    ).toLocaleString(`de-DE`)} đ </strong></h3>
+                    <p class="text-decoration-line-through text-danger mx-1">${parseFloat(
+                      data.price + 10000
+                    ).toLocaleString(`de-DE`)} đ</p>
+                </div>
+                <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy">CHỌN MUA</button>
+            </div>
+        </div>
+        <div class="information_product">
+            <div class="infoto">
+                 <h6>Thông tin sản phẩm</h6> 
+                <div class="infotoColor"></div>
+            </div>
+            <p>
+               <span style="color: blue">${data.name}</span> 
+               <br/>
+               ${data.desc}
+            </p>
+            <div class="infoproduct_properties">
+                <ul>
+                    <li>
+                        <span>Thương hiệu</span>
+                        <div class="">${data.trademark}</div>
+                    </li>
+                    <li>
+                        <span>Loại sản phẩm</span>
+                        <div class="">${data.trademark}</div>
+                    </li>
+                    <li>
+                        <span>Khối lượng</span>
+                        <div class="">560g</div>
+                    </li>
+                    <li>
+                        <span>Nơi sản xuất</span>
+                        <div class="">Việt Nam</div>
+                    </li>
+                    <li>
+                        <span>Bảo quản</span>
+                        <div class="">Nhiệt độ từ 0-2 độ C</div>
+                    </li>
+                    <li> 
+                        <span>Hạn sử dụng</span>
+                        <div class="">${data.createAt}</div></div>
+                    </li>
+                </ul>
+            </div>
+            <h6><strong>Ưu điểm của sản phẩm </strong></h6>
+            <p>
+                ${data.ingredient}
+            </p>
+            <h6><strong>Cách bảo quản</strong></h6>
+            <p>
+                Bảo quản thịt bò tái ở nhiệt độ từ 0 - 2 độ C.
+            </p>
+            <h6><strong>Lưu ý:</strong></h6>
+            <span> 
+                Sản phẩm nhận được có thể khác với hình ảnh về màu sắc và số lượng nhưng vẫn đảm bảo về mặt khối lượng và chất lượng.
+            </span>
+        </div>
+            `;
+      $(`.myInfoProduct`).html(html);
+    },
+  });
+});
+
+
+</script>
 </html>

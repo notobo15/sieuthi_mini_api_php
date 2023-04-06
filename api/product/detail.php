@@ -2,6 +2,8 @@
 require_once "../../configs/ConnectDB.php";
 require_once "../../configs/headers.php";
 require_once "../../models/Product.php";
+  header('Access-Control-Allow-Methods: GET');
+  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 $db = new ConnectDB();
 $conn = $db->getConnect();

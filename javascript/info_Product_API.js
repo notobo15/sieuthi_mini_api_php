@@ -1,26 +1,33 @@
-
-$(document).ready(function(){
-    let url = new URL(location.href);
-    let id = url.searchParams.get("id"); 
-    $.ajax({
-        type:"GET",
-        url: `http://localhost:3000/api/product/${id}`,
-        success: function(data){
-            let html = " ";
-            html = `
+$(document).ready(function () {
+  let url = new URL(location.href);
+  let id = url.searchParams.get("id");
+  console.log(url);
+  $.ajax({
+    type: "GET",
+    url: `./api/product/detail.php?id=${id}`,
+    success: function (data) {
+      console.log(data);
+      let html = " ";
+      html = `
             <div class="myInfoProduct_Header">   
             <h4> <a href="#">Trang chủ</a> <span> > </span> <a href="#">Thịt</a> <span> > </span> <a href="#">Thịt nướng hàn quốc</a></h4>
         </div>
         <div class="row pt-4">
             <div class="col-lg-6 col-md-12 infoProduc_img">
-                <img  src="http://localhost:3000/img/products/${data.img}" alt="" style="object-fit: contain;">
+                <img  src="./images/products/${
+                  data.img
+                }" alt="" style="object-fit: contain;">
             </div>
             <div class="col-lg-6 col-md-12">
                 <h3> ${data.name} </h3>
                 <p>HSD còn 1 năm</p>
                 <div class="Infoproduct_price">
-                    <h3><strong class="text-danger">${parseFloat(data.price).toLocaleString(`de-DE`)} đ </strong></h3>
-                    <p class="text-decoration-line-through text-danger mx-1">${parseFloat(data.price + 10000).toLocaleString(`de-DE`)} đ</p>
+                    <h3><strong class="text-danger">${parseFloat(
+                      data.price
+                    ).toLocaleString(`de-DE`)} đ </strong></h3>
+                    <p class="text-decoration-line-through text-danger mx-1">${parseFloat(
+                      data.price + 10000
+                    ).toLocaleString(`de-DE`)} đ</p>
                 </div>
                 <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy">CHỌN MUA</button>
             </div>
@@ -75,8 +82,8 @@ $(document).ready(function(){
                 Sản phẩm nhận được có thể khác với hình ảnh về màu sắc và số lượng nhưng vẫn đảm bảo về mặt khối lượng và chất lượng.
             </span>
         </div>
-            `
-            $(`.myInfoProduct`).html(html);
-        }
-    })
+            `;
+      $(`.myInfoProduct`).html(html);
+    },
+  });
 });

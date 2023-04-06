@@ -8,33 +8,42 @@ include_once '../../models/Account.php';
 $db = new ConnectDB();
 $conn = $db->getConnect();
 $account = new Account($conn);
+// $data = json_decode(file_get_contents('php://input'), true);
 
-$data = json_decode(file_get_contents("php://input"));
-
-
-if (empty($data->name)) {
+if (empty($_POST['name'])) {
   http_response_code(400);
   die(json_encode(array("message" => "name is require")));
 }
-if (empty($data->password)) {
+if (empty($_POST['password'])) {
   http_response_code(400);
   die(json_encode(array("message" => "password is require")));
 }
-if (empty($data->phone)) {
+if (empty($_POST['phone'])) {
   http_response_code(400);
   die(json_encode(array("message" => "phone is require")));
 }
 
-$account->name = $data->name;
-$account->password = $data->password;
-$account->first_name = $data->first_name;
-$account->last_name = $data->last_name;
-$account->phone = $data->phone;
-$account->birth_date = $data->birth_date;
-$account->gender = $data->gender;
-$account->delivery_address = $data->delivery_address;
+$account->name = $_POST['name'];
+if ($account->checkUserNameExist()) {
+  // http_response_code(400);
+  die(json_encode(array("message" => "tai khoan da ton tai")));
+}
+$account->phone = $_POST['phone'];
+$account->password = $_POST['password'];
 
-// Create Category
+if (isset($_POST['first_name']))
+  $account->first_name = $_POST['first_name'];
+
+if (isset($_POST['last_name']))
+  $account->last_name = $_POST['last_name'];
+if (isset($_POST['birth_date']))
+  $account->birth_date = $_POST['birth_date'];
+if (isset($_POST['gender']))
+  $account->gender = $_POST['gender'];
+if (isset($_POST['delivery_address']))
+  $account->delivery_address = $_POST['delivery_address'];
+
+
 if ($account->create()) {
   echo json_encode(
     array('message' => 'account Created')

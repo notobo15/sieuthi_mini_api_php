@@ -55,10 +55,19 @@ class Account
     }
     return $arr_order;
   }
+  public function checkUserNameExist()
+  {
+    $query = 'SELECT * FROM ' . $this->table_name . ' where name = ?';
+    $stm = $this->con->prepare($query);
+    $stm->bindParam(1, $this->name);
+    if ($stm->execute() && $stm->rowCount() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   public function login()
   {
-
-
     $query = 'SELECT * FROM ' . $this->table_name . ' where name = ? and password = MD5(?)';
     $stm = $this->con->prepare($query);
     $stm->bindParam(1, $this->name);

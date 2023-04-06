@@ -33,6 +33,13 @@ class Product
     $stm->execute();
     return $stm;
   }
+  public function getListByCategoryId($category_id)
+  {
+    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE category = ' . $category_id;
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
 
   public function getSingleById($id)
   {

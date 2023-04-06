@@ -1,4 +1,4 @@
-const container = document.querySelector(".container"),
+var container = document.querySelector(".container"),
   pwShowHide = document.querySelectorAll(".showHidePw"),
   pwFields = document.querySelectorAll(".password"),
   signUp = document.querySelector(".signup-link"),
@@ -32,39 +32,9 @@ signUp.addEventListener("click", () => {
 login.addEventListener("click", () => {
   container.classList.remove("active");
 });
+console.log("-------------------");
 
-function checkLogin() {
-  var username = document.getElementById("username");
-  var password = document.getElementById("password");
-  let error = document.querySelector("#err_login");
 
-  if (username.value.length <= 4 || username.value.length >= 10) {
-    error.innerHTML = "Độ dài username phải lớn hơn 4 và nhỏ hơn 10!";
-    error.style.display = "block";
-    username.focus();
-    return false;
-  }
-  if (username.value.includes(" ")) {
-    error.innerHTML = "Username không được chứa khoảng trắng!";
-    error.style.display = "block";
-    username.focus();
-    return false;
-  }
-  if (username.value.toLowerCase() != username.value) {
-    error.innerHTML = "Username phải là chuỗi kí tự thường!";
-    error.style.display = "block";
-    username.focus();
-    return false;
-  }
-  if (password.value.length <= 4) {
-    error.innerHTML = "Độ dài password phải lớn hơn 4!";
-    error.style.display = "block";
-    password.focus();
-    return false;
-  }
-  error.style.display = "none";
-  return true;
-}
 
 function checkRegister() {
   var first_name = document.getElementById("first_name");
@@ -75,19 +45,21 @@ function checkRegister() {
   var passwordConfirm = document.getElementById("password_rg_confirm");
   let error = document.querySelector("#err_register");
 
-  if (first_name.value.length <= 0 || first_name.value.length >= 10) {
+  if (first_name.value.length < 4 || first_name.value.length >= 10) {
     error.innerHTML = "Độ dài First Name phải lớn hơn 0 và nhỏ hơn 10!";
     error.style.display = "block";
     first_name.focus();
     return false;
   }
-  if (last_name.value.length <= 0 || last_name.value.length >= 40) {
+  if (last_name.value.length < 4 || last_name.value.length >= 40) {
     error.innerHTML = "Độ dài Last Name phải lớn hơn 0 và nhỏ hơn 40!";
     error.style.display = "block";
     last_name.focus();
     return false;
   }
-  if (username.value.length <= 4 || username.value.length >= 10) {
+  console.log(username.value);
+
+  if (username.value.length < 4 || username.value.length >= 10) {
     error.innerHTML = "Độ dài username phải lớn hơn 4 và nhỏ hơn 10!";
     error.style.display = "block";
     username.focus();
@@ -100,7 +72,7 @@ function checkRegister() {
     phone.focus();
     return false;
   }
-  if (password.value.length <= 4) {
+  if (password.value.length < 4) {
     error.innerHTML = "Độ dài password phải lớn hơn 4!";
     error.style.display = "block";
     password.focus();
