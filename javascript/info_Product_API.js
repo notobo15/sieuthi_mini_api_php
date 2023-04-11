@@ -1,22 +1,38 @@
+function addProductToCart(id) {
+  let fd = new FormData();
+  fd.append("product_id", id);
+  fd.append("quantity", 1);
+  $.ajax({
+    type: "post",
+    url: "api/accounts/cart/create.php",
+    processData: false,
+    contentType: false,
+    data: fd,
+    success: function (data) {
+      console.log(data);
+      window.history.back();
+    },
+  });
+}
 $(document).ready(function () {
   let url = new URL(location.href);
   let id = url.searchParams.get("id");
-  console.log(url);
   $.ajax({
     type: "GET",
     url: `./api/product/detail.php?id=${id}`,
     success: function (data) {
-      console.log(data);
       let html = " ";
-      html = `
-            <div class="myInfoProduct_Header">   
-            <h4> <a href="#">Trang chủ</a> <span> > </span> <a href="#">Thịt</a> <span> > </span> <a href="#">Thịt nướng hàn quốc</a></h4>
+      html = `<div class="myInfoProduct_Header">
+            <h4> <a href="index.php">Trang chủ</a> <span> > </span> <span href="#">${
+              data.category_name
+            }</span></h4>
         </div>
         <div class="row pt-4">
             <div class="col-lg-6 col-md-12 infoProduc_img">
-                <img  src="./images/products/${
+                <img src="./images/products/${
                   data.img
                 }" alt="" style="object-fit: contain;">
+                
             </div>
             <div class="col-lg-6 col-md-12">
                 <h3> ${data.name} </h3>
@@ -29,17 +45,20 @@ $(document).ready(function () {
                       data.price + 10000
                     ).toLocaleString(`de-DE`)} đ</p>
                 </div>
-                <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy">CHỌN MUA</button>
+                <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy" onClick="return addProductToCart(${
+                  data.id
+                })">CHỌN MUA</button>
             </div>
         </div>
         <div class="information_product">
             <div class="infoto">
-                 <h6>Thông tin sản phẩm</h6> 
+                <h6>Thông tin sản phẩm</h6>
                 <div class="infotoColor"></div>
             </div>
             <p>
-               <span style="color: blue">${data.name}</span> 
-               ${data.description}
+                <span style="color: blue">${data.name}</span>
+                <br />
+                ${data.desc}
             </p>
             <div class="infoproduct_properties">
                 <ul>
@@ -63,26 +82,27 @@ $(document).ready(function () {
                         <span>Bảo quản</span>
                         <div class="">Nhiệt độ từ 0-2 độ C</div>
                     </li>
-                    <li> 
+                    <li>
                         <span>Hạn sử dụng</span>
-                        <div class="">${data.createAt}</div></div>
-                    </li>
-                </ul>
+                        <div class="">${data.createAt}</div>
             </div>
-            <h6><strong>Ưu điểm của sản phẩm </strong></h6>
-            <p>
-                ${data.ingredient}
-            </p>
-            <h6><strong>Cách bảo quản</strong></h6>
-            <p>
-                Bảo quản thịt bò tái ở nhiệt độ từ 0 - 2 độ C.
-            </p>
-            <h6><strong>Lưu ý:</strong></h6>
-            <span> 
-                Sản phẩm nhận được có thể khác với hình ảnh về màu sắc và số lượng nhưng vẫn đảm bảo về mặt khối lượng và chất lượng.
-            </span>
+            </li>
+            </ul>
         </div>
-            `;
+        <h6><strong>Ưu điểm của sản phẩm </strong></h6>
+        <p>
+            ${data.ingredient}
+        </p>
+        <h6><strong>Cách bảo quản</strong></h6>
+        <p>
+            Bảo quản thịt bò tái ở nhiệt độ từ 0 - 2 độ C.
+        </p>
+        <h6><strong>Lưu ý:</strong></h6>
+        <span>
+            Sản phẩm nhận được có thể khác với hình ảnh về màu sắc và số lượng nhưng vẫn đảm bảo về mặt khối lượng và chất
+            lượng.
+        </span>
+        </div>`;
       $(`.myInfoProduct`).html(html);
     },
   });

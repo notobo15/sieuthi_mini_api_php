@@ -28,14 +28,14 @@ class Product
   }
   public function getList()
   {
-    $query = 'SELECT * FROM ' . $this->table_name;
+    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE isDeleted = 0;';
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
   }
   public function getListByCategoryId($category_id)
   {
-    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE category = ' . $category_id;
+    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE category_id = ' . $category_id;
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
@@ -200,5 +200,28 @@ class Product
     } else {
       return false;
     }
+  }
+
+  public function searchByKey($key)
+  {
+    $query = 'SELECT * FROM ' . $this->table_name . " WHERE `slug` LIKE '%$key%';";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
+  public function searchByCategory($cate)
+  {
+    $query = 'SELECT * FROM ' . $this->table_name . " WHERE category_id='$cate';";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
+
+  public function searchByKeyAndCate($key, $cate)
+  {
+    $query = 'SELECT * FROM ' . $this->table_name . " WHERE `slug` LIKE '%$key%' and category_id='$cate';";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
   }
 }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .carousel-inner img {
+        object-fit: contain;
+    }
+    .carousel-indicators{
+        bottom: -110px;
+    }
+    .carousel-indicators img{
+        height: 60px !important;
+        object-fit: contain;
+        width: 60px !important;
+        opacity: 1 !important;
+    }
+    .icon-prev-2{
+        background-color: red;
+        opacity: 0;
+        padding: 10px;
+        transform: translate(-250%,0);
+        transition: 1s;
+    }
+    .icon-next-2 {
+        background-color: red;
+        opacity: 0;
+        padding: 10px;
+        transform: translate(250%,0);
+        transition: 1s;
+
+    }
+    .mySlider_infoProduct:hover .icon-next-2{
+    opacity: 1;
+    transform: translate(100%,0);
+    transition: 1s;
+    }
+    .mySlider_infoProduct:hover .icon-prev-2{
+        opacity: 1;
+        transform: translate(-100%,0);
+        transition: 1s;
+    }
+    .mySlider_infoProduct {
+        position: relative;
+    }
+    .modal_info_img{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    z-index: 11111;
+    }
+    .modal_overlay_info_img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);
+
+    }
+    .modal_body_info_img {
+        width: 50%;
+        height: 70%;
+        background-color: #ffffff;
+        top: 20%;
+        margin: 0 auto;
+        position: relative;   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal_body_info_img img {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+    }
+    .modal_body_info_img span {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      color: #000;
+      font-size: 19px;
+    }
+</style>
+<body>
+    <section class="mySlider">
+       <div class="container w-25 h-25 mySlider_infoProduct" style="margin-top: 170px;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <img src="./img/product/MÌ ăn liền/thung-30-goi-mi-de-nhat-thit-bam-82g-202205170939064322_300x300.jpg" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active list-img-slider" aria-current="true" aria-label="Slide 1">
+                <img src="./img/product/MÌ ăn liền/thung-24-ly-mi-modern-lau-thai-tom-65g-202205171454334430_300x300.jpg" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="list-img-slider">
+                <img src="./img/product/nc giặt/nuoc-giat-ariel-chuyen-gia-cua-tren-huong-downy-nuoc-hoa-tui-38-lit-202303061116362252_300x300.jpg" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="list-img-slider">
+                <img src="./img/product/combo-thit-nuong-han-quoc-thao-tien-foods-hop-560g-202212141418408307_300x300.png" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" class="list-img-slider">
+                <img src="./img/product/mi-kho-ga-cay-samyang-goi-140g-202302271042338764.png" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class="list-img-slider">
+                <img src="./img/product/nc-Mắm/nuoc-mam-ca-com-dac-san-hung-thinh-40-do-dam-chai-750ml-202210011034362058_300x300.jpg" alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" class="list-img-slider">
+            </div>
+            <div class="carousel-inner">
+              <!-- <div class="carousel-item active">
+                <img src="./imgsliderimg/banh-xop-kitkat-phu-socola-goi-204g-202302111413546353.jpg" class="d-block w-100" alt="...">
+              </div> -->
+            </div>
+            <button class="carousel-control-prev" id="btn-prev-2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon icon-prev-2" aria-hidden="true"></span>
+              <span class="visually-hidden ">Previous</span>
+            </button>
+            <button class="carousel-control-next" id="btn-next-2" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon icon-next-2" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+       </div>
+       <div class="modal_info_img">
+        <div class="modal_overlay_info_img">
+        </div>
+          <div class="modal_body_info_img">
+             <span id="click-close-info-img"><i class="fa-solid fa-x"></i></span>
+             <img src="./img/product/combo-thit-nuong-han-quoc-thao-tien-foods-hop-560g-202212141418408307_300x300.png" alt="">
+             </div>
+          </div>
+    </section>
+
+</body>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+        $(document).ready(function(){
+              const sliderimg = document.querySelectorAll(".carousel-indicators img");
+              sliderimg.forEach(function(item,index){
+                let srcImg = $(item).attr("src");
+                let html = "";
+                // console.log(index);
+                 if(index == 0){
+                   html = `
+                   <div class="carousel-item active">
+                  <img src="${srcImg}" class="d-block w-100" alt="...">
+                  </div>
+                   `;
+                 }
+                 if(index > 0){
+                  html = `
+                  <div class="carousel-item">
+                  <img src="${srcImg}" class="d-block w-100" alt="...">
+                  </div>
+                  `;
+                 }
+                 $(".carousel-inner").append(html);
+              })
+              //  click xem ảnh
+              const closeImg = document.querySelector(`.modal_info_img`);
+              $(`.carousel-item`).click(function(){
+                 let imgElement = $(this).children("img").attr("src");
+                 $(`.modal_body_info_img`).children("img").attr("src", imgElement);
+                 closeImg.style.display="block";
+              })
+              // click tắt ảnh
+              $(`#click-close-info-img`).click(function(){
+                 closeImg.style.display = `none`;
+              })
+        })
+
+</script>
+</html>

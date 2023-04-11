@@ -17,7 +17,7 @@ if (empty($_GET['id'])) {
 }
 
 $result = $Product->getListByCategoryId($_GET['id']);
-$arr_products = [];
+$arr_products = array();
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
   extract($row);
   $cat_item = array(
@@ -40,13 +40,12 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
   $arr_products[] = $cat_item;
 }
 
-
-$id = isset($_GET['id']);
-if ($Category->getSingleById($id) && $id) {
+$Category->id = $_GET['id'];
+if ($Category->getSingleById($Category->id)) {
   $arr = array(
     'id' => $Category->id,
     'name' => $Category->name,
-    'address' => $Category->name_code,
+    'name_code' => $Category->name_code,
     'isDeleted' => $Category->isDeleted,
     'products' => $arr_products
   );

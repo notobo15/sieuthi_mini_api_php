@@ -11,18 +11,19 @@ $conn = $db->getConnect();
 $account = new Account($conn);
 
 // Get raw posted data
-$data = json_decode(file_get_contents("php://input"));
-
+// $data = json_decode(file_get_contents("php://input"));
+print_r($_POST);
 // Set ID to UPDATE
-$account->id = $data->id;
-$account->name = $data->name;
-$account->password = $data->password;
-$account->first_name = $data->first_name;
-$account->last_name = $data->last_name;
-$account->phone = $data->phone;
-$account->birth_date = $data->birth_date;
-$account->delivery_address = $data->delivery_address;
-$account->gender = $data->gender;
+$account->id = $_POST['id'];
+$account->first_name = $_POST['first_name'];
+$account->last_name = $_POST['last_name'];
+$account->phone = $_POST['phone'];
+$account->birth_date = $_POST['birth_date'];
+$account->delivery_address = $_POST['delivery_address'];
+$account->gender = $_POST['gender'];
+$account->provinceCode = $_POST['provinceCode'];
+$account->districtCode = $_POST['districtCode'];
+$account->wardCode = $_POST['wardCode'];
 
 if ($account->updateById()) {
   echo json_encode(

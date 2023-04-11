@@ -83,7 +83,7 @@ $(document).ready(function () {
                 <div class="product-box">
                   <div class="product-inner-box position-relative">
                     <div class="icons position-absolute">
-                      <a href="./info_product.html?id=${
+                      <a href="./product.php?id=${
                         i.product_id
                       }" class="text-decoration-none"><i class="fa-solid fa-eye"></i></a>
                       <a href="#" class="text-decoration-none"><i class="fa-solid fa-cart-plus"></i></a>

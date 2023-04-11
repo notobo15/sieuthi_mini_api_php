@@ -1,0 +1,3 @@
+<script>
+  $(".loading").hide();
+</script>

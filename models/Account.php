@@ -10,6 +10,9 @@ class Account
   public $last_name;
   public $phone;
   public $birth_date;
+  public $provinceCode;
+  public $districtCode;
+  public $wardCode;
   public $delivery_address;
   public $gender;
   public $group_id;
@@ -26,7 +29,7 @@ class Account
 
   public function getList()
   {
-    $query = 'SELECT * FROM account';
+    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE isDeleted = 0;';
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
@@ -92,7 +95,7 @@ class Account
         $q = 'SELECT T1.code_name FROM permission T1 
         JOIN groups_permission T2 ON T1.per_id = T2.permission_id
           JOIN groups T3 ON T3.group_id = T2.group_id
-          JOIN account t4 ON t3.group_id = t4.group_id
+          JOIN account T4 ON T3.group_id = T4.group_id
         WHERE T4.id = ?;';
         $stm2 = $this->con->prepare($q);
         $stm2->bindParam(1, $this->id);
@@ -177,24 +180,28 @@ class Account
     $query = 'UPDATE ' .
       $this->table_name . '
     SET
-      name = :name,
       first_name = :first_name,
       last_name = :last_name,
       phone = :phone,
       birth_date = :birth_date,
       delivery_address = :delivery_address,
-      gender = :gender
+      gender = :gender,
+      provinceCode = :provinceCode,
+      districtCode = :districtCode,
+      wardCode = :wardCode
       WHERE
       id = :id';
     $stmt = $this->con->prepare($query);
 
-    $stmt->bindParam(':name', $this->name);
     $stmt->bindParam(':id', $this->id);
     $stmt->bindParam(':first_name', $this->first_name);
     $stmt->bindParam(':last_name', $this->last_name);
     $stmt->bindParam(':phone', $this->phone);
     $stmt->bindParam(':birth_date', $this->birth_date);
+    $stmt->bindParam(':provinceCode', $this->provinceCode);
     $stmt->bindParam(':delivery_address', $this->delivery_address);
+    $stmt->bindParam(':districtCode', $this->districtCode);
+    $stmt->bindParam(':wardCode', $this->wardCode);
     $stmt->bindParam(':gender', $this->gender);
 
     if ($stmt->execute() && $stmt->rowCount() > 0) {

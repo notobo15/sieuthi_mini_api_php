@@ -27,7 +27,7 @@ class Category
     $query = 'SELECT * FROM ' . $this->table_name . ' where id = ? and isDeleted = 0;';
     $stm = $this->con->prepare($query);
     $stm->bindParam(1, $id);
-    if ($stm->execute()) {
+    if ($stm->execute() && $stm->rowCount() > 0) {
       while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
         $this->id = $row['id'];
         $this->name = $row['name'];

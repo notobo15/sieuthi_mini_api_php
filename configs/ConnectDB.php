@@ -2,7 +2,7 @@
 
 class ConnectDB
 {
-  private $host = "localhost";
+  private $host = "103.101.163.106";
   private $user = "notobo_sieuthimini";
   private $password = "notobo_sieuthimini";
   private $db_name = "notobo_sieuthimini";
