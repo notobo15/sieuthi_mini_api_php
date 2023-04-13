@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>Add User Information</title>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="./css/login_register.css" />
+</head>
+
+<body>
+    <div class="container active">
+        <div class="forms">
+            <!-- Information Form -->
+            <div class="form signup">
+                <span class="title">Information</span>
+                <form action="" method="post" onsubmit="return checkInformation()">
+                    <div class="flex-box">
+                        <div class="input-field">
+                            <input id="first_name" type="text" placeholder="First name" required />
+                            <i class="uil uil-user-square"></i>
+                        </div>
+                        <div class="input-field">
+                            <input id="last_name" type="text" placeholder="Last name" required />
+                            <i class="uil uil-user-square"></i>
+                        </div>
+                    </div>
+                    <div class="flex-box" style="margin-bottom: 30px;">
+                        <div class="input-field">
+                            <input id="phone" type="text" placeholder="Phone" required />
+                            <i class="uil uil-phone icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input id="birth_date" type="date" required />
+                            <i class="uil uil-calender icon"></i>
+                        </div>
+                    </div>
+                    <div class="gender">
+                        <label for="" style="margin-right: 120px;">Gender: </label>
+                        <input type="radio" name="gender" value="male" required> Male
+                        <input type="radio" name="gender" value="female" style="margin-left: 30px;" required> Female
+                    </div>
+                    <div class="input-field">
+                        <input id="password_rg_confirm" type="text" placeholder="Address" required />
+                        <i class="uil uil-user-location icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="password_rg_confirm" type="text" placeholder="Address Delivery" required />
+                        <i class="uil uil-location-point icon"></i>
+                    </div>
+                    <div class="input-field button">
+                        <input type="submit" value="Update" />
+                    </div>
+                </form>
+                <div class="error"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="./javascript/addUserInformation.js"></script>
+
+</html>
+<!-- end document-->
