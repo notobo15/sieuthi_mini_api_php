@@ -57,17 +57,18 @@
   </style>
   <script>
     function hideLoading() {
-      $(".loading").hide();
+      // $(".loading").hide();
+      $(".loading").fadeOut();
     }
 
     function showLoading() {
-      $(".loading").show();
+      // $(".loading").show();
+      $(".loading").fadeIn();
     }
 
     function priceToVND(n) {
       let res = parseFloat(n).toLocaleString(`de-DE`)
       return `${res} đ`
     }
-
   </script>
 </div>
