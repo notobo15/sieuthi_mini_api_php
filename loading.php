@@ -63,5 +63,11 @@
     function showLoading() {
       $(".loading").show();
     }
+
+    function priceToVND(n) {
+      let res = parseFloat(n).toLocaleString(`de-DE`)
+      return `${res} đ`
+    }
+
   </script>
 </div>
