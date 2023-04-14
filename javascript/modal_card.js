@@ -17,7 +17,7 @@ function increase(id) {
   });
 }
 function deleteProductCart(id) {
-  if(confirm("Bạn có muốn xóa!")) {
+  if (confirm("Bạn có muốn xóa!")) {
     showLoading();
     let fd = new FormData();
     fd.append("product_id", id);
@@ -82,26 +82,33 @@ function renderCart() {
            <td data-th="Giá">${priceToVND(item.price)}</td>
            <td data-th="Số lượng">
              <div class="number_card">
-               <span class="minus_card" onClick="return decrease(${item.product_id})"><i class="fa-solid fa-minus"></i></span>
+               <span class="minus_card" onClick="return decrease(${
+                 item.product_id
+               })"><i class="fa-solid fa-minus"></i></span>
                <input type="text" value="${item.quantity}" min="1" />
-               <span class="plus_card" onClick="return increase(${item.product_id})"><i class="fa-solid fa-plus"></i></span>
+               <span class="plus_card" onClick="return increase(${
+                 item.product_id
+               })"><i class="fa-solid fa-plus"></i></span>
              </div>
            </td>
-           <td data-th="Tổng tiền" class="text-center">${priceToVND(item.price * item.quantity)}</td>
+           <td data-th="Tổng tiền" class="text-center">${priceToVND(
+             item.price * item.quantity
+           )}</td>
            <td class="actions" data-th="">
-             <button class="btn btn-danger btn-sm text-black" onClick="deleteProductCart(${item.product_id})"><i class="fa-solid fa-trash"></i>
+             <button class="btn btn-danger btn-sm text-black" onClick="deleteProductCart(${
+               item.product_id
+             })"><i class="fa-solid fa-trash"></i>
              </button>
            </td>
          </tr>
-         `
+         `;
       });
 
       $(".add-card-product").html(html);
       $(".total-price-cart*").html(priceToVND(total));
-      hideLoading()
+      hideLoading();
     },
   });
 }
 
-
-renderCart()
+renderCart();

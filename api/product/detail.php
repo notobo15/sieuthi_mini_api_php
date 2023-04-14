@@ -31,7 +31,13 @@ if ($product->getSingleById($id)) {
     'createAt' => $product->createAt,
     'expiredAt' => $product->expiredAt,
   );
-
+  $images = $product->getListImagesById($arr['id']);
+  $list = [];
+  while ($row = $images->fetch(PDO::FETCH_ASSOC)) {
+    extract($row);
+    $list[] = $image_name;
+  }
+  $arr['images'] = $list;
   $Category->getSingleById($arr['category_id']);
   $arr['category_name'] = $Category->name;
   print_r(json_encode($arr));

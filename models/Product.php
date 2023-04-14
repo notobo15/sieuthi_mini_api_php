@@ -41,6 +41,13 @@ class Product
     return $stm;
   }
 
+  public function getListImagesById($product_id)
+  {
+    $query = 'SELECT * FROM product_image WHERE product_id = ' . $product_id;
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
   public function getSingleById($id)
   {
     $query = 'SELECT * FROM ' . $this->table_name . ' where id = ? and isDeleted = 0;';
