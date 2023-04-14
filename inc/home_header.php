@@ -63,9 +63,9 @@
               <div class="col-4">
                 <a type="button" class=" icon-oder position-relative">
                   <span class="fs-3 text-danger"><i class="fa-solid fa-truck-fast"></i></span>
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    0
-                    <span class="visually-hidden">unread messages</span>
+                  <!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> -->
+                  <!-- 0 -->
+                  <!-- <span class="visually-hidden">unread messages</span> -->
                   </span>
                 </a>
               </div>

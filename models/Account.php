@@ -37,7 +37,7 @@ class Account
 
   public function getListOrder()
   {
-    $query = "SELECT T1.id, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' : ',  T2.quantity,' : ' ,'<br/>') as product_detail
+    $query = "SELECT T1.id, T1.order_date, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
     FROM orders T1 
     JOIN order_detail T2 ON T1.id = T2.order_id 
     JOIN product T3 ON T3.id = T2.product_id 
@@ -51,6 +51,7 @@ class Account
       $item = array(
         'id' => $id,
         'status' => $status,
+        'order_date' => $order_date,
         'totalPrice' => $totalPrice,
         'product_detail' => $product_detail,
       );

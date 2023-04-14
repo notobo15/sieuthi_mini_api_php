@@ -33,7 +33,7 @@ $(document).ready(function () {
                   data.img
                 }" alt="" style="object-fit: contain;">
                 
-            </div>
+            </div>  
             <div class="col-lg-6 col-md-12">
                 <h3> ${data.name} </h3>
                 <p>HSD còn 1 năm</p>

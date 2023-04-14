@@ -54,7 +54,7 @@ $arr["totalNumber"] =  count($products);
 if (!empty($_GET['page'])) {
 
   $arr["page"] = (int) $_GET['page'];
-  $arr["pageSize"] =  4;
+  $arr["pageSize"] =  8;
   $arr["totalPage"] = ceil($arr["totalNumber"] / $arr["pageSize"]);
   $indexPage = 0;
   if ($arr["page"] != 1) {

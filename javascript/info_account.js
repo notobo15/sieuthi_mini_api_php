@@ -3,7 +3,7 @@ $(document).ready(function () {
   let callApiProvincesSuccess = false;
   let callApiWardSuccess = false;
   $("#city").click(function () {
-    if (!callApiCitySuccess)
+    if (!callApiCitySuccess) {
       $.ajax({
         url: "https://provinces.open-api.vn/api/",
         type: "get",
@@ -17,6 +17,9 @@ $(document).ready(function () {
           callApiCitySuccess = true;
         },
       });
+    }
+    $("#ward").html(`<option value=''>------ Chọn ------ </option>`);
+
     let city = $("#city").val();
     $.ajax({
       url: "https://provinces.open-api.vn/api/d",
