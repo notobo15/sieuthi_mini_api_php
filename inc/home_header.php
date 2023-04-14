@@ -70,7 +70,7 @@
                 </a>
               </div>
               <div class="col-4">
-                <a type="button" class=" icon-card position-relative">
+                <a type="button" href="cart.php" class=" icon-card position-relative">
                   <span class="fs-3 text-danger" data-bs-toggle="modal" data-bs-target="#modal-card"><i class="fa-solid fa-cart-shopping"></i></span>
                   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger order_number">
                     <?php if (isset($_SESSION['cart'])) echo count($_SESSION['cart']);

@@ -3,6 +3,7 @@ $(document).ready(function () {
     type: "GET",
     url: "./api/category/list.php",
     success: function (data) {
+      console.log("data cate");
       console.log(data);
       let inHTML = " ";
       // ------------------------------------------------------------------------------------------------------------------------

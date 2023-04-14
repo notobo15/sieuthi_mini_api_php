@@ -82,6 +82,7 @@
 <script src="./javascript/modal_card.js"></script>
 <script src="./javascript/modal_oder.js"></script>
 <script src="./javascript/api.js"></script>
-<?php require_once "./inc/hideLoading.php"; ?>
-
+<script>
+  hideLoading()  
+</script>
 </html>
