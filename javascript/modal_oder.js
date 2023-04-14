@@ -7,9 +7,6 @@ oderElement.addEventListener("click", function (e) {
 closeoder.addEventListener("click", function (e) {
   modaloder.style.display = "none";
 });
-$(".icon-oder").click(function (params) {
-  renderOrder();
-});
 function renderOrder() {
   let total = 0;
   $.ajax({
@@ -25,9 +22,9 @@ function renderOrder() {
             <td data-th="Mã đơn hàng :" class="my-3">
                 <strong class="text-danger MDH">${item.id}</strong>
             </td>
-            <td data-th="Thời gian :">10:34 20/02/2023</td>
+            <td data-th="Thời gian :">${item.order_date}</td>
             <td data-th="Email :">
-                <ins class="text-danger :">skt@gmai.com</ins>
+                <span class="">${item.product_detail}</span>
             </td>
             <td data-th="Tổng tiền :">${item.totalPrice}</td>
             <td data-th="Tình trạng :">
@@ -46,3 +43,7 @@ function renderOrder() {
     },
   });
 }
+$(".icon-oder").click(function (params) {
+  console.log(1111);
+  renderOrder();
+});
