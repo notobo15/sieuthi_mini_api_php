@@ -18,7 +18,7 @@ function increase(id) {
 }
 function deleteProductCart(id) {
   if (confirm("Bạn có muốn xóa!")) {
-    showLoading();
+    // showLoading();
     let fd = new FormData();
     fd.append("product_id", id);
     $.ajax({
@@ -29,7 +29,8 @@ function deleteProductCart(id) {
       data: fd,
       success: function (data) {
         console.log(data);
-        renderCart();
+        // renderCart();
+        window.location.reload();
         hideLoading();
       },
     });
@@ -109,6 +110,6 @@ function renderCart() {
     },
   });
 }
-hideLoading();
 
 renderCart();
+hideLoading();

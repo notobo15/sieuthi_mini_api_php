@@ -1,4 +1,5 @@
-<?php require_once "./loading.php";?>
+<?php require_once "./loading.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +23,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/slider.css">
   <title>Siêu thị mini</title>
+  <?php require_once "./inc/header.php"; ?>
 </head>
 
 <body>
 
   <div class="main">
     <!-- oppen header -->
-    <?php require_once"./inc/home_header.php"?>
+    <?php require_once "./inc/home_header.php" ?>
     <!-- end header -->
     <!-- ----------------------------------------------------------Modal thông tin giỏ hàng----------------------------------------------------------------------- -->
     <!-- <div class="modal_card">
@@ -156,10 +158,17 @@
     <!----------------------------------------------------------Nội dung chính trang web----------------------------------------------------------------------------------->
     <div class="container content-container">
       <div class="col-md-12">
-        <section class="myCard mb-2">
+        <section class="myCard mb-2 bg-white">
+
           <div class="card-header">
             <h2>THÔNG TIN GIỎ HÀNG</h2>
             <!-- <a href="#" class="icon-close-card"><i class="fa-solid fa-x"></i></a> -->
+            <?php if (count($_SESSION['cart']) == 0) :  ?>
+              <div class="row">
+                <img src="./images/car-empty.png" alt="" class="mx-auto mx-1 d-block col-4 col-lg-3">
+              </div>
+            <?php else : ?>
+
           </div>
           <div class="container card-info">
             <table id="cart" class="table table-hover table-condensed">
@@ -173,7 +182,7 @@
                 </tr>
               </thead>
               <tbody class="add-card-product" id="card-product-info">
-                
+
               </tbody>
             </table>
           </div>
@@ -199,6 +208,7 @@
             </div>
           </div>
           <button class="btn btn-success mt-2" id="clear_card" style="width: 100%;"> Xóa tất cả </button>
+        <?php endif; ?>
         </section>
 
         <section class="myFooter">
