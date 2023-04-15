@@ -163,7 +163,7 @@
           <div class="card-header">
             <h2>THÔNG TIN GIỎ HÀNG</h2>
             <!-- <a href="#" class="icon-close-card"><i class="fa-solid fa-x"></i></a> -->
-            <?php if (count($_SESSION['cart']) == 0) :  ?>
+            <?php if (empty($_SESSION['cart'])) :  ?>
               <div class="row">
                 <img src="./images/car-empty.png" alt="" class="mx-auto mx-1 d-block col-4 col-lg-3">
               </div>
