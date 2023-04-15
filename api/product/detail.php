@@ -33,6 +33,7 @@ if ($product->getSingleById($id)) {
   );
   $images = $product->getListImagesById($arr['id']);
   $list = [];
+  $list[] = $product->img;
   while ($row = $images->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
     $list[] = $image_name;
