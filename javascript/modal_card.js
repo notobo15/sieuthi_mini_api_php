@@ -106,9 +106,9 @@ function renderCart() {
 
       $(".add-card-product").html(html);
       $(".total-price-cart*").html(priceToVND(total));
-      hideLoading();
     },
   });
 }
+hideLoading();
 
 renderCart();

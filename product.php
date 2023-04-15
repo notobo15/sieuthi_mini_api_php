@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="./css/modal_oder.css">
   <link rel="stylesheet" href="./css/infoProduct.css">
   <link rel="stylesheet" href="./css/slider.css">
+  <link rel="stylesheet" href="./css/slider_img_infoproduct.css">
   <?php include_once "./inc/header.php"; ?>
   <title>Siêu thị mini</title>
 </head>

@@ -1,0 +1,93 @@
+.carousel-inner img {
+    object-fit: contain;
+}
+.carousel-indicators{
+    bottom: -80px !important;
+}
+.carousel-indicators img{
+    height: 45px !important;
+    /* object-fit: contain; */
+    width: 60px !important;
+    opacity: 1 !important;
+}
+.icon-prev-2{
+    background-color: red;
+    opacity: 0;
+    padding: 10px;
+    transform: translate(-250%,0);
+    transition: 1s;
+}
+.icon-next-2 {
+    background-color: red;
+    opacity: 0;
+    padding: 10px;
+    transform: translate(250%,0);
+    transition: 1s;
+
+}
+.infoProduc_img:hover .icon-next-2{
+opacity: 1;
+transform: translate(150%,0);
+transition: 1s;
+}
+.infoProduc_img:hover .icon-prev-2{
+    opacity: 1;
+    transform: translate(-150%,0);
+    transition: 1s;
+}
+.mySlider_infoProduct {
+    position: relative;
+}
+.modal_info_img{
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+display: none;
+z-index: 11111;
+}
+.modal_overlay_info_img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+
+}
+.modal_body_info_img {
+    width: 50%;
+    height: 70%;
+    background-color: #ffffff;
+    top: 20%;
+    margin: 0 auto;
+    position: relative;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_body_info_img img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain !important;
+}
+.modal_body_info_img span {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: #000;
+  font-size: 19px;
+}
+@media (max-width: 1200px) {
+    /* .modal_body_info_img  {
+        width: 20% ;
+        height: 50% ;
+    } */
+    .carousel-indicators img{
+        height: 40px !important;
+    }
+}
+@media (max-width: 990px) {
+    .carousel-indicators img{
+        height: 45px !important;
+    }
+}
