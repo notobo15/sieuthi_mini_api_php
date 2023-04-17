@@ -1,0 +1,109 @@
+#user_profile {
+    --user_info_width: 40%;
+    --user_info_height: 90%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: absolute;
+    width: var(--user_info_width);
+    height: var(--user_info_height);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 15px;
+    box-shadow: 0 0.4rem .8rem rgba(241, 216, 216, 0.333);
+    background-color: #dbd9d9;
+    left: calc(50%/2);
+    top: calc(50%/4);
+    overflow: auto;
+    visibility: visible;
+    /*
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;  
+    */
+}
+
+#user_profile div {
+    width: 100%;
+    font-size: 20px;
+    white-space: nowrap;
+    /* height: 15%; */
+}
+
+#user_profile input {
+    width: 60%;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1em;
+    font-weight: 200;
+    margin-left: 4%;
+    background-color: #dbd9d9;
+
+}
+
+#user_profile input:focus {
+    border-bottom: 3px solid #0c0b0b;
+
+}
+
+#user_profile .user_profile_btnclose {
+    padding: 15px;
+    align-self: end;
+    cursor: pointer;
+    border-radius: 50%;
+
+}
+
+#user_profile .user_profile_btnclose:hover {
+    background-color: #adabab;
+    box-shadow: 0 0.4rem .8rem #0005;
+
+}
+
+#user_profile select {
+    width: 20%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+
+#user_profile .user_footer {
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+    column-gap: 20px;
+}
+
+#user_profile .user_footer button {
+    height: 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0.4rem .8rem #0005;
+    cursor: pointer;
+}
+
+#user_profile .user_footer .save {
+    background-color: rgb(108, 221, 108);
+}
+
+#user_profile .user_footer .add {
+    background-color: rgb(233, 131, 36);
+}
+
+#user_profile .user_footer .save:hover {
+    background-color: rgb(72, 170, 72);
+
+}
+
+#user_profile .user_footer .add:hover {
+    background-color: rgb(228, 93, 15);
+}
+
+#user_profile .user_footer .cancel:hover {
+    background-color: #7e7d7c;
+}

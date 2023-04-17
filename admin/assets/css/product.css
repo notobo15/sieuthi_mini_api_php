@@ -1,0 +1,296 @@
+/*
+Responsive HTML Table With Pure CSS - Web Design/UI Design
+
+Code written by:
+👨🏻‍⚕️ Coding Design (Jeet Saru)
+
+> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
+
+🌎link: www.youtube.com/codingdesign 
+*/
+
+
+/* main {
+    height: 80;
+} */
+
+main#product_container {
+
+    width: 90%;
+    height: 100% ;
+    margin-left: calc((100% - 90%)/2);
+    background-color: rgba(241, 42, 42, 0.333);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    margin-top: 1rem;
+    display: block;
+    overflow: hidden;
+}
+
+.product_header {
+    /* width: 100%;
+    height: 10%; */
+
+    width: 100%;
+    height: 60px;
+    background-color: rgba(223, 116, 116, 0.267);
+    padding: .8rem 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: #fff5;
+    padding: 0 .8rem;
+    border-radius: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s;
+}
+
+.product_header .input-group:hover {
+    width: 45%;
+    background-color: #fff8;
+    box-shadow: 0 .1rem .4rem #0002;
+}
+
+.product_header .input-group img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.product_header .input-group input {
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.product_table {
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fffb;
+
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow: overlay;
+}
+
+.product_table::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.product_table::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.product_table:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+}
+
+.product_table table {
+  width: 100% ;
+}
+
+.product_table td img {
+    width: 50px;
+    height: 50px;
+    margin-right: .5rem;
+    border-radius: 25%;
+
+    vertical-align: middle;
+}
+
+.product_table table, .product_table th, .product_table td {
+    border-collapse: collapse;
+    padding: .7rem;
+    text-align: center;
+}
+
+    .product_table td:nth-child(3) {
+        width: 12%;
+    }
+   
+
+    .product_table td:nth-child(5) {
+        width: 15%;
+    }
+
+.product_table thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.product_table tbody tr:nth-child(even) {
+    background-color: #cf19190b;
+}
+
+.product_table tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+.product_table tbody tr.hide {
+    display: none;
+}
+
+.product_table tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+
+
+.product_table tbody tr td,
+.product_table tbody tr td p,
+.product_table tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+/* .product_table tbody tr.hide td,
+.product_table tbody tr.hide td p {
+    
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+} */
+/* 
+.product_table tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+} */
+
+.product_table .status {
+    padding: .4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.product_table .status.delivered {
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+.product_table .status.cancelled {
+    background-color: #d893a3;
+    color: #b30021;
+}
+
+.product_table .status.pending {
+    background-color: #ebc474;
+}
+
+.product_table .status.shipped {
+    background-color: #6fcaea;
+}
+
+.product_table .product_edit, .product_table .product_delete{
+    cursor: pointer;
+    border-radius:10px;
+    border: none;
+    box-shadow: 0 0.4rem .8rem #0005;
+    width: 35%;
+    height: 30px;
+    color: white;
+}
+
+.product_table .product_edit {
+    background-color: rgb(102, 102, 224);
+}
+
+.product_table .product_delete {
+    background-color: rgb(248, 8, 8);
+}
+
+.product_table .product_edit:hover {
+    background-color: rgb(48, 48, 211);
+
+}
+
+.product_table .product_delete:hover {
+    background-color: rgb(179, 8, 8);
+}
+
+
+@media (max-width: 1000px) {
+    .product_table td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+
+.product_table thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+    
+    text-align: center;
+    font-size: 1rem;
+    
+    margin-left: .5rem;
+    transition: .2s ease-in-out;
+}
+
+.product_table thead th:hover span.icon-arrow{
+    border: 1.4px solid #6c00bd;
+}
+
+.product_table thead th:hover {
+color: #6c00bd;
+}
+
+.product_table thead th.active span.icon-arrow{
+    background-color: #6c00bd;
+    color: #fff;
+}
+
+.product_table thead th.asc span.icon-arrow{
+    transform: rotate(180deg);
+}
+
+.product_table thead th.active,.product_table tbody td.active {
+    color: #6c00bd;
+}
+.add_product_div {
+    position: relative;
+}
+
+.product_header .add_product_div .add_product_btn {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #fff6 url(../imgs/sm_5afbe35ff3ec9.jpg) center / 100% no-repeat;
+    border-radius: 50%;
+    transition:  .2s ease-in-out;
+}
+
+.product_header .add_product_div .add_product_btn:hover { 
+    background-color: #e2caca;
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.add_product_div input {
+    display: none;
+}
+
+
+

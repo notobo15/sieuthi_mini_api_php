@@ -1,0 +1,242 @@
+#user_container {
+    position: relative;
+    margin-top: 10px;
+    width: 90%;
+    height: 100%;
+    margin-left: calc((100% - 90%)/2);
+    /* background-color: red; */
+    background-color: rgba(136, 176, 236, 0.333);
+    box-shadow: 0 0.4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+    display: none;
+    /* margin: 50px; */
+    /* backdrop-filter: blur(7px); */
+}
+
+#user_header {
+    position: relative;
+    height: 10%;
+    width: 100%;
+    background-color: rgb(141, 158, 158);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    font-size: 15px;
+}
+
+#user_header .user_header_search {
+
+    height: 100%;
+    width: 40%;
+    /* background-color: purple; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#user_header h1 {
+    white-space: break-spaces;
+}
+
+
+#user_header .user_header_search input {
+    height: 60%;
+    width: 60%;
+    border-radius: 20px;
+    transition: 0.5s;
+    padding: 15px;
+    outline: none;
+    font-size: 1rem;
+    transition: .5s;
+}
+
+#user_header .user_header_search input:focus {
+    width: 70%;
+}
+
+
+#user_header .user_header_search i {
+    position: relative;
+    left: 5px;
+    font-size: 40px;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#user_header .user_header_search i:hover {
+    box-shadow: 0 0.4rem .8rem #0005;
+    border-radius: 10px;
+}
+
+#user_header .user_header_search i:active {
+    top: 2px;
+}
+
+#user_table {
+    width: 100%;
+    max-height: 91%;
+    overflow: auto;
+    transition: 0.5s;
+    font-size: 10px;
+}
+
+
+
+#user_table::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+}
+
+#user_table::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+#user_table:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+
+}
+
+
+#user_table th {
+    /* position: sticky; */
+    font-size: 1.3rem;
+    /* cursor: pointer; */
+    /* top: 0;
+    left: 0; */
+    /* transition: .5s ease-in-out .5s , background-color 0s; */
+}
+
+#user_table td {
+    font-size: 1rem;
+}
+
+table,
+th,
+td {
+    padding: 1rem;
+    border-collapse: collapse;
+}
+
+#user_table table {
+    width: 100%;
+}
+
+
+#user_table th,
+#user_table td {
+    border-bottom: .8px solid #554e4e;
+    text-align: center;
+
+    /* white-space: normal ; */
+}
+
+#user_table table tr td:nth-child(2) {
+    font-weight: 700;
+    color: rgb(5, 56, 150);
+}
+
+#user_table table tr td:nth-child(6) {
+    width: 15%;
+}
+
+#user_table table tr:nth-child(even) {
+    background-color: rgba(98, 127, 170, 0.333);
+    
+}
+
+#user_table table tbody tr:hover{
+    background-color: rgba(141, 132, 132, 0.4);
+}
+
+#user_table tbody tr.hide {
+    display: none;
+}
+
+.user_status {
+    padding: .4rem 0;
+    border-radius: 2rem;
+}
+
+.user_status.online {
+    background-color: rgb(79, 230, 79);
+}
+
+.user_status.offline {
+    background-color: rgb(172, 172, 172);
+}
+
+.user_status.busy {
+    background-color: rgb(236, 71, 42);
+}
+
+.fa-solid.fa-gear {
+    font-size: 30px;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.fa-solid.fa-gear:hover {
+    box-shadow: 0 0.4rem .8rem #0005;
+    border-radius: 10px;
+}
+
+.fa-solid.fa-gear:active {
+    top: 2px;
+}
+
+.user_setting {
+    /* position: absolute; */
+}
+
+.user_setting button {
+    cursor: pointer;
+    color: rgb(241, 237, 237);
+    border-radius:10px;
+    display: inline;
+    border: none;
+    box-shadow: 0 0.4rem .8rem #0005;
+    width: 45%;
+    height: 30px;
+}
+
+.user_setting button:nth-child(1) {
+    
+    background-color: rgb(2, 247, 35);
+}
+
+.user_setting button:nth-child(2){
+    background-color: rgb(134, 136, 134);
+
+}
+
+.user_setting button:nth-child(3) {
+    background-color: rgb(245, 3, 3);
+    
+
+}
+
+.user_setting button:nth-child(1):hover {
+    background-color: rgb(109, 240, 116);
+}
+
+
+.user_setting button:nth-child(2):hover {
+    background-color: rgb(67, 75, 67);
+
+}
+
+.user_setting button:nth-child(3):hover {
+    background-color: rgb(236, 100, 100);
+}
+
+
+
+
