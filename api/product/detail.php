@@ -29,6 +29,8 @@ if ($product->getSingleById($id)) {
     'quantity' => $product->quantity,
     'isDeleted' => $product->isDeleted,
     'createAt' => $product->createAt,
+    'discountedPrice' => $product->discountedPrice,
+    'price_per' => $product->price_per,
     'expiredAt' => $product->expiredAt,
   );
   $images = $product->getListImagesById($arr['id']);

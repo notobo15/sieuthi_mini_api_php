@@ -96,7 +96,7 @@ function renderCart() {
              item.price * item.quantity
            )}</td>
            <td class="actions" data-th="">
-             <button class="btn btn-danger btn-sm text-black" onClick="deleteProductCart(${
+             <button class="btn btn-danger btn-sm text-white" onClick="deleteProductCart(${
                item.product_id
              })"><i class="fa-solid fa-trash"></i>
              </button>
