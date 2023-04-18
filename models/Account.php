@@ -1,7 +1,9 @@
 <?php
 class Account
 {
-  public $table_name = "account";
+   public $table_name = "account";
+
+
   public $id;
   public $account_id;
   public $name;
@@ -29,7 +31,9 @@ class Account
 
   public function getList()
   {
-    $query = 'SELECT * FROM ' . $this->table_name . ' WHERE isDeleted = 0;';
+    // $query = 'SELECT * FROM ' . $this->table_name . ' WHERE isDeleted = 0;';
+     $query = 'SELECT * FROM ' . $this->table_name ;
+
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
