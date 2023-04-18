@@ -18,8 +18,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     'start_date' => $start_date,
     'end_date' => $end_date,
     'createAt' => $createAt,
-    'isDeleted' => $isDeleted,
-    'product_id' => $product_id,
+    'isDeleted' => $isDeleted
   );
   $arr[] = $cat_item;
 }
