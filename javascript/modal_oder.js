@@ -4,9 +4,7 @@ const closeoder = document.querySelector(`.icon-close-oder`);
 oderElement.addEventListener("click", function (e) {
   modaloder.style.display = "block";
 });
-closeoder.addEventListener("click", function (e) {
-  modaloder.style.display = "none";
-});
+
 function renderOrder() {
   let total = 0;
   $.ajax({
@@ -23,27 +21,25 @@ function renderOrder() {
                 <strong class="text-danger MDH">${item.id}</strong>
             </td>
             <td data-th="Thời gian :">${item.order_date}</td>
-            <td data-th="Email :">
+            <td data-th="Chi Tiết Đơn Hàng :">
                 <span class="">${item.product_detail}</span>
             </td>
-            <td data-th="Tổng tiền :">${item.totalPrice}</td>
+            <td data-th="Tổng tiền :">${priceToVND(item.totalPrice)}</td>
             <td data-th="Tình trạng :">
             ${item.status}
             </td>
             <td class="actions-2" data-th="">
-                <button class="btn btn-danger btn-sm text-black"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
+                <button class="btn btn-danger btn-sm text-white"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
                 </button>
             </td>
         </tr>
         `;
       });
 
-      $(".moda-card-info tbody").html(html);
+      $("tbody").html(html);
       //   $(".total-price").html(total);
     },
   });
 }
-$(".icon-oder").click(function (params) {
-  console.log(1111);
-  renderOrder();
-});
+renderOrder();
+hideLoading();

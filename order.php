@@ -1,5 +1,4 @@
 <?php require_once "./loading.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,17 +17,25 @@
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/modal_oder.css">
   <link rel="stylesheet" href="./css/infoProduct.css">
-  <link rel="stylesheet" href="./css/card.css">
+  <link rel="stylesheet" href="./css/Oder.css">
   <link rel="stylesheet" href="./css/slider.css">
   <?php require_once "./inc/header.php"; ?>
-  <title>Giỏ Hàng</title>
+  <?php if (empty($_SESSION['account'])) header("Location: ./login_register.php") ?>
+
+  <title>Đơn Hàng</title>
+  <style>
+    /* td,
+    th {
+      text-align: center;
+    } */
+  </style>
 </head>
 
 <body>
 
   <div class="main">
     <!-- oppen header -->
-    <?php require_once "./inc/home_header.php" ?>
+    <?php require_once "./inc/home_header.php"; ?>
     <!-- end header -->
     <!-- ----------------------------------------------------------Modal thông tin giỏ hàng----------------------------------------------------------------------- -->
     <!-- <div class="modal_card">
@@ -107,7 +114,7 @@
                </div>
             </div> -->
     <!-- ----------------------------------------------------------Modal tình trạng đơn hàng----------------------------------------------------------------------- -->
-    <div class="modal_oder">
+    <!-- <div class="modal_oder">
       <div class="modal_overlay_oder">
       </div>
       <div class="modal_body_oder">
@@ -116,112 +123,66 @@
           <a href="#" class="icon-close-oder"><i class="fa-solid fa-x"></i></a>
         </div>
         <div class="container moda-card-info">
-          <table id="cart" class="table table-hover table-condensed">
+          <table id="cart" class="table table-hover table-condensed" class="table">
             <thead>
               <tr>
-                <th style="width:18%" class="bg-white">Mã đơn hàng</th>
+                <th style="width:15%" class="bg-white">Mã đơn hàng</th>
                 <th style="width:15%" class="bg-white">Thời gian</th>
-                <th style="width:20%" class="bg-white">Email người nhân</th>
+                <th style="width:20%" class="bg-white">Chi Tiết Đơn Hàng</th>
                 <th style="width:10%" class="bg-white">Tổng tiền</th>
-                <th style="width:22%" class="bg-white">Tình trạng đơn hàng</th>
+                <th style="width:25%" class="bg-white">Tình trạng đơn hàng</th>
                 <th style="width:15%" class="bg-white"> Chỉnh sửa </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td data-th="Mã đơn hàng :" class="my-3">
-                  <strong class="text-danger MDH">S0000020</strong>
-                </td>
-                <td data-th="Thời gian :">10:34 20/02/2023</td>
-                <td data-th="Email :">
-                  <ins class="text-danger :">skt@gmai.com</ins>
-                </td>
-                <td data-th="Tổng tiền :">200.000 đ</td>
-                <td data-th="Tình trạng :">
-                  Chưa thanh toán
-                </td>
-                <td class="actions-2" data-th="">
-                  <button class="btn btn-danger btn-sm text-black"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
-                  </button>
-                </td>
-              </tr>
-
             </tbody>
           </table>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------------------Nội dung chính trang web----------------------------------------------------------------------------------->
     <div class="container content-container">
       <div class="col-md-12">
-        <section class="myCard mb-2 bg-white">
-
-          <div class="card-header">
-            <h2>THÔNG TIN GIỎ HÀNG</h2>
-            <!-- <a href="#" class="icon-close-card"><i class="fa-solid fa-x"></i></a> -->
-            <?php if (empty($_SESSION['cart'])) :  ?>
-              <div class="row">
-                <img src="./images/car-empty.png" alt="" class="mx-auto mx-1 d-block col-4 col-lg-3">
-              </div>
-            <?php else : ?>
-
+        <section class="myOder mb-2">
+          <div class="Oder_header">
+            <h2 class="">THÔNG TIN ĐƠN HÀNG</h2>
           </div>
-          <div class="container card-info">
+          <div class="container Oder-info">
             <table id="cart" class="table table-hover table-condensed">
               <thead>
                 <tr>
-                  <th style="width:40%">Tên sản phẩm</th>
-                  <th style="width:13%">Giá</th>
-                  <th style="width:20%">Số lượng</th>
-                  <th style="width:14%">Thành tiền</th>
-                  <th style="width:12%"> </th>
+                  <th style="width:15%" class="bg-white">Mã đơn hàng</th>
+                  <th style="width:15%" class="bg-white">Thời gian</th>
+                  <th style="width:20%" class="bg-white">Email người nhân</th>
+                  <th style="width:10%" class="bg-white">Tổng tiền</th>
+                  <th style="width:25%" class="bg-white">Tình trạng đơn hàng</th>
+                  <th style="width:15%" class="bg-white"> Chỉnh sửa </th>
                 </tr>
               </thead>
-              <tbody class="add-card-product" id="card-product-info">
+              <tbody>
 
               </tbody>
             </table>
           </div>
-          <div class="footer-card py-3">
-            <div class="row">
-              <div class=" col-lg-4 col-md-4 col-sm-12">
-                <div class="btn-home" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                  <a href="" class="btn btn-warning text-white mx-3" style="width: 200px;">
-                    Tiếp tục mua hàng
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12 " style="display: flex; justify-content: center; align-items: center;">
-                <div class="btn-sum-price" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                  <p style="width: 235px;">Tạm tính : <strong class="total-price-cart">0</strong></p>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12  ">
-                <div class="btn-pay" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                  <a href="" class="btn btn-danger btn-block" style="width: 200px;"> Đặt Hàng </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-success mt-2" id="clear_card" style="width: 100%;"> Xóa tất cả </button>
-        <?php endif; ?>
         </section>
 
         <?php require_once "./inc/home_footer.php"; ?>
+
       </div>
     </div>
   </div>
   </div>
   </div>
 </body>
-<!-- <script src="./javascript/card.js"></script> -->
-<script src="./javascript/GrounpFeature.js"></script>
-<script src="./javascript/product.js"></script>
-<script src="./javascript/modal_info_product.js"></script>
-<script src="./javascript/menu.js"></script>
-<script src="./javascript/modal_card.js"></script>
-<!-- <script src="./javascript/modal_oder.js"></script> -->
+
+<!-- <script src="./javascript/info_Product_API.js"></script> -->
+<!-- <script src="./javascript/GrounpFeature.js"></script> -->
+<!-- <script src="./javascript/product.js"></script> -->
+<!-- <script src="./javascript/modal_info_product.js"></script> -->
+<!-- <script src="./javascript/menu.js"></script> -->
+<!-- <script src="./javascript/modal_card.js"></script> -->
+<script src="./javascript/modal_oder.js"></script>
 
 </html>
