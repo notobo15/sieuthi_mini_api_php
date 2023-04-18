@@ -86,7 +86,7 @@ $(document).ready(function () {
             }
 
             products.forEach(function (i) {
-              // textHTML = ` 
+              // textHTML = `
               //   <div class="col-md-3 col-sm-6 col-6 p-0 ">
               //   <div class="product-box">
               //     <div class="product-inner-box position-relative">
@@ -122,43 +122,41 @@ $(document).ready(function () {
               //       <div class="product-price">
               //         <span>${parseFloat(i.price).toLocaleString(
               //           `de-DE`
-              //         )} đ</span> 
+              //         )} đ</span>
               //       </div>
               //     </div>
               //   </div>
               //   </div>
               //   `;
-              textHTML = ` 
+              textHTML = `
               <div class="col-md-3 col-sm-6 col-6 p-0 ">
-              <div class="product-box">
-                <a href="./product.php?id=${
-                  i.id
-                }">
-                <div class="product-inner-box position-relative">
-                <div class="onsale_2 position-absolute top-0 start-0">
-                  <span class="badge_2 rounded-0">
-                 <!-- <i class="fa-solid fa-arrow-down"></i> -->
-                  Mới
-                </span>
+                <div class="product-box">
+                  <a href="./product.php?id=${i.id}">
+                    <div class="product-inner-box position-relative">
+                      <div class="onsale_2 position-absolute top-0 start-0">
+                        <span class="badge_2 rounded-0">
+                          <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                          Mới
+                        </span>
+                      </div>
+                      <div class="product-img">
+                        <img src="./images/products/${
+                          i.img
+                        }" alt="woodan chair" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="product-info">
+                      <div class="product-name">
+                        <h3 class="text-black">${i.name}</h3>
+                      </div>
+                      <div class="product-price">
+                        <span>${parseFloat(i.price).toLocaleString(
+                          `de-DE`
+                        )} </span>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-                <div class="product-img">
-                  <img src="./images/products/${
-                    i.img
-                  }" alt="woodan chair" class="img-fluid">
-                </div>
-              </div>
-              <div class="product-info">
-                <div class="product-name">
-                  <h3>${i.name}</h3>
-                </div>
-                <div class="product-price">
-                  <span>${parseFloat(i.price).toLocaleString(
-                    `de-DE`
-                  )} đ</span> 
-                </div>
-              </div>
-                </a>
-              </div>
               </div>
               `;
               textTO += textHTML;

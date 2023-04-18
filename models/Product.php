@@ -6,6 +6,8 @@ class Product
   public $name;
   public $desc;
   public $price;
+  public $discountedPrice;
+  public $price_per;
   public $img;
   public $mass;
   public $ingredient;
@@ -50,7 +52,7 @@ class Product
   }
   public function getSingleById($id)
   {
-    $query = 'SELECT * FROM ' . $this->table_name . ' where id = ? and isDeleted = 0;';
+    $query = 'SELECT T1.*, T2.price_per FROM ' . $this->table_name . ' T1 LEFT JOIN discount T2 ON T1.id = T2.product_id where T1.id = ? and T1.isDeleted = 0;';
     $stm = $this->con->prepare($query);
     $stm->bindParam(1, $id);
     if ($stm->execute()) {
@@ -70,6 +72,11 @@ class Product
         $this->createAt = $row['createAt'];
         $this->expiredAt = $row['expiredAt'];
         $this->quantity = $row['quantity'];
+
+        if (!empty($row['price_per'])) {
+          $this->price_per = $row['price_per'];
+          $this->discountedPrice = strval($this->price / 100 * $row['price_per']);
+        }
 
         return true;
       }
@@ -211,14 +218,14 @@ class Product
 
   public function searchByKey($key)
   {
-    $query = 'SELECT * FROM ' . $this->table_name . " WHERE `slug` LIKE '%$key%';";
+    $query = 'SELECT T1.*, T2.price_per, T2.price_per / 100 * T1.price as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount T2 ON T1.id = T2.product_id WHERE `slug` LIKE '%$key%';";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
   }
   public function searchByCategory($cate)
   {
-    $query = 'SELECT * FROM ' . $this->table_name . " WHERE category_id='$cate';";
+    $query = 'SELECT T1.*, T2.price_per, T2.price_per / 100 * T1.price as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount T2 ON T1.id = T2.product_id WHERE category_id='$cate';";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
@@ -226,7 +233,7 @@ class Product
 
   public function searchByKeyAndCate($key, $cate)
   {
-    $query = 'SELECT * FROM ' . $this->table_name . " WHERE `slug` LIKE '%$key%' and category_id='$cate';";
+    $query = 'SELECT T1.*, T2.price_per, T2.price_per / 100 * T1.price as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount T2 ON T1.id = T2.product_id WHERE `slug` LIKE '%$key%' and category_id='$cate';";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;

@@ -37,7 +37,7 @@ $(document).ready(function () {
       let products = data.products;
       let htmls = "";
       $(".heading-search").html(
-        `Kết quả tìm kiếm '<strong>${key}</strong>' cho: ${products.length} kết quả`
+        `Kết quả tìm kiếm '<strong>${key}</strong>' cho: ${data.totalNumber} kết quả`
       );
 
       if (cate && key == "") {
@@ -49,38 +49,82 @@ $(document).ready(function () {
       }
       products.forEach((item) => {
         htmls += `
-        <div class="col-md-3 col-sInfoproduct_pricem-6 col-6 p-0 ">
-          <div class="product-box">
-            <div class="product-inner-box position-relative">
-              <div class="icons position-absolute">
-                <a href="./product.php?id=${item.id}" class="text-decoration-none"><i class="fa-solid fa-eye"></i></a>
+      <div class="col-md-3 col-sm-6 col-6 p-0 ">
+                <div class="product-box">
+                  <a href="./product.php?id=${item.id}">
+                    <div class="product-inner-box position-relative">
+                      <div class="onsale_2 position-absolute top-0 start-0">
+                        ${
+                          item.price_per != null
+                            ? `  <span class="badge_2 rounded-0">
+                        <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                        ${item.price_per}%
+                      </span>`
+                            : ``
+                        }
+                      
+                      </div>
+                      <div class="product-img">
+                        <img src="./images/products/${
+                          item.img
+                        }" alt="woodan chair" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="product-info">
+                      <div class="product-name">
+                        <h3 class="text-black">${item.name}</h3>
+                      </div>
+                      <div class="product-price d-flex justify-content-between">
+                       ${
+                         item.discountedPrice == null
+                           ? `<span>${priceToVND(item.price)}</span>`
+                           : `<span>${priceToVND(item.price)}</span>
+                             <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
+                               item.discountedPrice
+                             )}</del></span>`
+                       }
+                        
+                        
+                      </div>
+                    </div>
+                  </a>
+                </div>
               </div>
-              <div class="onsale_2 position-absolute top-0 start-0">
-                <span class="badge_2 rounded-0">
-                  <!-- <i class="fa-solid fa-arrow-down"></i> -->
-                  Mới
-                </span>
-              </div>
-              <div class="product-img">
-                <img src="./images/products/${item.img}" alt="woodan chair" class="img-fluid">
-              </div>
-              <div class="cart-btn">
-                <button class="btn btn-white bg-white shadow-sm rounded-pill" data="undefined"
-                  data1="Thùng 30 gói mì Hảo Hảo tôm chua cay 75g" data2="1"><i class="fa-solid fa-cart-plus"></i>Mua
-                  Ngay</button>
-              </div>
-            </div>
-            <div class="product-info">
-              <div class="product-name">
-                <h3>${item.name}</h3>
-              </div>
-              <div class="product-price">
-                <span>${item.price}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        `;
+      `;
+
+        // htmls += `
+        // <div class="col-md-3 col-sInfoproduct_pricem-6 col-6 p-0 ">
+        //   <div class="product-box">
+        //     <div class="product-inner-box position-relative">
+        //       <div class="icons position-absolute">
+        //         <a href="./product.php?id=${item.id}" class="text-decoration-none"><i class="fa-solid fa-eye"></i></a>
+        //       </div>
+        //       <div class="onsale_2 position-absolute top-0 start-0">
+        //         <span class="badge_2 rounded-0">
+        //           <!-- <i class="fa-solid fa-arrow-down"></i> -->
+        //           Mới
+        //         </span>
+        //       </div>
+        //       <div class="product-img">
+        //         <img src="./images/products/${item.img}" alt="woodan chair" class="img-fluid">
+        //       </div>
+        //       <div class="cart-btn">
+        //         <button class="btn btn-white bg-white shadow-sm rounded-pill" data="undefined"
+        //           data1="Thùng 30 gói mì Hảo Hảo tôm chua cay 75g" data2="1"><i class="fa-solid fa-cart-plus"></i>Mua
+        //           Ngay</button>
+        //       </div>
+        //     </div>
+        //     <div class="product-info">
+        //       <div class="product-name">
+        //         <h3>${item.name}</h3>
+        //       </div>
+        //       <div class="product-price">
+        //         <span>${item.price}</span>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </div>
+        // `;
       });
       $(".content-search-result").html(htmls);
       let prevPage = +page - 1;

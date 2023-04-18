@@ -29,8 +29,10 @@
   <div class="main">
     <?php include_once "./inc/home_header.php"; ?>
     <!-- ----------------------------------------------------------Modal thông tin giỏ hàng----------------------------------------------------------------------- -->
-    <?php include "./inc/cart.php"; ?>
-    <?php include "./inc/order.php"; ?>
+    <?php #include "./inc/cart.php"; 
+    ?>
+    <?php #include "./inc/order.php"; 
+    ?>
     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------------------Nội dung chính trang web----------------------------------------------------------------------------------->
@@ -79,10 +81,11 @@
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
 <script src="./javascript/menu.js"></script>
-<script src="./javascript/modal_card.js"></script>
-<script src="./javascript/modal_oder.js"></script>
+<!-- <script src="./javascript/modal_card.js"></script> -->
+<!-- <script src="./javascript/modal_oder.js"></script> -->
 <script src="./javascript/api.js"></script>
 <script>
-  hideLoading()  
+  hideLoading()
 </script>
+
 </html>
