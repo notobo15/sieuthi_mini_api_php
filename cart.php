@@ -188,7 +188,7 @@
             <div class="row">
               <div class=" col-lg-4 col-md-4 col-sm-12">
                 <div class="btn-home" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                  <a href="" class="btn btn-warning text-white mx-3" style="width: 200px;">
+                  <a href="index.php" class="btn btn-warning text-white mx-3" style="width: 200px;">
                     Tiếp tục mua hàng
                   </a>
                 </div>
@@ -200,15 +200,15 @@
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12  ">
                 <div class="btn-pay" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                  <a href="" class="btn btn-danger btn-block" style="width: 200px;"> Đặt Hàng </a>
+                  <span class="btn btn-danger btn-block" style="width: 200px;" onclick="return createOrder()"> Đặt Hàng </span>
                 </div>
               </div>
             </div>
           </div>
-          <button class="btn btn-success mt-2" id="clear_card" style="width: 100%;"> Xóa tất cả </button>
+          <button class="btn btn-success mt-2" id="clear_card" style="width: 100%;" onclick="return clearAll()"> Xóa tất cả </button>
         <?php endif; ?>
         </section>
-
+        <?php require_once "./inc/modal_alert.php"; ?>
         <?php require_once "./inc/home_footer.php"; ?>
       </div>
     </div>

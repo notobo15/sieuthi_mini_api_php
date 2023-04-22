@@ -45,7 +45,7 @@
             <div class="container-grounpfreature">
               <div class="title-grounpfeature border-bottom mx-3 pt-1">
                 <span class="fs-6 text-black heading-search"></span>
-                
+
               </div>
               <div class="row pb-2 px-3 content-search-result">
               </div>
@@ -81,9 +81,9 @@
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
 <script src="./javascript/menu.js"></script>
-<script src="./javascript/modal_card.js"></script>
-<script src="./javascript/modal_oder.js"></script>
-<script src="./javascript/search.js" defer></script>
+<!-- <script src="./javascript/modal_card.js"></script> -->
+<!-- <script src="./javascript/modal_oder.js"></script> -->
+<script src="./javascript/search.js"></script>
 <!-- <script src="./javascript/api.js"></script> -->
 <?php #include_once "./inc/hideLoading.php"; 
 ?>

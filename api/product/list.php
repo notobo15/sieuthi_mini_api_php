@@ -25,8 +25,8 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     'category_id' => $category_id,
     'quantity' => $quantity,
     'isDeleted' => $isDeleted,
-    'discountedPrice' => $product->discountedPrice,
-    'price_per' => $product->price_per,
+    'discountedPrice' => $discountedPrice,
+    'price_per' => $price_per,
     'createAt' => $createAt,
     'expiredAt' => $expiredAt,
   );

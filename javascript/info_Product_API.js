@@ -14,10 +14,10 @@ function addProductToCart(id) {
     },
   });
 }
-$(document).ready(function () {
+$(document).ready(async function () {
   let url = new URL(location.href);
   let id = url.searchParams.get("id");
-  $.ajax({
+  await $.ajax({
     type: "GET",
     url: `./api/product/detail.php?id=${id}`,
     success: function (data) {
@@ -32,8 +32,8 @@ $(document).ready(function () {
       //           <img src="./images/products/${
       //             data.img
       //           }" alt="" style="object-fit: contain;">
-                
-      //       </div>  
+
+      //       </div>
       //       <div class="col-lg-6 col-md-12">
       //           <h3> ${data.name} </h3>
       //           <p>HSD còn 1 năm</p>
@@ -113,7 +113,9 @@ $(document).ready(function () {
                   <div class="mySlider_infoProduct w-50 h-50" style="margin-bottom: 70px;">
                           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                             <!-- <img src="./images/products/${data.img}" alt=""
+                             <!-- <img src="./images/products/${
+                               data.img
+                             }" alt=""
                                 data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active list-img-slider"
                                 aria-current="true" aria-label="Slide 1">
                               <img src="./img/product/MÌ ăn liền/thung-24-ly-mi-modern-lau-thai-tom-65g-202205171454334430_300x300.jpg" alt=""
@@ -134,7 +136,9 @@ $(document).ready(function () {
                             </div>
                             <div class="carousel-inner">
                             <!-- <div class="carousel-item active">
-                                <img src="./images/products/${data.img}" class="d-block w-100" alt="...">
+                                <img src="./images/products/${
+                                  data.img
+                                }" class="d-block w-100" alt="...">
                               </div> --> 
                             </div>
                             <button class="carousel-control-prev" id="btn-prev-2" type="button" data-bs-target="#carouselExampleIndicators"
@@ -228,57 +232,61 @@ $(document).ready(function () {
           </span>
           </div>`;
       $(`.myInfoProduct`).html(html);
-      data.images.forEach(function (item,index) {
-          let html = " ";
-          if(index == 0){
-            html = `
+      data.images.forEach(function (item, index) {
+        let html = " ";
+        if (index == 0) {
+          html = `
             <img src="./images/products/${item}" alt=""
             data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" class="active list-img-slider"
             aria-current="true" aria-label="Slide ${index + 1}">
-            `
-          }
-         if(index > 0){
+            `;
+        }
+        if (index > 0) {
           html = `
           <img src="./images/products/${item}" alt=""
-          data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" aria-label="Slide ${index + 1}" class="list-img-slider">
-          `
-         }
-         $(".carousel-indicators").append(html);
-      })
+          data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" aria-label="Slide ${
+            index + 1
+          }" class="list-img-slider">
+          `;
+        }
+        $(".carousel-indicators").append(html);
+      });
       // add slider img and click infoimg
       const sliderimg = document.querySelectorAll(`.carousel-indicators img`);
-      sliderimg.forEach(function(item,index){
+      sliderimg.forEach(function (item, index) {
         //  console.log(item);
-         let srcImg = $(item).attr("src");
-         let html = "";
-         // console.log(index);
-          if(index == 0){
-             html = `
+        let srcImg = $(item).attr("src");
+        let html = "";
+        // console.log(index);
+        if (index == 0) {
+          html = `
             <div class="carousel-item active">
             <img src="${srcImg}" class="d-block w-100" alt="...">
             </div>
             `;
-          }
-          if(index > 0){
-             html = `
+        }
+        if (index > 0) {
+          html = `
            <div class="carousel-item">
            <img src="${srcImg}" class="d-block w-100" alt="...">
            </div>
            `;
-         }
-         $(".carousel-inner").append(html);
-       })
-       //  click xem ảnh
-       const closeImg = document.querySelector(`.modal_info_img`);
-       $(`.carousel-item`).click(function(){
-          let imgElement = $(this).children("img").attr("src");
-          $(`.modal_body_info_img`).children("img").attr("src", imgElement);
-          closeImg.style.display="block";
-       })
-       // click tắt ảnh
-       $(`#click-close-info-img`).click(function(){
-          closeImg.style.display = `none`;
-         })
+        }
+        $(".carousel-inner").append(html);
+      });
+      //  click xem ảnh
+      const closeImg = document.querySelector(`.modal_info_img`);
+      $(`.carousel-item`).click(function () {
+        let imgElement = $(this).children("img").attr("src");
+        $(`.modal_body_info_img`).children("img").attr("src", imgElement);
+        closeImg.style.display = "block";
+      });
+      // click tắt ảnh
+      $(`#click-close-info-img`).click(function () {
+        closeImg.style.display = `none`;
+      });
     },
   });
+
+  await hideLoading();
 });

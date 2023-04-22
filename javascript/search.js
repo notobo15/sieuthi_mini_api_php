@@ -19,12 +19,12 @@ function toNonAccentVietnamese(str) {
   str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
   return str;
 }
-$(document).ready(function () {
+$(document).ready(async function () {
   let key = new URL(location.href).searchParams.get("key") || "";
   let cate = new URL(location.href).searchParams.get("cate") || "";
   let page = new URL(location.href).searchParams.get("page") || "";
   key = toNonAccentVietnamese(key);
-  $.ajax({
+  await $.ajax({
     type: "get",
     url: `api/product/search.php?key=${key}&cate=${cate}&page=${page}`,
     success: function (data) {
@@ -49,48 +49,46 @@ $(document).ready(function () {
       }
       products.forEach((item) => {
         htmls += `
-      <div class="col-md-3 col-sm-6 col-6 p-0 ">
-                <div class="product-box">
-                  <a href="./product.php?id=${item.id}">
-                    <div class="product-inner-box position-relative">
-                      <div class="onsale_2 position-absolute top-0 start-0">
-                        ${
-                          item.price_per != null
-                            ? `  <span class="badge_2 rounded-0">
-                        <!-- <i class="fa-solid fa-arrow-down"></i> -->
-                        ${item.price_per}%
-                      </span>`
-                            : ``
-                        }
-                      
-                      </div>
-                      <div class="product-img">
-                        <img src="./images/products/${
-                          item.img
-                        }" alt="woodan chair" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="product-info">
-                      <div class="product-name">
-                        <h3 class="text-black">${item.name}</h3>
-                      </div>
-                      <div class="product-price d-flex justify-content-between">
-                       ${
-                         item.discountedPrice == null
-                           ? `<span>${priceToVND(item.price)}</span>`
-                           : `<span>${priceToVND(item.price)}</span>
-                             <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
-                               item.discountedPrice
-                             )}</del></span>`
-                       }
-                        
-                        
-                      </div>
-                    </div>
-                  </a>
+          <div class="col-md-3 col-sm-6 col-6 p-0 ">
+            <div class="product-box">
+              <a href="./product.php?id=${item.id}">
+                <div class="product-inner-box position-relative">
+                  <div class="onsale_2 position-absolute top-0 start-0">
+                    ${
+                      item.price_per != null
+                        ? ` <span class="badge_2 rounded-0">
+                      <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                      ${item.price_per}%
+                    </span>`
+                        : ``
+                    }
+                  </div>
+                  <div class="product-img">
+                    <img src="./images/products/${
+                      item.img
+                    }" alt="woodan chair" class="img-fluid">
+                  </div>
                 </div>
-              </div>
-      `;
+                <div class="product-info">
+                  <div class="product-name">
+                    <h3 class="text-black">${item.name}</h3>
+                  </div>
+                  <div class="product-price d-flex justify-content-between">
+                    ${
+                      item.discountedPrice == null
+                        ? `<span>${priceToVND(item.price)}</span>`
+                        : `<span>${priceToVND(item.discountedPrice)}</span>
+                    <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
+                      item.price
+                    )}</del></span>`
+                    }
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          `;
 
         // htmls += `
         // <div class="col-md-3 col-sInfoproduct_pricem-6 col-6 p-0 ">
@@ -151,5 +149,5 @@ $(document).ready(function () {
       $(".pagination").html(btn_pagination);
     },
   });
-  hideLoading();
+  await hideLoading();
 });

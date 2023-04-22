@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  $.ajax({
+$(document).ready(async function () {
+  await $.ajax({
     type: "GET",
     url: "./api/category/list.php",
     success: function (data) {
@@ -78,14 +78,13 @@ $(document).ready(function () {
           success: function (data) {
             let products = data.products;
             let textHTML = " ";
-            console.log(products.length);
             if (products.length > 4) {
               products = products.filter((item, index) => {
                 return index < 4;
               });
             }
 
-            products.forEach(function (i) {
+            products.forEach(function (item) {
               // textHTML = `
               //   <div class="col-md-3 col-sm-6 col-6 p-0 ">
               //   <div class="product-box">
@@ -130,35 +129,47 @@ $(document).ready(function () {
               //   `;
               textHTML = `
               <div class="col-md-3 col-sm-6 col-6 p-0 ">
-                <div class="product-box">
-                  <a href="./product.php?id=${i.id}">
-                    <div class="product-inner-box position-relative">
-                      <div class="onsale_2 position-absolute top-0 start-0">
-                        <span class="badge_2 rounded-0">
-                          <!-- <i class="fa-solid fa-arrow-down"></i> -->
-                          Mới
-                        </span>
-                      </div>
-                      <div class="product-img">
-                        <img src="./images/products/${
-                          i.img
-                        }" alt="woodan chair" class="img-fluid">
-                      </div>
-                    </div>
-                    <div class="product-info">
-                      <div class="product-name">
-                        <h3 class="text-black">${i.name}</h3>
-                      </div>
-                      <div class="product-price">
-                        <span>${parseFloat(i.price).toLocaleString(
-                          `de-DE`
-                        )} </span>
-                      </div>
-                    </div>
-                  </a>
+            <div class="product-box">
+              <a href="./product.php?id=${item.id}">
+                <div class="product-inner-box position-relative">
+                  <div class="onsale_2 position-absolute top-0 start-0">
+                    ${
+                      item.price_per != null
+                        ? ` <span class="badge_2 rounded-0">
+                      <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                      ${item.price_per}%
+                    </span>`
+                        : ``
+                    }
+
+                  </div>
+                  <div class="product-img">
+                    <img src="./images/products/${
+                      item.img
+                    }" alt="woodan chair" class="img-fluid">
+                  </div>
                 </div>
-              </div>
+                <div class="product-info">
+                  <div class="product-name">
+                    <h3 class="text-black">${item.name}</h3>
+                  </div>
+                  <div class="product-price d-flex justify-content-between">
+                    ${
+                      item.discountedPrice == null
+                        ? `<span>${priceToVND(item.price)}</span>`
+                        : `<span>${priceToVND(item.discountedPrice)}</span>
+                    <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
+                      item.price
+                    )}</del></span>`
+                    }
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
               `;
+              console.log(item.discountedPrice);
               textTO += textHTML;
             });
             item.innerHTML = textTO;
@@ -167,4 +178,6 @@ $(document).ready(function () {
       });
     },
   });
+
+  await hideLoading();
 });

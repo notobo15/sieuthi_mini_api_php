@@ -38,7 +38,6 @@ class Discount
         $this->price_per = $row['price_per'];
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
-        $this->product_id = $row['product_id'];
         $this->isDeleted = $row['isDeleted'];
         $this->createAt = $row['createAt'];
         return true;
@@ -55,14 +54,12 @@ class Discount
     SET
       name = :name,
       price_per = :price_per,
-      product_id = :product_id,
       end_date = :end_date,
       start_date = :start_date;';
     $stmt = $this->con->prepare($query);
 
     $stmt->bindParam(':name', $this->name);
     $stmt->bindParam(':price_per', $this->price_per);
-    $stmt->bindParam(':product_id', $this->product_id);
     $stmt->bindParam(':end_date', $this->end_date);
     $stmt->bindParam(':start_date', $this->start_date);
     if ($stmt->execute()) {
@@ -78,7 +75,6 @@ class Discount
     SET
     name = :name,
     price_per = :price_per,
-    product_id = :product_id,
     end_date = :end_date,
     start_date = :start_date
     WHERE
@@ -87,7 +83,6 @@ class Discount
 
     $stmt->bindParam(':name', $this->name);
     $stmt->bindParam(':price_per', $this->price_per);
-    $stmt->bindParam(':product_id', $this->product_id);
     $stmt->bindParam(':end_date', $this->end_date);
     $stmt->bindParam(':start_date', $this->start_date);
     $stmt->bindParam(':id', $this->id);

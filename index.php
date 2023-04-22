@@ -83,9 +83,7 @@
 <script src="./javascript/menu.js"></script>
 <!-- <script src="./javascript/modal_card.js"></script> -->
 <!-- <script src="./javascript/modal_oder.js"></script> -->
-<script src="./javascript/api.js"></script>
-<script>
-  hideLoading()
-</script>
+<script src="./javascript/homepage.js"></script>
+
 
 </html>

@@ -20,7 +20,6 @@ if ($Discount->getSingleById($id)) {
     'price_per' => $Discount->price_per,
     'start_date' => $Discount->start_date,
     'end_date' => $Discount->end_date,
-    'product_id' => $Discount->product_id,
     'isDeleted' => $Discount->isDeleted,
     'createAt' => $Discount->createAt,
   );

@@ -49,16 +49,16 @@
               </div>
             </form>
           </div>
-          <div class="col-md-3 col-sm-6 col-6 py-3">
+          <div class="col-md-3 col-sm-6 col-6 py-3 d-flex align-items-center">
 
-            <div class="container-address-header">
-              <div class=" text-center address-header bg-danger">
-                <a href="#" class="text-white"><i class="fa-solid fa-location-dot"></i></a>
-                <a href="#" style="font-size: 13px ;">Chọn địa chỉ để<br>xem chính sác giá</a>
+            <div class="container-address-header p-1 gap-1">
+              <div class=" text-center address-header bg-danger mr-1">
+                <span class="text-white fs-3"><i class="fa-solid fa-location-dot"></i></span>
+                <span style="font-size: 14px; margin-left: 10px;" class="text-white">Nhập địa chỉ <br />của bạn</span>
               </div>
             </div>
           </div>
-          <div class="col-md-2 col-sm-6 col-6 py-3">
+          <div class="col-md-2 col-sm-6 col-6 py-3 d-flex align-items-center">
             <div class="row">
               <div class="col-4">
                 <a type="button" href="order.php" class=" icon-oder position-relative">
@@ -81,22 +81,23 @@
               </div>
               <div class="col-4">
                 <!-- <a href="login_register.php" style="text-decoration: none;" class="text-danger"><i class="fa-solid fa-user icon-user fs-3"></i></a> -->
-                <div class="btn-group" style="margin-top: -2  px;">
+                <div class="btn-group">
                   <span class="text-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-user icon-user fs-3"></i>
+                    <i class="fa-solid fa-user-large icon-user fs-3"></i>
                   </span>
                   <ul class="dropdown-menu">
                     <?php if (empty($_SESSION['account'])) : ?>
-                      <li><a class="dropdown-item" href="login_register.php">Đăng Nhập</a></li>
+                      <li><a class="dropdown-item bg-danger text-white" href="login_register.php">Đăng Nhập</a></li>
                     <?php endif;
                     // print_r($_SESSION['account']);
                     if (isset($_SESSION['account'])) :
                     ?>
                       <?php if (isset($_SESSION['account']['group_id']) == 5) : ?>
-                        <li> <a class="dropdown-item" href="login_register.php">Đi Dến Admin</a></li>
+                        <li> <a class="dropdown-item bg-white" href="login_register.php">Đi Dến Admin</a></li>
                       <?php endif; ?>
-                      <li> <a class="dropdown-item" href="info.php">Thông Tin Của Bạn</a></li>
-                      <li> <a class="dropdown-item" href="./api/accounts/logout.php">Đăng Xuất</a></li>
+                      <li> <a class="dropdown-item bg-white" href="change_password.php">Thay Đổi Mật Khẩu</a></li>
+                      <li> <a class="dropdown-item bg-white" href="info.php">Thông Tin Của Bạn</a></li>
+                      <li> <a class="dropdown-item bg-white" href="./api/accounts/logout.php">Đăng Xuất</a></li>
                     <?php endif ?>
                   </ul>
                 </div>

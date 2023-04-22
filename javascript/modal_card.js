@@ -1,9 +1,9 @@
-function increase(id) {
-  showLoading();
+async function increase(id) {
+  await showLoading();
   let fd = new FormData();
   fd.append("product_id", id);
   fd.append("quantity", 1);
-  $.ajax({
+  await $.ajax({
     type: "post",
     url: "api/accounts/cart/create.php",
     processData: false,
@@ -16,6 +16,27 @@ function increase(id) {
     },
   });
 }
+
+async function decrease(id) {
+  await showLoading();
+  let fd = new FormData();
+  fd.append("product_id", id);
+  fd.append("quantity", -1);
+  await $.ajax({
+    type: "post",
+    url: "api/accounts/cart/create.php",
+    processData: false,
+    contentType: false,
+    data: fd,
+    success: function (data) {
+      console.log(data);
+      renderCart();
+      hideLoading();
+    },
+  });
+  // hideLoading();
+}
+
 function deleteProductCart(id) {
   if (confirm("Bạn có muốn xóa!")) {
     // showLoading();
@@ -31,26 +52,31 @@ function deleteProductCart(id) {
         console.log(data);
         // renderCart();
         window.location.reload();
-        hideLoading();
       },
     });
   }
 }
-function decrease(id) {
+
+function clearAll() {
   showLoading();
-  let fd = new FormData();
-  fd.append("product_id", id);
-  fd.append("quantity", -1);
   $.ajax({
     type: "post",
-    url: "api/accounts/cart/create.php",
-    processData: false,
-    contentType: false,
-    data: fd,
+    url: "api/accounts/cart/clear.php",
     success: function (data) {
-      console.log(data);
-      renderCart();
-      hideLoading();
+      window.location.reload();
+    },
+  });
+  // hideLoading();
+}
+
+async function createOrder() {
+  await showLoading();
+  await $.ajax({
+    type: "post",
+    url: "api/accounts/orders/create.php",
+    success: function (data) {
+      showModalAlert("Bạn đã đặt hàng thành công.");
+      // window.location.reload();
     },
   });
   // hideLoading();
@@ -83,13 +109,15 @@ function renderCart() {
            <td data-th="Giá">${priceToVND(item.price)}</td>
            <td data-th="Số lượng">
              <div class="number_card">
-               <span class="minus_card" onClick="return decrease(${
+               <button class="minus_card" ${
+                 item.quantity <= 1 ? `disabled` : ``
+               } onClick="return decrease(${
+          item.product_id
+        })"><i class="fa-solid fa-minus"></i></button>
+               <input type="text" value="${item.quantity}" readonly />
+               <button class="plus_card" onClick="return increase(${
                  item.product_id
-               })"><i class="fa-solid fa-minus"></i></span>
-               <input type="text" value="${item.quantity}" min="1" />
-               <span class="plus_card" onClick="return increase(${
-                 item.product_id
-               })"><i class="fa-solid fa-plus"></i></span>
+               })"><i class="fa-solid fa-plus"></i></button>
              </div>
            </td>
            <td data-th="Tổng tiền" class="text-center">${priceToVND(

@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  $.ajax({
+$(document).ready(async function () {
+  await $.ajax({
     type: "GET",
     url: "./api/product/list.php",
     success: function (data) {
@@ -11,20 +11,23 @@ $(document).ready(function () {
                      <div class="product-box">
                        <div class="product-inner-box position-relative">
                          <div class="icons position-absolute">
-                           <a href="./product.php?id=${item.id}" data="${item.id
-            }" class="text-decoration-none icon_eye_product"><i class="fa-solid fa-eye"></i></a>
+                           <a href="./product.php?id=${item.id}" data="${
+            item.id
+          }" class="text-decoration-none icon_eye_product"><i class="fa-solid fa-eye"></i></a>
                            <a href="#" class="text-decoration-none"><i class="fa-solid fa-cart-plus"></i></a>
                          </div>
                          <div class="onsale position-absolute top-0 start-0">
                            <span class="badge rounded-0"><i class="fa-solid fa-arrow-down"></i> 45%</span>
                          </div>
                          <div class="product-img">
-                           <img src="./images/products/${item.img
-            }" alt="woodan chair" class="img-fluid">
+                           <img src="./images/products/${
+                             item.img
+                           }" alt="woodan chair" class="img-fluid">
                          </div>
                          <div class="cart-btn-2">
-                           <button data=${item.id
-            } class="btn btn-white bg-white shadow-sm rounded-pill btn-product-add"><i class="fa-solid fa-cart-shopping"></i>Mua Ngay</button>
+                           <button data=${
+                             item.id
+                           } class="btn btn-white bg-white shadow-sm rounded-pill btn-product-add"><i class="fa-solid fa-cart-shopping"></i>Mua Ngay</button>
                          </div>
                        </div>
                        <div class="product-info">
@@ -33,8 +36,8 @@ $(document).ready(function () {
                          </div>
                          <div class="product-price">
                            <span>${parseFloat(item.price).toLocaleString(
-              `de-DE`
-            )}</span>đ
+                             `de-DE`
+                           )}</span>đ
                          </div>
                        </div>
                      </div>
@@ -61,8 +64,9 @@ $(document).ready(function () {
                     <tr> 
                     <td data-th="Sản Phẩm" class="my-3"> 
                      <div class="row"> 
-                      <div class="col-sm-4 hidden-md"><img src="./images/products/${data.img
-              }" alt="Sản phẩm 1" class="img-responsive" width="100">
+                      <div class="col-sm-4 hidden-md"><img src="./images/products/${
+                        data.img
+                      }" alt="Sản phẩm 1" class="img-responsive" width="100">
                       </div> 
                       <div class="col-sm-8 fs-6"> 
                        <h4 class="nomargin fs-6">${data.name}</h4> 
@@ -73,22 +77,26 @@ $(document).ready(function () {
                     <td data-th="Giá">${data.price} đ</td> 
                     <td data-th="Số lượng">
                      <div class="number_card_2">
-                       <span class="minus_card_2" data="${data.price}" data2="${data.id
-              }"><i class="fa-solid fa-minus"></i></span>
+                       <span class="minus_card_2" data="${data.price}" data2="${
+              data.id
+            }"><i class="fa-solid fa-minus"></i></span>
                        <input type="text" value="1" min="1"/>
-                       <span class="plus_card_2" data="${data.price}" data2="${data.id
-              }"><i class="fa-solid fa-plus"></i></span>
+                       <span class="plus_card_2" data="${data.price}" data2="${
+              data.id
+            }"><i class="fa-solid fa-plus"></i></span>
                      </div>
                     </td> 
-                    <td id="price_card_2" data-th="Tổng tiền" class="text-center text-danger card_total_2"  data= "${data.price
-              }" data2="${data.id}" data3=" ">${parseFloat(
-                data.price
-              ).toLocaleString(`de-DE`)} đ</td> 
+                    <td id="price_card_2" data-th="Tổng tiền" class="text-center text-danger card_total_2"  data= "${
+                      data.price
+                    }" data2="${data.id}" data3=" ">${parseFloat(
+              data.price
+            ).toLocaleString(`de-DE`)} đ</td> 
                     <td class="actions" data-th="">
                      <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
                      </button> 
-                     <button class="btn btn-danger btn-sm text-black btn-remove-card-2 " data2="${data.name
-              }" data="${data.id}"><i class="fa-solid fa-trash"></i>
+                     <button class="btn btn-danger btn-sm text-black btn-remove-card-2 " data2="${
+                       data.name
+                     }" data="${data.id}"><i class="fa-solid fa-trash"></i>
                      </button>
                     </td> 
                    </tr>
@@ -147,7 +155,7 @@ $(document).ready(function () {
               }
             });
           },
-          error: function (jqXHR, textStatus, errorThrown) { },
+          error: function (jqXHR, textStatus, errorThrown) {},
         });
       });
 
@@ -156,6 +164,6 @@ $(document).ready(function () {
 
       // end click add card--------------------------------------------------------------------------------------------------------------------------------------------------
     },
-    error: function (e) { },
+    error: function (e) {},
   });
 });

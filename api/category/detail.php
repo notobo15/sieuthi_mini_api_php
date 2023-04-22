@@ -36,6 +36,8 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     'isDeleted' => $isDeleted,
     'createAt' => $createAt,
     'expiredAt' => $expiredAt,
+    'discountedPrice' => $discountedPrice,
+    'price_per' => $price_per,
   );
   $arr_products[] = $cat_item;
 }

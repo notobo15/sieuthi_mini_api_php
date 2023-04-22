@@ -44,7 +44,6 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     'quantity' => $quantity,
     'isDeleted' => $isDeleted,
     'createAt' => $createAt,
-
     'discountedPrice' => $discountedPrice,
     'price_per' => $price_per,
     'expiredAt' => $expiredAt,
