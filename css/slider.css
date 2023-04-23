@@ -2,26 +2,46 @@
     background-color: red;
     opacity: 0;
     padding: 10px;
-    transform: translate(-250%,0);
+    transform: translate(-150%,0);
     transition: 1s;
 }
 .icon-next {
     background-color: red;
     opacity: 0;
     padding: 10px;
-    transform: translate(250%,0);
+    transform: translate(150%,0);
     transition: 1s;
 }
 .mySlider:hover .icon-next{
     opacity: 1;
-    transform: translate(100%,0);
+    transform: translate(90%,0);
     transition: 1s;
 }
 .mySlider:hover .icon-prev{
     opacity: 1;
-    transform: translate(-100%,0);
+    transform: translate(-90%,0);
     transition: 1s;
 }
 .list-img-slider{
     background-color: rgb(217, 101, 101) !important;
+}
+@media screen and (max-width: 580px) { 
+    .icon-prev{
+        transform: translate(-60%,0);
+
+    }
+    .icon-next {
+        transform: translate(60%,0);
+        
+    }
+    .mySlider:hover .icon-next{
+    
+        transform: translate(40%,0);
+   
+    }
+    .mySlider:hover .icon-prev{
+      
+        transform: translate(-40%,0);
+      
+    }
 }
