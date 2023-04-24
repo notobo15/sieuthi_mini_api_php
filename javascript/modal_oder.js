@@ -1,9 +1,9 @@
-const oderElement = document.querySelector(`.icon-oder`);
-const modaloder = document.querySelector(`.modal_oder`);
-const closeoder = document.querySelector(`.icon-close-oder`);
-oderElement.addEventListener("click", function (e) {
-  modaloder.style.display = "block";
-});
+// const oderElement = document.querySelector(`.icon-oder`);
+// const modaloder = document.querySelector(`.modal_oder`);
+// const closeoder = document.querySelector(`.icon-close-oder`);
+// oderElement.addEventListener("click", function (e) {
+//   modaloder.style.display = "block";
+// });
 
 function renderOrder() {
   let total = 0;

@@ -111,29 +111,45 @@ $(document).ready(async function () {
           <div class="row pt-4">
               <div class="col-lg-7 col-md-12 infoProduc_img">
                   <div class="mySlider_infoProduct w-50 h-50" style="margin-bottom: 70px;">
-                          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                             <!-- <img src="./images/products/${
-                               data.img
-                             }" alt=""
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active list-img-slider"
-                                aria-current="true" aria-label="Slide 1">
-                              <img src="./img/product/MÌ ăn liền/thung-24-ly-mi-modern-lau-thai-tom-65g-202205171454334430_300x300.jpg" alt=""
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="list-img-slider">
-                              <img
-                                src="./img/product/nc giặt/nuoc-giat-ariel-chuyen-gia-cua-tren-huong-downy-nuoc-hoa-tui-38-lit-202303061116362252_300x300.jpg"
-                                alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"
-                                class="list-img-slider">
-                              <img src="./img/product/combo-thit-nuong-han-quoc-thao-tien-foods-hop-560g-202212141418408307_300x300.png"
-                                alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"
-                                class="list-img-slider">
-                              <img src="./img/product/mi-kho-ga-cay-samyang-goi-140g-202302271042338764.png" alt=""
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class="list-img-slider">
-                              <img
-                                src="./img/product/nc-Mắm/nuoc-mam-ca-com-dac-san-hung-thinh-40-do-dam-chai-750ml-202210011034362058_300x300.jpg"
-                                alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"
-                                class="list-img-slider"> -->
+                          <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">
+                            <div class="parent-carousel-indicators">
+                                  <div class="carousel-indicators">
+                                  <!-- <img src="./images/products/${
+                                    data.img
+                                  }" alt=""
+                                      data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active list-img-slider"
+                                      aria-current="true" aria-label="Slide 1">
+                                    <img src="./img/product/MÌ ăn liền/thung-24-ly-mi-modern-lau-thai-tom-65g-202205171454334430_300x300.jpg" alt=""
+                                      data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="list-img-slider">
+                                    <img
+                                      src="./img/product/nc giặt/nuoc-giat-ariel-chuyen-gia-cua-tren-huong-downy-nuoc-hoa-tui-38-lit-202303061116362252_300x300.jpg"
+                                      alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"
+                                      class="list-img-slider">
+                                    <img src="./img/product/combo-thit-nuong-han-quoc-thao-tien-foods-hop-560g-202212141418408307_300x300.png"
+                                      alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"
+                                      class="list-img-slider">
+                                    <img src="./img/product/mi-kho-ga-cay-samyang-goi-140g-202302271042338764.png" alt=""
+                                      data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" class="list-img-slider">
+                                    <img
+                                      src="./img/product/nc-Mắm/nuoc-mam-ca-com-dac-san-hung-thinh-40-do-dam-chai-750ml-202210011034362058_300x300.jpg"
+                                      alt="" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"
+                                      class="list-img-slider"> -->
+                                       
+                                  </div>
+                                
                             </div>
+
+                                <div id="btn-prev-3"  data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon icon-prev-3"></span>
+                                </div>
+                      
+                                <div  id="btn-next-3"  data-bs-target="#carouselExampleIndicators" 
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon icon-next-3" ></span>
+                                </div>
+                            
+                        
                             <div class="carousel-inner">
                             <!-- <div class="carousel-item active">
                                 <img src="./images/products/${
@@ -165,19 +181,18 @@ $(document).ready(async function () {
               <div class="col-lg-5 col-md-12">
                   <h3> ${data.name} </h3>
                   <p>HSD còn 1 năm</p>
+                
                   <div class="Infoproduct_price">
-                      ${
-                        data.discountedPrice != null
-                          ? `<h3><strong class="text-danger">${priceToVND(
-                              data.discountedPrice
-                            )}</strong></h3>
-                      <span class="text-decoration-line-through text-black text-center mx-3 lh-lg">${priceToVND(
-                        data.price
-                      )}</span>`
-                          : `<h3><strong class="text-danger">${priceToVND(
-                              data.price
-                            )}</strong></h3>`
+                  ${
+                    data.discountedPrice == null
+                      ? `<h3><strong class="text-danger">${priceToVND(data.price)}</strong></h3>`
+                      : `
+                          <h3><strong class="text-danger">${priceToVND(data.discountedPrice)}</strong></h3>
+                          <p class="text-decoration-line-through text-danger mx-1">${priceToVND(data.price)}</p>
+                          <div class = "post-tag">${data.price_per}%</div>
+                        `  
                       }
+
                   </div>
                   <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy" onClick="return addProductToCart(${
                     data.id
@@ -237,20 +252,21 @@ $(document).ready(async function () {
               lượng.
           </span>
           </div>`;
+          // add img slider
       $(`.myInfoProduct`).html(html);
       data.images.forEach(function (item, index) {
         let html = " ";
         if (index == 0) {
           html = `
             <img src="./images/products/${item}" alt=""
-            data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" class="active list-img-slider"
+            data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"  class="active list-img-slider"
             aria-current="true" aria-label="Slide ${index + 1}">
             `;
         }
         if (index > 0) {
           html = `
           <img src="./images/products/${item}" alt=""
-          data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" aria-label="Slide ${
+          data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}"  aria-label="Slide ${
             index + 1
           }" class="list-img-slider">
           `;
@@ -259,6 +275,7 @@ $(document).ready(async function () {
       });
       // add slider img and click infoimg
       const sliderimg = document.querySelectorAll(`.carousel-indicators img`);
+      // console.log(sliderimg.length);
       sliderimg.forEach(function (item, index) {
         //  console.log(item);
         let srcImg = $(item).attr("src");
@@ -280,6 +297,108 @@ $(document).ready(async function () {
         }
         $(".carousel-inner").append(html);
       });
+      // click chuyen slider anh
+      $(".carousel-control-next").click(item => {
+        sliderimg.forEach(function(item_img,index) {
+          let activeimg = item_img.classList.contains("active");
+          if(activeimg) {
+            if(index > 5){
+              let carouselitem = document.querySelector(".carousel-indicators");
+              carouselitem.classList.add(`ativeimg${index}`);
+              carouselitem.classList.remove("removeativeimg");
+            }
+            if(index == 0){
+              console.log(342342432);
+              let carouselitem = document.querySelector(".carousel-indicators");
+              carouselitem.classList.add("removeativeimg");
+              carouselitem.classList.remove("ativeimg6");
+              carouselitem.classList.remove("ativeimg7");
+              carouselitem.classList.remove("ativeimg8");
+              carouselitem.classList.remove("ativeimg9");
+             
+            }
+          }
+        })
+      })
+      $(".carousel-control-prev").click(item => {
+        sliderimg.forEach(function(item_img,index) {
+          let activeimg = item_img.classList.contains("active");
+          if(activeimg) {
+            if( index == sliderimg.length-1){
+              console.log(23432142);
+              let carouselitem = document.querySelector(".carousel-indicators");
+              carouselitem.classList.add(`ativeimg${index}`);
+              carouselitem.classList.remove("removeativeimg");
+
+            }
+            if(index > 6 && index < sliderimg.length -1 ) {
+              let carouselitem = document.querySelector(".carousel-indicators");
+              carouselitem.classList.add(`ativeimg${index}`);
+              carouselitem.classList.remove("removeativeimg");
+            }
+            if(index == 5){
+              let carouselitem = document.querySelector(".carousel-indicators");
+              carouselitem.classList.add("removeativeimg");
+              carouselitem.classList.remove("ativeimg6");
+              carouselitem.classList.remove("ativeimg7");
+              carouselitem.classList.remove("ativeimg8");
+              carouselitem.classList.remove("ativeimg9");
+             
+            }
+          }
+        })
+     })
+    //  click on list
+     $(".icon-next-3").click(item => {
+      sliderimg.forEach(function(item_img,index) {
+        let activeimg = item_img.classList.contains("active");
+        if(activeimg) {
+          if(index > 5){
+            let carouselitem = document.querySelector(".carousel-indicators");
+            carouselitem.classList.add(`ativeimg${index}`);
+            carouselitem.classList.remove("removeativeimg");
+          }
+          if(index == 0){
+            console.log(342342432);
+            let carouselitem = document.querySelector(".carousel-indicators");
+            carouselitem.classList.add("removeativeimg");
+            carouselitem.classList.remove("ativeimg6");
+            carouselitem.classList.remove("ativeimg7");
+            carouselitem.classList.remove("ativeimg8");
+            carouselitem.classList.remove("ativeimg9");
+           
+          }
+        }
+      })
+    })
+    $(".icon-prev-3").click(item => {
+      sliderimg.forEach(function(item_img,index) {
+        let activeimg = item_img.classList.contains("active");
+        if(activeimg) {
+          if( index == sliderimg.length-1){
+            console.log(23432142);
+            let carouselitem = document.querySelector(".carousel-indicators");
+            carouselitem.classList.add(`ativeimg${index}`);
+            carouselitem.classList.remove("removeativeimg");
+
+          }
+          if(index > 6 && index < sliderimg.length -1 ) {
+            let carouselitem = document.querySelector(".carousel-indicators");
+            carouselitem.classList.add(`ativeimg${index}`);
+            carouselitem.classList.remove("removeativeimg");
+          }
+          if(index == 5){
+            let carouselitem = document.querySelector(".carousel-indicators");
+            carouselitem.classList.add("removeativeimg");
+            carouselitem.classList.remove("ativeimg6");
+            carouselitem.classList.remove("ativeimg7");
+            carouselitem.classList.remove("ativeimg8");
+            carouselitem.classList.remove("ativeimg9");
+           
+          }
+        }
+      })
+   })
       //  click xem ảnh
       const closeImg = document.querySelector(`.modal_info_img`);
       $(`.carousel-item`).click(function () {
@@ -291,6 +410,7 @@ $(document).ready(async function () {
       $(`#click-close-info-img`).click(function () {
         closeImg.style.display = `none`;
       });
+
     },
   });
 

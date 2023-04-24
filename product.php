@@ -40,7 +40,6 @@
           <section class="myInfoProduct p-3 mb-2" style="background-color: #fff;">
 
           </section>
-
           <?php require_once "./inc/home_footer.php"; ?>
         </div>
       </div>
