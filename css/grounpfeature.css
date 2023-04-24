@@ -48,6 +48,6 @@
 }
 @media only screen and (max-width: 768px) {
     .container-grounpfreature {
-        background: linear-gradient(to top, rgb(219, 253, 165), rgb(252, 255, 221));
+        /* background: linear-gradient(to top, rgba(247, 209, 200, 0.582), rgba(244, 206, 197, 0.582)); */
     }
 }

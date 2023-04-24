@@ -11,7 +11,7 @@ $(document).ready(async function () {
         if (index < 4) {
           inHTML += `
             <div class="container-grounpfreature">
-            <div class="title-grounpfeature" style=" background: linear-gradient(to left top, rgb(244, 248, 136), green);">
+            <div class="title-grounpfeature" style=" background: linear-gradient(to left top,rgb(216, 61, 61),rgb(216, 61, 61));">
                    <h3 class="fs-4  text-uppercase">${item.name}</h3>
                  </div>
             <div class="row pb-2 px-3 grounp-category" data=${item.id}>
@@ -29,7 +29,7 @@ $(document).ready(async function () {
         if (index > 3 && index < 8) {
           inHTML += `
               <div class="container-grounpfreature">
-            <div class="title-grounpfeature" style=" background: linear-gradient(to left top, rgb(228, 255, 91), #ff4141);">
+            <div class="title-grounpfeature" style=" background: linear-gradient(to left top,rgb(216, 61, 61),rgb(216, 61, 61));">
                    <h3 class="fs-4  text-uppercase">${item.name}</h3>
                  </div>
             <div class="row pb-2 px-3 grounp-category" data=${item.id}>
@@ -136,7 +136,7 @@ $(document).ready(async function () {
                     ${
                       item.price_per != null
                         ? ` <span class="badge_2 rounded-0">
-                      <!-- <i class="fa-solid fa-arrow-down"></i> -->
+                       <!-- <i class="fa-solid fa-arrow-down"></i>  -->
                       ${item.price_per}%
                     </span>`
                         : ``
@@ -153,14 +153,20 @@ $(document).ready(async function () {
                   <div class="product-name">
                     <h3 class="text-black">${item.name}</h3>
                   </div>
-                  <div class="product-price d-flex justify-content-between">
+                  <div class="product-price pt-2">
                     ${
                       item.discountedPrice == null
                         ? `<span>${priceToVND(item.price)}</span>`
-                        : `<span>${priceToVND(item.discountedPrice)}</span>
-                    <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
-                      item.price
-                    )}</del></span>`
+                        : `<div class="row">
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-6">
+                          <span id = "price_discoun">${priceToVND(item.discountedPrice)}</span>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-md-12 col-6">
+                          <span class="text-muted text-decoration-none" style="font-size: 16px; width: 70px;"><del>${priceToVND(
+                            item.price
+                          )}</del></span>
+                        </div>
+                      </div>`
                     }
 
                   </div>
