@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-md-2 col-sm-3 col-3 py-2 img-header ">
             <a href="./index.php">
-              <img src="./img/images-removebg-preview.png" alt="" class="img-fluid">
+              <img src="./img/images-removebg-preview.png" style="object-fit: cover;" alt="" class="img-fluid">
 
             </a>
           </div>

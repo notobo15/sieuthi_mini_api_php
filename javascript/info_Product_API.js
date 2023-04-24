@@ -166,12 +166,18 @@ $(document).ready(async function () {
                   <h3> ${data.name} </h3>
                   <p>HSD còn 1 năm</p>
                   <div class="Infoproduct_price">
-                      <h3><strong class="text-danger">${parseFloat(
+                      ${
+                        data.discountedPrice != null
+                          ? `<h3><strong class="text-danger">${priceToVND(
+                              data.discountedPrice
+                            )}</strong></h3>
+                      <span class="text-decoration-line-through text-black text-center mx-3 lh-lg">${priceToVND(
                         data.price
-                      ).toLocaleString(`de-DE`)} đ </strong></h3>
-                      <p class="text-decoration-line-through text-danger mx-1">${parseFloat(
-                        data.price + 10000
-                      ).toLocaleString(`de-DE`)} đ</p>
+                      )}</span>`
+                          : `<h3><strong class="text-danger">${priceToVND(
+                              data.price
+                            )}</strong></h3>`
+                      }
                   </div>
                   <button class="btn btn-danger mt-2 bg-danger btn-infoproduct-buy" onClick="return addProductToCart(${
                     data.id
