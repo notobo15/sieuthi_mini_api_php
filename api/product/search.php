@@ -14,15 +14,29 @@ $Category = new Category($conn);
 // }
 $arr = [];
 if (!empty($_GET['key'])) {
-  $result = $product->searchByKey($_GET['key']);
+  if (!empty($_GET['sort'])) {
+    $result = $product->searchByKey($_GET['key'], $_GET['sort']);
+  } else {
+    $result = $product->searchByKey($_GET['key']);
+  }
 }
 if (!empty($_GET['cate'])) {
   $Category->getSingleById($_GET['cate']);
   $arr["category_name"] =  $Category->name;
-  $result = $product->searchByCategory($_GET['cate']);
+
+  if (!empty($_GET['sort'])) {
+    $result = $product->searchByCategory($_GET['cate'], $_GET['sort']);
+  } else {
+    $result = $product->searchByCategory($_GET['cate']);
+  }
 }
+
 if (!empty($_GET['key']) && !empty($_GET['cate'])) {
-  $result = $product->searchByKeyAndCate(isset($_GET['key']), isset($_GET['cate']));
+  if (!empty($_GET['sort'])) {
+    $result = $product->searchByKeyAndCate(($_GET['key']), ($_GET['cate']), ($_GET['sort']));
+  } else {
+    $result = $product->searchByKeyAndCate(($_GET['key']), ($_GET['cate']));
+  }
 }
 
 

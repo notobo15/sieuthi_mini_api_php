@@ -219,24 +219,24 @@ class Product
     }
   }
 
-  public function searchByKey($key)
+  public function searchByKey($key, $sort = "asc")
   {
-    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE T1.slug LIKE '%$key%';";
+    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE T1.slug LIKE '%$key%' ORDER BY T1.price $sort;";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
   }
-  public function searchByCategory($cate)
+  public function searchByCategory($cate, $sort = "asc")
   {
-    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE category_id='$cate';";
+    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE category_id='$cate' ORDER BY T1.price $sort;";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
   }
 
-  public function searchByKeyAndCate($key, $cate)
+  public function searchByKeyAndCate($key, $cate, $sort = "asc")
   {
-    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1  LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE T1.slug LIKE '%$key%' and category_id='$cate';";
+    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1  LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id WHERE T1.slug LIKE '%$key%' and category_id='$cate' ORDER BY T1.price $sort;";
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;

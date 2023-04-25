@@ -494,7 +494,7 @@ INSERT INTO `permission` (`per_id`, `name`, `code_name`, `isDeleted`) VALUES
 --
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL,
   `desc` text DEFAULT NULL,

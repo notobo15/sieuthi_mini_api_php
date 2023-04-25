@@ -44,6 +44,7 @@
               <div class="input-group mt-1 input-myheader">
 
                 <input type="hidden" class="form-control input-search" name="page" value="1">
+                <!-- <input type="hidden" class="" name="page" value="1"> -->
                 <input required type="text" class="form-control input-search" name="key" placeholder=" Từ khóa tìm kiếm ?" style="box-shadow: none; border: 1px solid #e7e7e7; border-right: none;">
                 <button type="submit" class="input-group-text text-danger" id="btn_search" style="border: 1px solid #e7e7e7;"><i class="fa-solid fa-magnifying-glass"></i></button type="submit">
               </div>

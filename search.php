@@ -43,8 +43,26 @@
           <section class="myGrounpFeature1">
             <!-- select-API -->
             <div class="container-grounpfreature">
-              <div class="title-grounpfeature border-bottom mx-3 pt-1">
-                <span class="fs-6 text-black heading-search"></span>
+              <div style="height: auto;" class="title-grounpfeature my-3 mx-3 pt-1 row  d-flex justify-content-between align-items-center">
+                <div class="col-12 col-sm-8">
+                  <div class="row">
+                    <div class="col-8"><span class="fs-6 text-black heading-search"></span></div>
+                    <?php if (!isset($_GET['cate'])) : ?>
+                      <div class="col-4"><select class="form-filter-category form-select"></select></div>
+                    <?php endif; ?>
+
+
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 py-2">
+                  <div class="d-flex justify-content-center align-items-between">
+                    <span class="fs-6 mr-2" style="width: 35%; line-height: 2.5;">Sắp Xếp </span>
+                    <select style="width: 65%;" class="fs-6 form-select form-filter-price">
+                      <option selected value="asc">Tăng Dần</option>
+                      <option value="desc">Giảm Dần</option>
+                    </select>
+                  </div>
+                </div>
 
               </div>
               <div class="row pb-2 px-3 content-search-result">
