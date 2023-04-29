@@ -112,7 +112,7 @@ function EditAccount() {
                     
                     <div class="form_footer">
                         <button class="save" disabled style="pointer-events: none" type="submit">Save</button>
-                        <Button class="cancel">Cancel</Button>
+                        <Button class="cancel" type="button">Cancel</Button>
                     </div>
                 </div>  
                 `;
@@ -161,7 +161,7 @@ function EditAccount() {
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
                     const fd = new FormData(form);
-                    fetch('http://localhost/sieuthi_mini_api_php/api/product/update.php',
+                    fetch('http://localhost/sieuthi_mini_api_php/api/accounts/update.php',
                         {
                             method: 'post',
                             body: fd,
@@ -235,7 +235,7 @@ function ReloadAccount() {
         LoadAccount()
             .then(() => {
                 EditAccount()
-                search();
+                SearchAccount();
                 DeleteAccount();
             });
     })

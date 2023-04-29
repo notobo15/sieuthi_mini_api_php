@@ -172,7 +172,7 @@ function EditProduct() {
                     </div>
                     <div class="form_footer">
                         <button class="save" disabled style="pointer-events: none" type="submit">Save</button>
-                        <Button class="cancel">Cancel</Button>
+                        <Button class="cancel" type="button">Cancel</Button>
                     </div>
                 </div>  
                 `;
@@ -344,7 +344,7 @@ function AddProduct() {
                  </div>
                  <div class="form_footer">
                      <button class="add" disabled style="pointer-events: none" type="submit">Add</button>
-                     <Button class="cancel">Cancel</Button>
+                     <Button class="cancel" type="button">Cancel</Button>
                  </div>
              </div>  
              `;

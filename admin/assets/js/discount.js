@@ -85,7 +85,7 @@ function EditDiscount() {
                     </div>    
                     <div class="form_footer">
                         <Button class="save" disabled style="pointer-events: none">Save</Button>
-                        <Button class="cancel">Cancel</Button>
+                        <Button class="cancel" type="button">Cancel</Button>
                     </div> 
                 </div>`;
 
