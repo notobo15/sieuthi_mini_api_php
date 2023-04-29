@@ -1,0 +1,253 @@
+/*
+Responsive HTML Table With Pure CSS - Web Design/UI Design
+
+Code written by:
+👨🏻‍⚕️ Coding Design (Jeet Saru)
+
+> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
+
+🌎link: www.youtube.com/codingdesign 
+*/
+
+
+/* main {
+    height: 80;
+} */
+
+#cart {
+    width: 60%;
+    height: 75%;
+    background-color: rgba(6, 72, 216);
+    border-radius: .6rem;
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+#cart::-webkit-scrollbar {
+    width: 0.005rem;
+    height: 0.005rem;
+}
+
+#cart::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+#cart:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+#cart table {
+    width: 100%;
+    
+}
+
+#cart td img {
+    width: 50px;
+    height: 50px;
+    margin-right: .5rem;
+    border-radius: 25%;
+
+    vertical-align: middle;
+}
+
+#cart table,
+#cart th,
+#cart td {
+    border-collapse: collapse;
+    padding: .7rem;
+    text-align: center;
+}
+
+/* #cart td:nth-child(3) {
+        width: 20%;
+    }
+   
+
+    #cart td:nth-child(5) {
+        width: 15%;
+    } */
+
+#cart td:nth-child(3) {
+    width: 25%;
+}
+
+#cart thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #1e1d1ffe;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+#cart tbody tr:nth-child(even) {
+    background-color: #cf19190b;
+}
+
+#cart tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+#cart tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+
+
+#cart tbody tr td,
+#cart tbody tr td p,
+#cart tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+/* #cart tbody tr.hide td,
+#cart tbody tr.hide td p {
+    
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+} */
+/* 
+#cart tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+} */
+
+
+#cart thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+
+    text-align: center;
+    font-size: 1rem;
+
+    margin-left: .5rem;
+    transition: .2s ease-in-out;
+}
+
+#cart thead th:hover span.icon-arrow {
+    border: 1.4px solid #4569e0;
+}
+
+#cart thead th:hover {
+    color: #4569e0;
+}
+
+
+
+#cart .cart_header {
+    width: 100%;
+    height: 8%;
+    background-color: #1e1d1ffe;
+
+}
+
+#cart .close {
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    float: right;
+    border-top: .6rem;
+    background-color: #1e1d1ffe;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+}
+
+#cart .close:hover {
+    background-color: #eb0505fe;
+}
+#cart .save {
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    float: right;
+    border-top: .6rem;
+    background-color: #07b816fe;
+    color: white;
+    font-size: 1rem;
+    border: none;
+}
+
+#cart .save:hover {
+    background-color: #04860ffe;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    #cart {
+        width: 60%;
+        height: 65%;
+        background-color: rgba(6, 72, 216);
+        border-radius: .4rem;
+        overflow: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    #cart td img {
+        width: 30px;
+        height: 20px;
+        margin-right: .3rem;
+        border-radius: 20%;
+        vertical-align: middle;
+    }
+
+    #cart table,
+    #cart th,
+    #cart td {
+        border-collapse: collapse;
+        padding: .2rem;
+        text-align: center;
+        font-size: small;
+    }
+}
+
+@media (max-width: 630px) {
+
+    #cart {
+        width: 80%;
+        height: 65%;
+        background-color: rgba(6, 72, 216);
+        border-radius: .4rem;
+        overflow: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    #cart td img {
+        width: 20px;
+        height: 20px;
+        margin-right: .3rem;
+        border-radius: 20%;
+        vertical-align: middle;
+    }
+
+    #cart table,
+    #cart th,
+    #cart td {
+        border-collapse: collapse;
+        padding: .1rem;
+        text-align: center;
+        font-size: small;
+    }
+}

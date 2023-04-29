@@ -9,7 +9,7 @@ class ConnectDB
   // private $host = "localhost";
   // private $user = "root";
   // private $password = "123456";
-  // private $db_name = "sieuthi_mini";
+  // private $db_name = "notobo_sieuthimini";
   private $port = 3306;
   private $con = null;
   // private 

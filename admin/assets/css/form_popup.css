@@ -1,4 +1,4 @@
-#product_profile_popup {
+#form_popup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,14 +13,14 @@
     margin-top: 50px;
     
 }
-.product_profile img {
+.form_profile img {
     width: 20%;
     border-radius: 50%;
     /* text-align: center; */
     margin: 10px 0px 20px;
 }
 
-#product_profile_popup .close {
+#form_popup .close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -34,12 +34,12 @@
     cursor: pointer;
 }
 
-.product_ele label{
+.form_ele label{
     font-size: 1.2rem;
     color: #222;
 }
 
-.product_ele input , .product_ele textarea{
+.form_ele input , .form_ele textarea{
     margin-top: 5px;
     display: block;
     width: 100%;
@@ -50,12 +50,12 @@
     border-radius: 5px;
 }
 
-.product_ele textarea {
+.form_ele textarea {
     resize: vertical;
     height: 150px;
 }
 
-.product_ele select {
+.form_ele select {
     height: 25px;
     margin-top: 5px;
     display: block;
@@ -65,7 +65,7 @@
     border-radius: 5px;
 }
 
-.product_profile .product_footer button {
+.form_profile .form_footer button,.form_profile .form_footer input[type=submit] {
     margin-top: 5px;
     padding: 10px;
     outline: none;
@@ -74,23 +74,23 @@
     cursor: pointer;
 }
 
-.product_profile .product_footer .save {
+.form_profile .form_footer .save {
     background-color: rgb(108, 221, 108);
 }
 
-.product_profile .product_footer .add {
+.form_profile .form_footer .add {
     background-color: rgb(233, 131, 36);
 }
 
-.product_profile .product_footer .save:hover {
+.form_profile .form_footer .save:hover {
     background-color: rgb(72, 170, 72);
 
 }
 
-.product_profile .product_footer .add:hover {
+.form_profile .form_footer .add:hover {
     background-color: rgb(228, 93, 15);
 }
 
-.product_profile .product_footer .cancel:hover {
+.form_profile .form_footer .cancel:hover {
     background-color: #7e7d7c;
 }

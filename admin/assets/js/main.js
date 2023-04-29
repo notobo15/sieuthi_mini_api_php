@@ -10,15 +10,14 @@ function activeLink() {
   });
   this.classList.add("hovered");
   ;
-  if (this.querySelector('.title').innerHTML==="Users") {
-    user_contain.style.display = "block";
-    product_contain.style.display = "none";
-  } else if (this.querySelector('.title').innerHTML==="Products") {
-    user_contain.style.display = "none";
-    product_contain.style.display = "block";
-  }
-}
 
+
+  $('.main_content').hide();
+  var selected_tab = $(this).find("a").attr("href");
+  $(selected_tab).fadeIn();
+  return false;
+  
+}
 
 list.forEach((item) => item.addEventListener("click", activeLink));
 

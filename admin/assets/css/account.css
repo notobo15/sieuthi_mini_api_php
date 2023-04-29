@@ -1,17 +1,14 @@
 #user_container {
     position: relative;
     margin-top: 10px;
-    width: 90%;
+    width: 100%;
     height: 100%;
-    margin-left: calc((100% - 90%)/2);
-    /* background-color: red; */
+    /* margin-left: calc((100% - 90%)/2); */
     background-color: rgba(136, 176, 236, 0.333);
     box-shadow: 0 0.4rem .8rem #0005;
     border-radius: .8rem;
     overflow: hidden;
-    display: none;
-    /* margin: 50px; */
-    /* backdrop-filter: blur(7px); */
+    display: block;
 }
 
 #user_header {
@@ -106,7 +103,7 @@
 
 #user_table th {
     /* position: sticky; */
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     /* cursor: pointer; */
     /* top: 0;
     left: 0; */
@@ -114,13 +111,13 @@
 }
 
 #user_table td {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 table,
 th,
 td {
-    padding: 1rem;
+    padding: .8rem;
     border-collapse: collapse;
 }
 
@@ -137,13 +134,27 @@ td {
     /* white-space: normal ; */
 }
 
-#user_table table tr td:nth-child(2) {
+#user_table table  td:nth-child(2) {
     font-weight: 700;
     color: rgb(5, 56, 150);
 }
 
-#user_table table tr td:nth-child(6) {
-    width: 15%;
+#user_table table  td:nth-child(1) {
+    width: 5%;
+}
+
+#user_table table  td:nth-child(2) {
+    width: 5%;
+}
+#user_table table  td:nth-child(3) {
+    width: 5%;
+}
+
+#user_table table  td:nth-child(5) {
+    width: 5%;
+}
+#user_table table  td:nth-child(7) {
+    width: 5%;
 }
 
 #user_table table tr:nth-child(even) {
@@ -212,12 +223,7 @@ td {
     background-color: rgb(2, 247, 35);
 }
 
-.user_setting button:nth-child(2){
-    background-color: rgb(134, 136, 134);
-
-}
-
-.user_setting button:nth-child(3) {
+.user_setting button:nth-child(2) {
     background-color: rgb(245, 3, 3);
     
 
@@ -229,11 +235,6 @@ td {
 
 
 .user_setting button:nth-child(2):hover {
-    background-color: rgb(67, 75, 67);
-
-}
-
-.user_setting button:nth-child(3):hover {
     background-color: rgb(236, 100, 100);
 }
 

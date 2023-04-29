@@ -12,270 +12,67 @@
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/account.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/user_profile.css">
-    <link rel="stylesheet" href="assets/css/product_profile.css">
-
+    <link rel="stylesheet" href="assets/css/form_popup.css">
+    <link rel="stylesheet" href="assets/css/order.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/category.css">
+    <link rel="stylesheet" href="assets/css/suppilier.css">
+    <link rel="stylesheet" href="assets/css/discount.css">
+    <link rel="stylesheet" href="assets/css/permission.css">
 </head>
 
 <body>
-    <!-- =============== Navigation ================ -->
+    <!-- =============== Container ================ -->
     <div class="container">
-        <?php require_once "./inc/navbar.php"; ?>
+        <!-- =============== Navigation ================ -->
+        <?php include 'assets/include/navigation.php' ?>
+
 
         <!-- ========================= Main ==================== -->
         <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
+            <!-- ========================= topbar ==================== -->
+            <?php include 'assets/include/topbar.php' ?>
 
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
-                </div>
-                <div class="his">
-                    <ion-icon name="alert-circle-outline"></ion-icon>
-                </div>
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
-                </div>
-            </div>
+            <!-- ======================= Account ================== -->
+            <?php include 'assets/include/account.php' ?>
 
-            <!-- ======================= Users ================== -->
-            <div id="user_container">
-                <header id="user_header">
-                    <h1>User - Management</h1>
-                    <div class="user_header_search">
-                        <input type="text" name="search_user" id="search_user" placeholder="Search...">
-                        <i class="fa-solid fa-plus user_add"></i>
-                    </div>
-                </header>
+            <!-- ================= Product ================ -->
+            <?php include 'assets/include/product.php' ?>
 
-                <div id="user_table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Account</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Birthdate</th>
-                                <th>Address</th>
-                                <th>Sex</th>
+            <!-- ================================= Order ================================= -->
+            <?php include 'assets/include/order.php' ?>
 
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Setting</th>
+            <!-- ================================= Category ================================= -->
+            <?php include 'assets/include/category.php' ?>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+            <!-- ================================= Suppilier ================================= -->
+            <?php include 'assets/include/suppilier.php' ?>
 
-                </div>
-            </div>
+            <!-- ================================= Discount ================================= -->
+            <?php include 'assets/include/discount.php' ?>
 
-            <!-- ================= User Information ================ -->
-
-            <div id="user_profile">
-
-                <i class="fa-solid fa-xmark user_profile_btnclose"></i>
-                <div>
-                    ID: <input type="text" name="id" class="id" disabled placeholder="ID...">
-                </div>
-                <div>
-                    Account: <input type="text" name="account" class="account" disabled placeholder="Type your account name...">
-                </div>
-
-                <div>
-                    Name: <input type="text" name="name" class="name" placeholder="Type your name...">
-                </div>
-
-                <div>
-                    phone: <input type="text" name="phone" class="phone" placeholder="Type your phone number...">
-                </div>
-
-                <div>
-                    Birth date: <input type="text" name="birth_date" class="birth_date" placeholder="Type your Birthdate...">
-                </div>
-
-                <div>
-                    Address: <input type="text" name="address" class="address" placeholder="Your address to receive products...">
-                </div>
-
-                <div>
-                    Sex: <select name="sex" class="sex">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-
-                <div>
-                    Role: <select name="role" class="role">
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
-                        <option value="manager">Manager</option>
-
-                    </select>
-                </div>
-
-                <div>
-                    Status: <select name="status" class="status">
-                        <option value="online">Online</option>
-                        <option value="offline">Offline</ption>
-                        <option value="busy">Busy</option>
-                    </select>
-                </div>
-
-                <div>
-                    Date created: <i class="date_created">dsadas</i>
-                </div>
-
-                <div class="user_footer">
-                    <button class="add">Add</button>
-                    <button class="save">Save</button>
-                    <Button class="cancel">Cancel</Button>
-                </div>
-            </div>
-
-            <!-- ================= Products ================ -->
-            <main id="product_container">
-                <section class="product_header">
-                    <h1>Customer's Orders</h1>
-                    <div class="input-group">
-                        <input type="search" placeholder="Search Data...">
-                        <img src="assets/imgs/search.png" alt="">
-                    </div>
-                    <div class="add_product_div">
-                        <label for="export-file" class="add_product_btn" title="Export File"></label>
-                        <!-- <input type="checkbox" id="export-file"> -->
-                        <!-- <div class="export__file-options">
-                            <label>Export As &nbsp; &#10140;</label>
-                            <label for="export-file" id="toPDF">PDF <img src="assets/imgs/pdf.png" alt=""></label>
-                            <label for="export-file" id="toJSON">JSON <img src="assets/imgs/json.png" alt=""></label>
-                            <label for="export-file" id="toCSV">CSV <img src="assets/imgs/csv.png" alt=""></label>
-                            <label for="export-file" id="toEXCEL">EXCEL <img src="assets/imgs/excel.png" alt=""></label>
-                        </div> -->
-                    </div>
-                </section>
-                <section class="product_table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Id<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>image<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Name<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Category <span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Trademark<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Price<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Quantity<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Setting<span class="icon-arrow">&UpArrow;</span></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </section>
-
-            </main>
-
-            <!-- 
-            <div id="product_profile_popup">
-                <div class="close">&times;</div>
-                <div class="product_profile">
-                    <img src="./assets/imgs/Alson GC.jpg" alt="">
-                    <div class="product_ele">
-                        <label for="product_id">Id</label>
-                        <input type="text" name="product_id" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_name">Name</label>
-                        <input type="text" name="product_name" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_slug">Slug:</label>
-                        <input type="text" name="product_slug" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_description">Description</label>
-                        <textarea name="product_description" id=""></textarea>
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_price">Price</label>
-                        <input type="text" name="product_price" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_mass">Mass</label>
-                        <input type="text" name="product_mass" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_ingredient">Ingerdient</label>
-                        <textarea name="product_ingredient" id=""></textarea>
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_htu">HowToUse</label>
-                        <input type="text" name="product_htu" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_preserve">Preserve</label>
-                        <textarea name="product_preserve" id=""></textarea>
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_trademark">Trademark</label>
-                        <input type="text" name="product_trademark" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_markin">Markin</label>
-                        <input type="text" name="product_markin" id="">
-                    </div>
-                    <div class="product_ele">
-                        <label for="product_cate">Category</label>
-                        <select name="product_cate" id="product_cate" class="" >
-                            <option value="Mì, hủ tiếu, phở gói">Mì, hủ tiếu, phở gói</option>
-                            <option value="Gia Vị - Nguyên Liệu Nấu Ăn" >Gia Vị - Nguyên Liệu Nấu Ăn</option>
-                            <option value="2" >Đồ hộp các loại</option>
-                            <option value="Rau lá">Rau lá</option>    
-                            <option value="Củ, quả">Củ, quả</option>    
-                            <option value="Trái cây">Trái cây</option>
-                            <option value="Thịt các loại">Thịt các loại</option>
-                            <option value="Cá, hải sản">Cá, hải sản</option>
-                            <option value="Bia">Bia</option>
-                            <option value="Nước ngọt">Nước ngọt </option>
-                            <option value="Bánh Snake">Bánh Snake</option>
-                            <option value="Nước giặt">Nước giặt</option>
-                            <option value="Nồi, niêu, xoong, chảo">Nồi, niêu, xoong, chảo</option>
-                        </select>
-                    </div>
-                    <div class="product_footer">
-                        <button class="add">Add</button>
-                        <button class="save">Save</button>
-                        <Button class="cancel">Cancel</Button>
-                    </div>
-                </div>  
-            </div> -->
-            <!-- <script>
-    var a = document.querySelectorAll('#product_cate option');
-   
-    console.log( parseInt typeof a[2].value)
-</script> -->
-
+            <!-- ================================= Permission ================================= -->
+            <?php include 'assets/include/permission.php' ?>
         </div>
-
-        <!-- =========== Scripts =========  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/user.js"></script>
-        <script src="assets/js/product.js"></script>
-
-        <!-- ====== ionicons ======= -->
-
+    </div>
+    
 </body>
+
+<!-- =========== Scripts =========  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/account.js"></script>
+<script src="assets/js/product.js"></script>
+<script src="assets/js/order.js"></script>
+<script src="assets/js/category.js"></script>
+<script src="assets/js/suppilier.js"></script>
+<script src="assets/js/discount.js"></script>
+<script src="assets/js/permission.js"></script>
+<!-- ====== ionicons ======= -->
 
 </html>
