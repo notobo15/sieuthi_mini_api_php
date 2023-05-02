@@ -9,20 +9,18 @@ Code written by:
 🌎link: www.youtube.com/codingdesign 
 */
 
-
 /* main {
     height: 80;
 } */
 
 main#order_container {
-
     width: 100%;
     height: 100%;
     /* margin-left: calc((100% - 90%)/2); */
     background-color: rgba(99, 98, 98, 0.333);
     backdrop-filter: blur(7px);
-    box-shadow: 0 .4rem .8rem #0005;
-    border-radius: .8rem;
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    border-radius: 0.8rem;
     margin-top: 1rem;
     display: none;
     overflow: hidden;
@@ -35,7 +33,7 @@ main#order_container {
     width: 100%;
     height: 60px;
     background-color: rgba(92, 89, 89, 0.267);
-    padding: .8rem 1rem;
+    padding: 0.8rem 1rem;
 
     display: flex;
     justify-content: space-between;
@@ -46,20 +44,20 @@ main#order_container {
     width: 35%;
     height: 100%;
     background-color: #fff5;
-    padding: 0 .8rem;
+    padding: 0 0.8rem;
     border-radius: 2rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .order_header .input-group:hover {
     width: 45%;
     background-color: #fff8;
-    box-shadow: 0 .1rem .4rem #0002;
+    box-shadow: 0 0.1rem 0.4rem #0002;
 }
 
 .order_header .input-group img {
@@ -68,8 +66,8 @@ main#order_container {
 }
 
 .order_header .input-group input {
-    width: 100%;
-    padding: 0 .5rem 0 .3rem;
+    width: 80%;
+    padding: 0 0.5rem 0 0.3rem;
     background-color: transparent;
     border: none;
     outline: none;
@@ -79,8 +77,8 @@ main#order_container {
     width: 95%;
     max-height: calc(95% - 1.6rem);
     background-color: rgba(143, 141, 141, 0.733);
-    margin: .8rem auto;
-    border-radius: .6rem;
+    margin: 0.8rem auto;
+    border-radius: 0.6rem;
     overflow: auto;
     overflow: overlay;
 }
@@ -91,7 +89,7 @@ main#order_container {
 }
 
 .order_table::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-color: #0004;
     visibility: hidden;
 }
@@ -104,12 +102,11 @@ main#order_container {
     width: 100%;
 }
 
-
 .order_table table,
 .order_table th,
 .order_table td {
     border-collapse: collapse;
-    padding: .8rem;
+    padding: 0.8rem;
     text-align: center;
 }
 
@@ -125,13 +122,12 @@ main#order_container {
 }
 
 .order_table td:nth-child(4) {
-    width: 13%;
+    width: 65%;
 }
 
 .order_table td:nth-child(5) {
     width: 15%;
 }
-
 
 .order_table thead th {
     position: sticky;
@@ -155,8 +151,6 @@ main#order_container {
     background-color: rgba(184, 181, 181, 0.4) !important;
 }
 
-
-
 /* .order_table tbody tr.hide td,
 .order_table tbody tr.hide td p {
     
@@ -172,14 +166,14 @@ main#order_container {
 } */
 
 .order_table .status {
-    padding: .5rem 0;
-    border-radius: 2rem;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
     text-align: center;
 }
 
 .order_table .status.processing {
-    background-color: #f32525;
-    color: #3b3b3b;
+    background-color: #2536f3;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -190,17 +184,16 @@ main#order_container {
 }
 
 .order_table .status.delayed {
-    background-color: #686666;  
+    background-color: #686666;
     color: #c5c4c4;
     font-weight: bold;
 }
-
 
 #order_container .order_table td:nth-child(6) {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -211,9 +204,9 @@ main#order_container {
     border-radius: 8px;
     border: none;
     display: inline-block;
-    box-shadow: 0 0.4rem .8rem #0005;
-    width: 25%;
-    height: 30px;
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    width: 100%;
+    height: auto;
     color: rgb(0, 0, 0);
     white-space: pre-wrap;
 }
@@ -260,7 +253,7 @@ main#order_container {
         border-radius: 10px;
         border: none;
         /* display: block; */
-        box-shadow: 0 0.4rem .8rem #0005;
+        box-shadow: 0 0.4rem 0.8rem #0005;
         width: 70%;
         height: 30px;
         color: rgb(0, 0, 0);
@@ -277,8 +270,8 @@ main#order_container {
     text-align: center;
     font-size: 1rem;
 
-    margin-left: .5rem;
-    transition: .2s ease-in-out;
+    margin-left: 0.5rem;
+    transition: 0.2s ease-in-out;
 }
 
 .order_table thead th:hover span.icon-arrow {
@@ -313,7 +306,7 @@ main#order_container {
     height: 2.5rem;
     background: #fff6 url(../imgs/reload.jpg) center / 125% no-repeat;
     border-radius: 50%;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .order_header .reload_order .reload_order_btn:hover {

@@ -2,22 +2,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    width: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
     height: 85%;
     padding: 20px 30px;
     background-color: #d7dd86;
-    box-decoration-break: 2px 5px 5px rgba(0,0,0,15);
+    box-decoration-break: 2px 5px 5px rgba(0, 0, 0, 15);
     border-radius: 10px;
     overflow: auto;
     margin-top: 50px;
-    
 }
 .form_profile img {
-    width: 20%;
-    border-radius: 50%;
+    width: 50%;
+    /* border-radius: 50%; */
     /* text-align: center; */
-    margin: 10px 0px 20px;
+    /* margin: 10px 0px 20px; */
 }
 
 #form_popup .close {
@@ -25,7 +24,7 @@
     top: 10px;
     right: 10px;
     width: 20px;
-    height: 25px;
+    height: 20px;
     background-color: #888;
     color: #eee;
     text-align: center;
@@ -34,16 +33,17 @@
     cursor: pointer;
 }
 
-.form_ele label{
+.form_ele label {
     font-size: 1.2rem;
     color: #222;
 }
 
-.form_ele input , .form_ele textarea{
+.form_ele input,
+.form_ele textarea {
     margin-top: 5px;
     display: block;
     width: 100%;
-    
+
     padding: 10px;
     outline: none;
     border: 1px solid #aaa;
@@ -65,7 +65,8 @@
     border-radius: 5px;
 }
 
-.form_profile .form_footer button,.form_profile .form_footer input[type=submit] {
+.form_profile .form_footer button,
+.form_profile .form_footer input[type="submit"] {
     margin-top: 5px;
     padding: 10px;
     outline: none;
@@ -84,7 +85,6 @@
 
 .form_profile .form_footer .save:hover {
     background-color: rgb(72, 170, 72);
-
 }
 
 .form_profile .form_footer .add:hover {

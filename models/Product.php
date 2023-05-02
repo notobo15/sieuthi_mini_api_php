@@ -46,7 +46,7 @@ class Product
 
   public function getListImagesById($product_id)
   {
-    $query = 'SELECT * FROM product_image WHERE product_id = ' . $product_id;
+    $query = 'SELECT * FROM product_image WHERE product_id = ' . $product_id . ' and isDeleted = false;';
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
@@ -240,5 +240,36 @@ class Product
     $stm = $this->con->prepare($query);
     $stm->execute();
     return $stm;
+  }
+  public function delete_subimage($name)
+  {
+    $query = "UPDATE `product_image` SET isDeleted = true WHERE `image_name` = '$name';";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
+  public function create_subimage($id, $name)
+  {
+    $query = "INSERT INTO `product_image`(`product_id`,`image_name`) VALUES ('$id', '$name');";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    return $stm;
+  }
+  public function create_discount($discount_id)
+  {
+    $query1 = "SELECT * FROM discount_product WHERE product_id = '$this->id';";
+    $stm = $this->con->prepare($query1);
+    if ($stm->execute() && $stm->rowCount() > 0) {
+      $query3 = "UPDATE discount_product SET `discount_id`= '$discount_id' WHERE product_id = '$this->id';";
+      $stm3 = $this->con->prepare($query3);
+      $stm3->execute();
+      return $stm3;
+    } else {
+      $query2 = "INSERT INTO discount_product(`discount_id`, `product_id`) VALUES ('$discount_id', '$this->id');";
+      $stm2 = $this->con->prepare($query2);
+      $stm2->execute();
+      return $stm2;
+    }
+    // return $stm;
   }
 }

@@ -68,7 +68,7 @@ main#discount_container {
 }
 
 .discount_header .input-group input {
-    width: 100%;
+    width: 80%;
     padding: 0 .5rem 0 .3rem;
     background-color: transparent;
     border: none;

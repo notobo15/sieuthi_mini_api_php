@@ -2,14 +2,14 @@
 
 class ConnectDB
 {
-  // private $host = "103.101.163.106";
-  // private $user = "notobo_sieuthimini";
-  // private $password = "notobo_sieuthimini";
-  // private $db_name = "notobo_sieuthimini";
-  private $host = "localhost";
-  private $user = "root";
-  private $password = "123456";
+  private $host = "103.101.163.106";
+  private $user = "notobo_sieuthimini";
+  private $password = "notobo_sieuthimini";
   private $db_name = "notobo_sieuthimini";
+  // private $host = "localhost";
+  // private $user = "root";
+  // private $password = "123456";
+  // private $db_name = "notobo_sieuthimini";
   private $port = 3306;
   private $con = null;
   // private 

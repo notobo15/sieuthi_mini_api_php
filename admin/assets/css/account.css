@@ -5,10 +5,10 @@
     height: 100%;
     /* margin-left: calc((100% - 90%)/2); */
     background-color: rgba(136, 176, 236, 0.333);
-    box-shadow: 0 0.4rem .8rem #0005;
-    border-radius: .8rem;
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    border-radius: 0.8rem;
     overflow: hidden;
-    display: block;
+    display: none;
 }
 
 #user_header {
@@ -26,7 +26,6 @@
 }
 
 #user_header .user_header_search {
-
     height: 100%;
     width: 40%;
     /* background-color: purple; */
@@ -39,7 +38,6 @@
     white-space: break-spaces;
 }
 
-
 #user_header .user_header_search input {
     height: 60%;
     width: 60%;
@@ -48,13 +46,12 @@
     padding: 15px;
     outline: none;
     font-size: 1rem;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 #user_header .user_header_search input:focus {
     width: 70%;
 }
-
 
 #user_header .user_header_search i {
     position: relative;
@@ -66,7 +63,7 @@
 }
 
 #user_header .user_header_search i:hover {
-    box-shadow: 0 0.4rem .8rem #0005;
+    box-shadow: 0 0.4rem 0.8rem #0005;
     border-radius: 10px;
 }
 
@@ -82,24 +79,20 @@
     font-size: 10px;
 }
 
-
-
 #user_table::-webkit-scrollbar {
-    width: .5rem;
-    height: .5rem;
+    width: 0.5rem;
+    height: 0.5rem;
 }
 
 #user_table::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-color: #0004;
     visibility: hidden;
 }
 
 #user_table:hover::-webkit-scrollbar-thumb {
     visibility: visible;
-
 }
-
 
 #user_table th {
     /* position: sticky; */
@@ -117,7 +110,7 @@
 table,
 th,
 td {
-    padding: .8rem;
+    padding: 0.8rem;
     border-collapse: collapse;
 }
 
@@ -125,44 +118,42 @@ td {
     width: 100%;
 }
 
-
 #user_table th,
 #user_table td {
-    border-bottom: .8px solid #554e4e;
+    border-bottom: 0.8px solid #554e4e;
     text-align: center;
 
     /* white-space: normal ; */
 }
 
-#user_table table  td:nth-child(2) {
+#user_table table td:nth-child(2) {
     font-weight: 700;
     color: rgb(5, 56, 150);
 }
 
-#user_table table  td:nth-child(1) {
+#user_table table td:nth-child(1) {
     width: 5%;
 }
 
-#user_table table  td:nth-child(2) {
+#user_table table td:nth-child(2) {
     width: 5%;
 }
-#user_table table  td:nth-child(3) {
+#user_table table td:nth-child(3) {
     width: 5%;
 }
 
-#user_table table  td:nth-child(5) {
+#user_table table td:nth-child(5) {
     width: 5%;
 }
-#user_table table  td:nth-child(7) {
+#user_table table td:nth-child(7) {
     width: 5%;
 }
 
 #user_table table tr:nth-child(even) {
     background-color: rgba(98, 127, 170, 0.333);
-    
 }
 
-#user_table table tbody tr:hover{
+#user_table table tbody tr:hover {
     background-color: rgba(141, 132, 132, 0.4);
 }
 
@@ -171,7 +162,7 @@ td {
 }
 
 .user_status {
-    padding: .4rem 0;
+    padding: 0.4rem 0;
     border-radius: 2rem;
 }
 
@@ -195,7 +186,7 @@ td {
 }
 
 .fa-solid.fa-gear:hover {
-    box-shadow: 0 0.4rem .8rem #0005;
+    box-shadow: 0 0.4rem 0.8rem #0005;
     border-radius: 10px;
 }
 
@@ -210,34 +201,26 @@ td {
 .user_setting button {
     cursor: pointer;
     color: rgb(241, 237, 237);
-    border-radius:10px;
+    border-radius: 10px;
     display: inline;
     border: none;
-    box-shadow: 0 0.4rem .8rem #0005;
+    box-shadow: 0 0.4rem 0.8rem #0005;
     width: 45%;
     height: 30px;
 }
 
 .user_setting button:nth-child(1) {
-    
     background-color: rgb(2, 247, 35);
 }
 
 .user_setting button:nth-child(2) {
     background-color: rgb(245, 3, 3);
-    
-
 }
 
 .user_setting button:nth-child(1):hover {
     background-color: rgb(109, 240, 116);
 }
 
-
 .user_setting button:nth-child(2):hover {
     background-color: rgb(236, 100, 100);
 }
-
-
-
-

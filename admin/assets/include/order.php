@@ -14,11 +14,11 @@
         <table>
             <thead>
                 <tr>
-                    <th>Order Time<span class="icon-arrow">&UpArrow;</span></th>
                     <th>Order Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>User Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>totalPrice<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Status<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Thời Gian<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Tổng Tiền<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Chi Tiết<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Trạng Thái<span class="icon-arrow">&UpArrow;</span></th>
                     <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
                 </tr>
             </thead>

@@ -1,7 +1,7 @@
 <?php
 class Account
 {
-   public $table_name = "account";
+  public $table_name = "account";
 
 
   public $id;
@@ -32,7 +32,7 @@ class Account
   public function getList()
   {
     // $query = 'SELECT * FROM ' . $this->table_name . ' WHERE isDeleted = 0;';
-     $query = 'SELECT * FROM ' . $this->table_name ;
+    $query = 'SELECT * FROM ' . $this->table_name;
 
     $stm = $this->con->prepare($query);
     $stm->execute();
@@ -46,6 +46,30 @@ class Account
     JOIN order_detail T2 ON T1.id = T2.order_id 
     JOIN product T3 ON T3.id = T2.product_id 
     WHERE T1.account_id = '$this->id'
+    GROUP BY T1.id;";
+    $stm = $this->con->prepare($query);
+    $stm->execute();
+    $arr_order = [];
+    while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+      $item = array(
+        'id' => $id,
+        'status' => $status,
+        'order_date' => $order_date,
+        'totalPrice' => $totalPrice,
+        'product_detail' => $product_detail,
+      );
+      $arr_order[] = $item;
+    }
+    return $arr_order;
+  }
+
+  public function getOrderAll()
+  {
+    $query = "SELECT T1.id, T1.order_date, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
+    FROM orders T1 
+    JOIN order_detail T2 ON T1.id = T2.order_id 
+    JOIN product T3 ON T3.id = T2.product_id 
     GROUP BY T1.id;";
     $stm = $this->con->prepare($query);
     $stm->execute();
