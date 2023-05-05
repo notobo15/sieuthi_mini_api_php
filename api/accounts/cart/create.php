@@ -21,8 +21,10 @@ if (empty($_POST['quantity'])) {
 $cart = array(
   'product_id' => $_POST['product_id'],
   'quantity' => $_POST['quantity'],
+  'price' => $_POST['price']
 
 );
+
 if (empty($_SESSION['cart'])) {
   $_SESSION['cart'] = [];
 }
@@ -45,7 +47,7 @@ if (count($_SESSION['cart'])  == 0) {
     $_SESSION['cart'][] = $cart;
   }
 }
-// print_r($_SESSION['cart']);
+// print_r($_SES  SION['cart']);
 
 echo json_encode(
   array('message' => 'Success', "cart" => $_SESSION['cart']),

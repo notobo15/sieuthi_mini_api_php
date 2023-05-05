@@ -41,12 +41,13 @@ class Account
 
   public function getListOrder()
   {
-    $query = "SELECT T1.id, T1.order_date, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
+    $query = "SELECT T1.id, T1.order_date, T1.status, (T2.quantity) * T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
     FROM orders T1 
     JOIN order_detail T2 ON T1.id = T2.order_id 
     JOIN product T3 ON T3.id = T2.product_id 
     WHERE T1.account_id = '$this->id'
-    GROUP BY T1.id;";
+    GROUP BY T1.id
+    ORDER BY  T1.id DESC ;";
     $stm = $this->con->prepare($query);
     $stm->execute();
     $arr_order = [];
@@ -66,11 +67,12 @@ class Account
 
   public function getOrderAll()
   {
-    $query = "SELECT T1.id, T1.order_date, T1.status,COUNT(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
+    $query = "SELECT T1.id, T1.order_date, T1.status,(T2.quantity)* T2.price AS totalPrice, GROUP_CONCAT(T3.name, ' ( x',  T2.quantity, ' )<br/>') as product_detail
     FROM orders T1 
     JOIN order_detail T2 ON T1.id = T2.order_id 
     JOIN product T3 ON T3.id = T2.product_id 
-    GROUP BY T1.id;";
+    GROUP BY T1.id
+    ORDER BY  T1.id DESC";
     $stm = $this->con->prepare($query);
     $stm->execute();
     $arr_order = [];
@@ -262,10 +264,9 @@ class Account
       WHERE
       id = :id';
     $stmt = $this->con->prepare($query);
-
-    $stmt->bindParam(':password', $this->password);
+    $password = (md5($this->password));
+    $stmt->bindParam(':password', $password);
     $stmt->bindParam(':id', $this->id);
-
     if ($stmt->execute() && $stmt->rowCount() > 0) {
       return true;
     } else {

@@ -1,8 +1,9 @@
-async function increase(id) {
+async function increase(id, price) {
   await showLoading();
   let fd = new FormData();
   fd.append("product_id", id);
   fd.append("quantity", 1);
+  fd.append("price", price);
   await $.ajax({
     type: "post",
     url: "api/accounts/cart/create.php",
@@ -17,11 +18,12 @@ async function increase(id) {
   });
 }
 
-async function decrease(id) {
+async function decrease(id, price) {
   await showLoading();
   let fd = new FormData();
   fd.append("product_id", id);
   fd.append("quantity", -1);
+  fd.append("price", price);
   await $.ajax({
     type: "post",
     url: "api/accounts/cart/create.php",
@@ -70,16 +72,19 @@ function clearAll() {
 }
 
 async function createOrder() {
-  await showLoading();
-  await $.ajax({
-    type: "post",
-    url: "api/accounts/orders/create.php",
-    success: function (data) {
-      showModalAlert("Bạn đã đặt hàng thành công.");
-      // window.location.reload();
-    },
-  });
-  // hideLoading();
+  // await showLoading();
+  if (confirm("Bạn Chắc Chắn Muốn Đặt Hàng?")) {
+    await $.ajax({
+      type: "post",
+      url: "api/accounts/orders/create.php",
+      success: function (data) {
+        console.log(data);
+        alert("Bạn đã đặt hàng thành công.");
+        window.location.assign("./order.php");
+        // hideLoading();
+      },
+    });
+  }
 }
 
 function renderCart() {
@@ -113,11 +118,15 @@ function renderCart() {
                  item.quantity <= 1 ? `disabled` : ``
                } onClick="return decrease(${
           item.product_id
-        })"><i class="fa-solid fa-minus"></i></button>
+        },${
+          item.price
+        } )"><i class="fa-solid fa-minus"></i></button>
                <input type="text" value="${item.quantity}" readonly />
                <button class="plus_card" onClick="return increase(${
                  item.product_id
-               })"><i class="fa-solid fa-plus"></i></button>
+               }, ${
+                item.price
+              })"><i class="fa-solid fa-plus"></i></button>
              </div>
            </td>
            <td data-th="Tổng tiền" class="text-center">${priceToVND(

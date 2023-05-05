@@ -39,14 +39,14 @@
 
             </a>
           </div>
-          <div class="col-md-5 col-sm-9 col-9 py-3">
+          <div class="col-md-5 col-sm-9 col-9 py-3 my-auto">
             <form action="search.php" id="form-search">
               <div class="input-group mt-1 input-myheader">
 
                 <input type="hidden" class="form-control input-search" name="page" value="1">
                 <!-- <input type="hidden" class="" name="page" value="1"> -->
                 <input required type="text" class="form-control input-search" name="key" placeholder=" Từ khóa tìm kiếm ?" style="box-shadow: none; border: 1px solid #e7e7e7; border-right: none;">
-                <button type="submit" class="input-group-text text-danger" id="btn_search" style="border: 1px solid #e7e7e7;"><i class="fa-solid fa-magnifying-glass"></i></button type="submit">
+                <button type="submit" class="input-group-text bg-danger" id="btn_search" style="border: 1px solid #e7e7e7;"><i class="fa-solid fa-magnifying-glass text-light"></i></button type="submit">
               </div>
             </form>
           </div>
@@ -94,7 +94,7 @@
                     if (isset($_SESSION['account'])) :
                     ?>
                       <?php if (isset($_SESSION['account']['group_id']) == 5) : ?>
-                        <li> <a class="dropdown-item bg-white" href="login_register.php">Đi Dến Admin</a></li>
+                        <li> <a class="dropdown-item bg-white" href="admin/index.php">Đi Dến Admin</a></li>
                       <?php endif; ?>
                       <li> <a class="dropdown-item bg-white" href="change_password.php">Thay Đổi Mật Khẩu</a></li>
                       <li> <a class="dropdown-item bg-white" href="info.php">Thông Tin Của Bạn</a></li>

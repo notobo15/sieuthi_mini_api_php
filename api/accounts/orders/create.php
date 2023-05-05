@@ -10,8 +10,7 @@ $db = new ConnectDB();
 $conn = $db->getConnect();
 $account = new Account($conn);
 
-$data = json_decode(file_get_contents("php://input"));
-
+$isSuccess = false;
 if (isset($_SESSION['cart'])) {
   $query_order = "INSERT INTO orders SET account_id = ?";
   $stm = $conn->prepare($query_order);
@@ -19,28 +18,26 @@ if (isset($_SESSION['cart'])) {
   if ($stm->execute()) {
     $order_id = $conn->lastInsertId();
     foreach ($_SESSION['cart'] as $value) {
-      print_r($value['product_id']);
-      print_r($value['quantity']);
-      print_r($order_id);
-      $query_detail = "INSERT INTO order_detail SET order_id = ?, product_id = ?, quantity = ?;";
+      $query_detail = "INSERT INTO order_detail SET order_id = ?, product_id = ?, quantity = ?, price =?;";
       $stmt = $conn->prepare($query_detail);
       $stmt->bindParam(1, $order_id);
       $stmt->bindParam(2, $value['product_id']);
       $stmt->bindParam(3, $value['quantity']);
+      $stmt->bindParam(4, $value['price']);
       if ($stmt->execute()) {
-        print_r("ok");
+        $isSuccess = true;
       }
     }
   }
 }
 
-// Create Category
-// if ($account->create()) {
-//   echo json_encode(
-//     array('message' => 'account Created')
-//   );
-// } else {
-//   echo json_encode(
-//     array('message' => 'account Not Created')
-//   );
-// }
+if ($isSuccess) {
+  $_SESSION['cart'] = [];
+  echo json_encode(
+    array('message' => 'Order Created')
+  );
+} else {
+  echo json_encode(
+    array('message' => 'Order Not Created')
+  );
+}

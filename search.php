@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="./css/footer.css">
   <link rel="stylesheet" href="./css/modal_oder.css">
   <link rel="stylesheet" href="./css/slider.css">
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="icon" type="image/x-icon" href="./img/images-removebg-preview.png">
   <title>Siêu thị mini</title>
   <?php include_once "./inc/header.php"; ?>
@@ -98,7 +99,7 @@
 <!-- <script src="./javascript/test_javascript.js"></script> -->
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
-<script src="./javascript/menu.js"></script>
+<!-- <script src="./javascript/menu.js"></script> -->
 <!-- <script src="./javascript/modal_card.js"></script> -->
 <!-- <script src="./javascript/modal_oder.js"></script> -->
 <script src="./javascript/search.js"></script>

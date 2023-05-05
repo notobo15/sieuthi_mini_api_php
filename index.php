@@ -46,13 +46,12 @@
           <?php include_once "./inc/home_group_category.php"; ?>
 
           <!-- end Groupcate -->
-          <section class="myProduct">
+          <!-- <section class="myProduct">
             <div class=" container-product">
               <div class="pt-2 title-product ">
                 <h2 class="fs-5 mb-3">CÁC SẢN PHẨM KHUYẾN MÃI</h2>
               </div>
               <div class="row pb-2 px-3 product-list">
-                <!-- render _ API -->
               </div>
             </div>
             <div class="container see-more-container">
@@ -60,7 +59,7 @@
                 <a href="#"> Xem thêm sản phẩm...</a>
               </div>
             </div>
-          </section>
+          </section> -->
           <section class="myGrounpFeature1">
           </section>
 
@@ -80,9 +79,9 @@
 <!-- <script src="./javascript/test_javascript.js"></script> -->
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
-<script src="./javascript/menu.js"></script>
-<!-- <script src="./javascript/modal_card.js"></script> -->
-<!-- <script src="./javascript/modal_oder.js"></script> -->
+<!-- <script src="./javascript/menu.js"></script> -->
+<script src="./javascript/modal_card.js"></script>
+<script src="./javascript/modal_oder.js"></script>  
 <script src="./javascript/homepage.js"></script>
 
 

@@ -1,20 +1,5 @@
-function updateStatus(id, status) {
-  console.log(id, status);
-  let fd = new FormData();
-  fd.append("status", status);
-  fd.append("id", id);
-  $.ajax({
-    type: "POST",
-    url: "../api/accounts/orders/status.php",
-    processData: false,
-    contentType: false,
-    data: fd,
-    success: function (data) {
-      console.log(data);
-      LoadOrder();
-    },
-  });
-}
+
+
 function LoadOrder() {
   return new Promise((resolve, reject) => {
     var xml = new XMLHttpRequest();

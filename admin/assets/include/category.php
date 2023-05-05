@@ -21,17 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                                <td>${orders[0].order_timestamp}</td>
-                                <td>${orders[0].order_id}</td>
-                                <td>${orders[0].user_id}</td>
-                                <td>${orders[0].totalPrice}</td>
-                                <td>
-                                    <button class="edit" value="${orders[0].order_id}">Edit</button>
-                                    <button class="view" value="${orders[0].order_id}">View</button>
-                                    <button class="delete" value="${orders[0].order_id}">Delete</button>
-                                </td>
-                            </tr> -->
+                
             </tbody>
         </table>
     </section>

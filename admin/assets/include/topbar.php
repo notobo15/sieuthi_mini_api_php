@@ -13,6 +13,6 @@
         <ion-icon name="alert-circle-outline"></ion-icon>
     </div> -->
     <div class="user">
-        <img src="assets/imgs/customer01.jpg" alt="">
+        <!-- <img src="assets/imgs/customer01.jpg" alt=""> -->
     </div>
 </div>

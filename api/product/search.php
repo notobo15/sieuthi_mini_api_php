@@ -8,10 +8,9 @@ $db = new ConnectDB();
 $conn = $db->getConnect();
 $product = new Product($conn);
 $Category = new Category($conn);
-// if (empty($_GET['key'])) {
-//   http_response_code(400);   
-//   die(json_encode(array("message" => "key is require")));
-// }
+if (isset($_GET['key'])) {
+  $_GET['key'] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $_GET['key'])));
+}
 $arr = [];
 if (!empty($_GET['key'])) {
   if (!empty($_GET['sort'])) {

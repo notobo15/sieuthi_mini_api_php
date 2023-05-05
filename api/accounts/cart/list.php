@@ -12,7 +12,11 @@ for ($i = 0; $i < count($_SESSION['cart']); $i++) {
   $product = new Product($conn);
   $product->getSingleById($_SESSION['cart'][$i]['product_id']);
   $_SESSION['cart'][$i]['name'] = $product->name;
-  $_SESSION['cart'][$i]['price'] = $product->price;
+  if ($product->discountedPrice == null) {
+    $_SESSION['cart'][$i]['price'] = $product->price;
+  } else {
+    $_SESSION['cart'][$i]['price'] = $product->discountedPrice;
+  }
   $_SESSION['cart'][$i]['img'] = $product->img;
   // $total +=   $_SESSION['cart'][$i]['price'] *   $_SESSION['cart'][$i]['quantity'];
 }

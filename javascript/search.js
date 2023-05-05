@@ -20,8 +20,6 @@ function toNonAccentVietnamese(str) {
   return str;
 }
 
-function sortPriceDesc() {}
-
 $(document).ready(async function () {
   function renderCategory(id) {
     $.ajax({
@@ -30,19 +28,19 @@ $(document).ready(async function () {
       success: function (data) {
         let htmls = `<option ${
           id != null ? `selected` : ``
-        } >---- Tất Cả ----</option>`;
+        } value=0 >---- Tất Cả ----</option>`;
         data.forEach((item) => {
           htmls += `<option ${id == item.id ? `selected` : ``} value=${
             item.id
           }>${item.name}</option>`;
         });
-        console.log(htmls);
         $(".form-filter-category").html(htmls);
       },
     });
   }
   function renderListProducts(data) {
     // key=${key}&cate=${cate}&page=${page}&sort=${sort}
+    $(".see-more-container").html("")
     $.ajax({
       type: "get",
       url: `api/product/search.php?${data}`,
@@ -50,13 +48,13 @@ $(document).ready(async function () {
         console.log(data);
         if (data.totalNumber == 0) {
           $(".see-more-container.py-2.my-2").html(
-            `<img src="./images/no-product-found.png" alt="" width='100%' class="img-not-found=product">`
+            `<img src="./images/no-product-found.png" alt="" width='100%' class="img-not-found-product">`
           );
         }
         let products = data.products;
         let htmls = "";
         $(".heading-search").html(
-          `Kết quả tìm kiếm '<strong>${key}</strong>' cho: ${data.totalNumber} kết quả`
+          `Kết quả tìm kiếm '<strong>${keyword}</strong>' cho: ${data.totalNumber} kết quả`
         );
 
         if (cate && key == "") {
@@ -134,14 +132,14 @@ $(document).ready(async function () {
     });
   }
 
-  let key = new URL(location.href).searchParams.get("key") || "";
+  let keyword = new URL(location.href).searchParams.get("key") || "";
   let cate = new URL(location.href).searchParams.get("cate") || "";
   let page = new URL(location.href).searchParams.get("page") || "";
   let sort = new URL(location.href).searchParams.get("sort") || "";
-  key = toNonAccentVietnamese(key);
+  key = toNonAccentVietnamese(keyword);
   await renderListProducts(`key=${key}&cate=${cate}&page=${page}&sort=${sort}`);
-  await hideLoading();
-  renderCategory(cate);
+  
+  await renderCategory(cate);
   $(".form-filter-price").change(async function () {
     showLoading();
     if ($(".form-filter-price").val() == "desc") {
@@ -153,7 +151,13 @@ $(document).ready(async function () {
   });
   $(".form-filter-category").change(function () {
     let cate = $(".form-filter-category").val();
-    console.log(cate);
-    renderListProducts(`key=${key}&cate=${cate}&page=${page}&sort=${sort}`);
+    if (cate == 0) {
+    renderListProducts(`key=${key}&cate=&page=${page}&sort=${sort}`);
+    } else {
+      renderListProducts(`key=${key}&cate=${cate}&page=${page}&sort=${sort}`);
+
+    }
   });
+
+  await hideLoading();
 });

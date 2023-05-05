@@ -182,7 +182,7 @@
 <!-- <script src="./javascript/product.js"></script> -->
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/menu.js"></script> -->
-<!-- <script src="./javascript/modal_card.js"></script> -->
+<script src="./javascript/modal_card.js"></script>
 <script src="./javascript/modal_oder.js"></script>
 
 </html>

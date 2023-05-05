@@ -4,7 +4,23 @@
 // oderElement.addEventListener("click", function (e) {
 //   modaloder.style.display = "block";
 // });
-
+function updateStatus(id, status) {
+  if (confirm("Bạn Có Chắc Chắn Muốn Hủy?")) {
+    let fd = new FormData();
+    fd.append("status", status);
+    fd.append("id", id);
+    $.ajax({
+      type: "POST",
+      url: "./api/accounts/orders/status.php",
+      processData: false,
+      contentType: false,
+      data: fd,
+      success: function (data) {
+        renderOrder();
+      },
+    });
+  }
+}
 function renderOrder() {
   let total = 0;
   $.ajax({
@@ -29,9 +45,15 @@ function renderOrder() {
             ${item.status}
             </td>
             <td class="actions-2" data-th="">
-                <button class="btn btn-danger btn-sm text-white"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
+            ${
+              item.status == "hủy bỏ"
+                ? `<button class="btn btn-danger disabled btn-sm text-white"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
+            </button>`
+                : `<button class="btn btn-danger btn-sm text-white" onclick="return updateStatus('${item.id}', 'hủy bỏ')"><i class="fa-solid fa-trash"></i> Hủy đơn hàng
                 </button>
             </td>
+          `
+            }
         </tr>
         `;
       });
