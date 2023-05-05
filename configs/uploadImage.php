@@ -23,5 +23,5 @@ move_uploaded_file(
   $image_file["tmp_name"],
 
   // New image location
-  "../../images/" . $image_file["name"]
+  "../../images/products/" . $image_file["name"]
 );

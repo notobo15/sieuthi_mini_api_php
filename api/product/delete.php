@@ -9,10 +9,10 @@ $db = new ConnectDB();
 $conn = $db->getConnect();
 $Product = new Product($conn);
 // Get raw posted data
-$data = json_decode(file_get_contents("php://input"));
+
 
 // Set ID to UPDATE
-$Product->id = $data->id;
+$Product->id = $_POST['id'];
 if ($Product->delete()) {
   http_response_code(200);
   print_r(json_encode(array("message" => "delete success")));

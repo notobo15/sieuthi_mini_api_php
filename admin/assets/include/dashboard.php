@@ -81,7 +81,7 @@
       <div class="row">
         <div class="col-3">
           <select class="form-select" id="month">
-            <option value="0" >Cả Năm</option>
+            <option value="0">Cả Năm</option>
             <option value="1">Tháng 1</option>
             <option value="2">Tháng 2</option>
             <option value="3">Tháng 3</option>
@@ -114,7 +114,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Top Khách Hàng Order Nhiều
             Nhất</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Top Sản Phẩm Mua Nhiều Nhất</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Top Nhân Viên</button>
           <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Top Loại Sản Phẩm Mua Nhiều Nhất</button>
         </div>
       </nav>
@@ -156,7 +156,7 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Tên Sản Phẩm</th>
-                <th scope="col">Giá</th>
+                <th scope="col">Số Lượng</th>
                 <th scope="col">Xuất Xứ</th>
               </tr>
             </thead>
@@ -418,18 +418,18 @@
           },
         });
         $.ajax({
-          url: "../api/product/list.php",
+          url: "../api/orders/detail.list.php",
           type: "GET",
           success: function(data) {
-            data = data.slice(0, 10)
-            console.log(data);
+
+
             product_html = ""
             data.forEach((item) => {
               product_html += `
               <tr>
-                <th scope="row">${item.id}</th>
+                <th scope="row">${item.product_id}</th>
                 <td>${item.name}</td>
-                <td>${item.price}</td>
+                <td>${item.totalQuantity}</td>
                 <td>${item.makeIn}</td>
               </tr>`
             })

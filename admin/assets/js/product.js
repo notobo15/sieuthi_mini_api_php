@@ -119,7 +119,7 @@ function EditProduct() {
       xml.onload = async function () {
         var data = JSON.parse(this.responseText);
         // Gọi list discount
-        let html_discount = "";
+        let html_discount = "<option>----Chon-----</option>";
         await $.ajax({
           url: "../api/discount/list.php",
           type: "GET",
@@ -151,7 +151,7 @@ function EditProduct() {
                     </div>
                     <div class="form_ele">
                         <label for="img">Ảnh chính</label>
-                        <input type="file" name="img" id="img"  />
+                        <input type="file" value="${data.img}" name="img" id="img"  />
                     </div>
                     
                     <label for="imgs">Ảnh Phụ</label>
@@ -179,15 +179,15 @@ function EditProduct() {
                     </div>
                     <div class="form_ele">
                         <label for="desc">Mô Tả</label>
-                        <textarea type="text" name="desc" id="">${data.desc}</textarea>
+                        <textarea type="text" name="desc" value= "${data.desc}" id="">${data.desc}</textarea>
                     </div>
                     <div class="form_ele">
                         <label for="howToUse">Cách Sử Dụng</label>
-                        <textarea type="text" name="howToUse" id="">${data.howToUse}</textarea>
+                        <textarea type="text" name="howToUse" value= "${data.howToUse}" id="">${data.howToUse}</textarea>
                     </div>
                     <div class="form_ele">
                         <label for="preserve">Bảo Quản</label>
-                        <textarea type="text" name="preserve" id="">${data.preserve}</textarea>
+                        <textarea type="text" name="preserve" value= "${data.preserve}" id="">${data.preserve}</textarea>
                     </div>
                     <div class="form_ele">
                         <label for="price">Giá Góc</label>
@@ -199,7 +199,7 @@ function EditProduct() {
                     </div>
                     <div class="form_ele">
                         <label for="ingredient">Thành Phần</label>
-                        <textarea name="ingredient" id="">${data.ingredient}</textarea>
+                        <textarea name="ingredient" id="" value= "${data.ingredient}">${data.ingredient}</textarea>
                     </div>
                     <div class="form_ele">
                         <label for="trademark">Trademark</label>
@@ -241,7 +241,8 @@ function EditProduct() {
 
                     <div class="form_ele">
                         <label for="expire_date">Chon loại giảm giá</label>
-                        <select name="discount" id="discount" class=""  >
+                        <select name="discount" id="discount" class="">
+                          
                             ${html_discount}
                         </select>
                     </div>
@@ -321,7 +322,11 @@ function EditProduct() {
             body: fd,
           })
             .then((res) => res.text())
-            .then((res) => console.log(res))
+            .then((res) => {
+              console.log(res);
+              alert("Đã Cập Nhật thành công");
+              close.click();
+            })
             .catch((err) => console.log(err));
         });
         // ---------------------------- update image preview -------------------------------------------------//
@@ -359,14 +364,10 @@ function AddProduct() {
     html.innerHTML = `
              <div class="close">&times;</div>
              <div class="form_profile" >
-                 <img src="../images/not-found-product.jpg" alt="" id="main-img">
+                 <img src="../images/products/not-found-product.jpg" alt="" id="main-img">
                  <div class="form_ele">
                      <label for="img">Main image</label>
                      <input type="file" name="img" id="img" >
-                 </div>
-                 <div class="form_ele">
-                     <label for="imgs">Sub images</label>
-                     <input type="file" name="imgs" id="img">
                  </div>
                  <div class="form_ele">
                  <label for="name">Name</label>
@@ -386,7 +387,7 @@ function AddProduct() {
                  </div>
                  <div class="form_ele">
                      <label for="price">Price</label>
-                     <input type="text" name="price" id="" value="">
+                     <input type="number" name="price" id="" value="">
                  </div>
                  <div class="form_ele">
                      <label for="mass">Mass</label>
@@ -408,11 +409,11 @@ function AddProduct() {
          
                  <div class="form_ele">
                      <label for="quantity">Quantity</label>
-                     <input type="text" name="quantity" id="" value="">
+                     <input type="number" name="quantity" id="" value="">
                  </div>
                  <div class="form_ele">
                      <label for="expiredAt">ExpiredAt</label>
-                     <input type="text" name="expiredAt" id="" value="">
+                     <input type="datetime-local" name="expiredAt" id="" value="">
                  </div>
                  <div class="form_ele">
                      <label for="category_id">Category</label>
@@ -491,7 +492,11 @@ function AddProduct() {
         body: fd,
       })
         .then((res) => res.text())
-        .then((res) => console.log(res))
+        .then((res) => {
+          alert("Tạo đã tạo thành công");
+          console.log(res);
+          close.click();
+        })
         .catch((err) => console.log(err));
     });
     // ---------------------------- update image preview -------------------------------------------------//

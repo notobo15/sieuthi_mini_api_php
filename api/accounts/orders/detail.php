@@ -25,7 +25,7 @@ if ($Order->getOrderById()) {
 if ($Order->getOrderById()) {
   $query = "SELECT T2.id, T2.quantity, T2.price, T3.name FROM orders T1
             JOIN order_detail T2 ON T1.id = T2.order_id
-            JOIN product T3 ON t3.id = T2.order_id
+            JOIN product T3 ON T3.id = T2.order_id
             WHERE T1.id = ?;";
   $stm = $Order->con->prepare($query);
   $stm->bindParam(1, $Order->id);

@@ -41,7 +41,7 @@ $Product->category_id = $_POST['category_id'];
 $Product->quantity = $_POST['quantity'];
 $Product->expiredAt = $_POST['expiredAt'];
 
-print_r($Product);
+// print_r($Product);
 if ($Product->create()) {
   echo json_encode(
     array('message' => 'Product Created')

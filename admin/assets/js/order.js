@@ -1,5 +1,3 @@
-
-
 function LoadOrder() {
   return new Promise((resolve, reject) => {
     var xml = new XMLHttpRequest();
@@ -8,8 +6,9 @@ function LoadOrder() {
     xml.send();
     xml.onload = function () {
       let orders = JSON.parse(this.responseText);
-      orders.reverse();
+      // orders.reverse();
       let html = ``;
+      console.log(orders);
       for (const order of orders) {
         html += `<tr>
                 <td>${order.id}</td>
@@ -26,14 +25,22 @@ function LoadOrder() {
                     } ">${order.status}</p>
                 </td>
                 <td>
-                    <button class="btn fs-6 approve" onclick="updateStatus('${
-                      order.id
-                    }', 'thành công')" value="${order.id}">Thành Công</button>
+                    <button class="btn fs-6 approve" ${
+                      order.status.toLowerCase() == "thành công" ||
+                      order.status.toLowerCase() == "hủy bỏ"
+                        ? `disabled `
+                        : ``
+                    } onclick="updateStatus('${
+          order.id
+        }', 'thành công')" value="${order.id}">Thành Công</button>
                     <button class="btn fs-6 delay" value="${
                       order.id
-                    }" onclick="updateStatus('${
-          order.id
-        }', 'Hủy Bỏ')">Hủy Bỏ</button>
+                    }" onclick="updateStatus('${order.id}', 'hủy bỏ')" ${
+          order.status.toLowerCase() == "thành công" ||
+          order.status.toLowerCase() == "hủy bỏ"
+            ? `disabled `
+            : ``
+        }>Hủy Bỏ</button>
                 </td></tr>`;
       }
       document.querySelector("#order_container .order_table tbody").innerHTML =
@@ -57,7 +64,24 @@ function LoadOrder() {
     };
   });
 }
-
+function updateStatus(id, status) {
+  if (confirm("Bạn Có Chắc Chắn?")) {
+    let fd = new FormData();
+    fd.append("status", status);
+    fd.append("id", id);
+    $.ajax({
+      type: "POST",
+      url: "../api/accounts/orders/status.php",
+      processData: false,
+      contentType: false,
+      data: fd,
+      success: function (data) {
+        console.log(data);
+        ReLoadOrder();
+      },
+    });
+  }
+}
 function Approve() {
   var approves = document.querySelectorAll(".order_table tbody .approve");
   approves.forEach((approve) => {

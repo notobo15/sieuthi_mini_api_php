@@ -10,8 +10,7 @@ function LoadAccount() {
       var html = ``;
       datas.forEach((data) => {
         html += `<tr><td>${data.id}</td>
-                    <td>${data.account_id}</td>
-                    <td>${data.first_name + data.last_name}</td>
+                    <td>${data.first_name + " " + data.last_name}</td>
                     <td>${data.phone}</td>
                     <td>${data.delivery_address}</td>
                     <td>${data.gender}</td>
