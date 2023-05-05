@@ -13,12 +13,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Name<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Address<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Phone<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>isDeleted<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Id</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>SĐT</th>
+                    <th>Đã xoá</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -15,13 +15,13 @@
                         <thead>
                             <tr>
                                 <th>Id<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>image<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Name<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Category <span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Trademark<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Price<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Quantity<span class="icon-arrow">&UpArrow;</span></th>
-                                <th>Setting<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Ảnh<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Tên<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Danh mục <span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Nhãn hiệu<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Giá<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Số lượng<span class="icon-arrow">&UpArrow;</span></th>
+                                <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
 
 
                             </tr>

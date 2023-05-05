@@ -5,7 +5,6 @@ main#product_container {
     background-color: rgba(241, 42, 42, 0.333);
     backdrop-filter: blur(7px);
     box-shadow: 0 0.4rem 0.8rem #0005;
-    border-radius: 0.8rem;
     margin-top: 1rem;
     display: none;
     overflow: hidden;

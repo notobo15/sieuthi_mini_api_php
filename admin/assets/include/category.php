@@ -13,11 +13,11 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Name<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Name_code<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>isDeleted<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Id</th>
+                    <th>Tên</th>
+                    <th>Mã danh mục</th>
+                    <th>Đã xoá</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -1,13 +1,4 @@
-/*
-Responsive HTML Table With Pure CSS - Web Design/UI Design
 
-Code written by:
-👨🏻‍⚕️ Coding Design (Jeet Saru)
-
-> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
-
-🌎link: www.youtube.com/codingdesign 
-*/
 
 /* main {
     height: 80;
@@ -20,7 +11,6 @@ main#order_container {
     background-color: rgba(99, 98, 98, 0.333);
     backdrop-filter: blur(7px);
     box-shadow: 0 0.4rem 0.8rem #0005;
-    border-radius: 0.8rem;
     margin-top: 1rem;
     display: none;
     overflow: hidden;
@@ -122,7 +112,7 @@ main#order_container {
 }
 
 .order_table td:nth-child(4) {
-    width: 65%;
+    width: 25%;
 }
 
 .order_table td:nth-child(5) {
