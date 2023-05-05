@@ -325,7 +325,7 @@ function EditProduct() {
             .then((res) => {
               console.log(res);
               alert("Đã Cập Nhật thành công");
-              close.click();
+              // close.click();
             })
             .catch((err) => console.log(err));
         });

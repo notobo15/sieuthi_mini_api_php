@@ -101,7 +101,7 @@ $(document).ready(function () {
     fdata.append("name", username);
     if (checkValidated) {
       $.ajax({
-        url: "../api/accounts/create.php",
+        url: "./api/accounts/create.php",
         type: "post",
         processData: false,
         contentType: false,

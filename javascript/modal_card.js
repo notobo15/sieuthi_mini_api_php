@@ -83,6 +83,12 @@ async function createOrder() {
         window.location.assign("./order.php");
         // hideLoading();
       },
+      error: function (error) {
+        if (error.status == 403) {
+          alert("Bạn Cần Đăng Nhập Để Đặt Hàng.");
+          location.assign("login_register.php");
+        }
+      },
     });
   }
 }
@@ -116,17 +122,13 @@ function renderCart() {
              <div class="number_card">
                <button class="minus_card" ${
                  item.quantity <= 1 ? `disabled` : ``
-               } onClick="return decrease(${
-          item.product_id
-        },${
+               } onClick="return decrease(${item.product_id},${
           item.price
         } )"><i class="fa-solid fa-minus"></i></button>
                <input type="text" value="${item.quantity}" readonly />
                <button class="plus_card" onClick="return increase(${
                  item.product_id
-               }, ${
-                item.price
-              })"><i class="fa-solid fa-plus"></i></button>
+               }, ${item.price})"><i class="fa-solid fa-plus"></i></button>
              </div>
            </td>
            <td data-th="Tổng tiền" class="text-center">${priceToVND(
