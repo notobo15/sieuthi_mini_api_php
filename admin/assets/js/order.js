@@ -23,6 +23,7 @@ function LoadOrder() {
     xml.send();
     xml.onload = function () {
       let orders = JSON.parse(this.responseText);
+      orders.reverse();
       let html = ``;
       for (const order of orders) {
         html += `<tr>

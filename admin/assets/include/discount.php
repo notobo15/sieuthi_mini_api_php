@@ -13,13 +13,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Name<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>price_per<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>start_date<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>end_date<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>isDeleted<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Id</th>
+                    <th>Tên</th>
+                    <th>Phần trăm</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Đã xoá</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -12,12 +12,12 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Account</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>Gender</th>
-                                <th>Role</th>
+                                <th>Tài khoản</th>
+                                <th>Tên</th>
+                                <th>SĐT</th>
+                                <th>Địa chỉ</th>
+                                <th>Giới tính</th>
+                                <th>Vai trò</th>
                                 <th>Actions</th>
 
                             </tr>

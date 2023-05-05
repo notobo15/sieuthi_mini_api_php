@@ -14,12 +14,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Order Id<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Thời Gian<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Tổng Tiền<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Chi Tiết<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Trạng Thái<span class="icon-arrow">&UpArrow;</span></th>
-                    <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
+                    <th>Order Id</th>
+                    <th>Thời Gian</th>
+                    <th>Tổng Tiền</th>
+                    <th>Chi Tiết</th>
+                    <th>Trạng Thái</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

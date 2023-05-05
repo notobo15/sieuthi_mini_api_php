@@ -85,8 +85,8 @@
             </a>
         </li> -->
 
-        <div class="btn-login" onclick="return logout()">
-            <li>
+        
+            <li onclick="return logout()">
                 <a href="#">
                     <span class="icon">
                         <ion-icon name="log-out-outline"></ion-icon>
@@ -101,7 +101,5 @@
                     }
                 }
             </script>
-        </div>
-
     </ul>
 </div>
