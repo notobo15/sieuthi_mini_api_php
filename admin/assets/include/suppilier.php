@@ -7,6 +7,8 @@
         </div>
         <div class="reload_suppilier">
             <label for="" class="reload_suppilier_btn" title=""></label>
+            <label for="" class="add_suppilier_btn" title=""></label>
+
         </div>
     </section>
     <section class="suppilier_table">

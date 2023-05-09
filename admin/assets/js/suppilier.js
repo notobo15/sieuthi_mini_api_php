@@ -160,8 +160,8 @@ function DeleteSuppilier() {
 
 function searchSuppilier() {
   const search = document.querySelector(
-      "#suppilier_container .input-group input"
-    ),
+    "#suppilier_container .input-group input"
+  ),
     table_rows = document.querySelectorAll(".suppilier_table tbody tr");
   // console.log(search.innerHTML);
 
@@ -174,10 +174,114 @@ function searchSuppilier() {
   });
 }
 
+function AddSuppilier() {
+  var add = document.querySelector(".add_suppilier_btn");
+
+  add.addEventListener("click", () => {
+    // ---------------------------- Load form -------------------------------------------------//
+    const doc = document.querySelector(".main");
+    if (doc.querySelector("#form_popup") !== null) {
+      let rm = doc.querySelector("#form_popup");
+      doc.removeChild(rm);
+    }
+
+    // console.log(data);
+    var html = document.createElement("form");
+    html.enctype = "multipart/form-data";
+    html.id = "form_popup";
+    html.innerHTML = `
+    <div class="close">&times;</div>
+    <div class="form_profile" >
+        
+        <div class="form_ele">
+            <input type="hidden" name="id" id="suppilier_id" value="">
+        </div>
+        <div class="form_ele">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="suppilier_name" value="">
+        </div>
+        <div class="form_ele">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="suppilier_address" value="">
+        </div>  
+        <div class="form_ele">
+            <label for="phone">phone</label>
+            <input type="text" name="phone" id="suppilier_phone" value="">
+        </div>  
+        <div class="form_footer">
+            <Button class="save" disabled style="pointer-events: none">Add</Button>
+            <Button class="cancel" type="button">Cancel</Button>
+        </div> 
+    </div>
+             `;
+
+    // ---------------------------- Show form popup ---------------------------------------/
+    document.querySelector(".main").appendChild(html);
+
+    // ---------------------------- Disable save button -------------------------------------------------//
+
+    var a = doc.querySelector("#form_popup");
+    a.addEventListener("input", () => {
+      let save = a.querySelector(".add");
+      save.disabled = false;
+      save.style.pointerEvents = "auto";
+    });
+
+    // ---------------------------- Close produce profile -------------------------------------------------//
+    var close = document.querySelector("#form_popup .close");
+    var cancel = document.querySelector("#form_popup .cancel");
+    var form_profile = document.querySelector("#form_popup");
+
+    close.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    cancel.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    setTimeout(() => {
+      window.addEventListener("click", function RmCart(event) {
+        let form_popup = this.document.querySelector("#form_popup") || null;
+        if (
+          form_popup &&
+          event.target !== form_popup &&
+          !form_popup.contains(event.target)
+        ) {
+          document.querySelector(".main").removeChild(form_popup);
+          window.removeEventListener("click", RmCart);
+        } else if (form_popup === null) {
+          window.removeEventListener("click", RmCart);
+        }
+      });
+    }, 100);
+
+    // ---------------------------- save produce profile -------------------------------------------------//
+    var form = document.querySelector("#form_popup");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      fetch("../api/suppilier/create.php", {
+        method: "post",
+        body: fd,
+      })
+        .then((res) => res.text())
+        .then((res) => {
+          alert("Tạo đã tạo thành công");
+          console.log(res);
+          close.click();
+        })
+        .catch((err) => console.log(err));
+    });
+
+  });
+}
+
 //---------------------------- Active functions -------------------------------------//
 LoadSuppilier()
   .then(() => {
     console.log(`Load suppilier table complete`);
+    AddSuppilier();
     EditSuppilier();
     DeleteSuppilier();
     searchSuppilier();
@@ -187,7 +291,7 @@ LoadSuppilier()
   });
 
 function ReLoadSuppilier() {
-  var reload = document.querySelector("#suppilier_container .reload_suppilier");
+  var reload = document.querySelector("#suppilier_container .reload_suppilier_btn");
   reload.addEventListener("click", () => {
     document
       .querySelector("#suppilier_container .suppilier_table tbody")
@@ -195,6 +299,7 @@ function ReLoadSuppilier() {
     LoadSuppilier()
       .then(() => {
         console.log(`Load suppilier table complete`);
+        AddSuppilier();
         EditSuppilier();
         DeleteSuppilier();
         searchTable();

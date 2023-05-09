@@ -4,6 +4,7 @@
         <div class="user_header_search">
             <input type="text" name="search_user" id="search_user" placeholder="Search...">
             <i class="fa-solid fa-arrows-rotate user_reload"></i>
+            <i class="fa-solid fa-plus user_add"></i>
         </div>
     </header>
 

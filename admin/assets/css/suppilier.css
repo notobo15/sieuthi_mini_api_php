@@ -7,7 +7,7 @@ main#suppilier_container {
     width: 100%;
     height: 100%;
     /* margin-left: calc((100% - 90%)/2); */
-    background-color: rgba(99, 98, 98, 0.333);
+    background-color: #2c6bd8;
     backdrop-filter: blur(7px);
     box-shadow: 0 0.4rem 0.8rem #0005;
     margin-top: 1rem;
@@ -65,7 +65,7 @@ main#suppilier_container {
 .suppilier_table {
     width: 95%;
     max-height: calc(95% - 1.6rem);
-    background-color: rgba(143, 141, 141, 0.733);
+    background-color: #fffb;
     margin: 0.8rem auto;
     border-radius: 0.6rem;
     overflow: auto;
@@ -103,8 +103,8 @@ main#suppilier_container {
     position: sticky;
     top: 0;
     left: 0;
-    color: white;
-    background-color: #353535fe;
+    color: black;
+    background-color: #d5d1defe;
     cursor: pointer;
     text-transform: capitalize;
 }
@@ -251,6 +251,21 @@ main#suppilier_container {
 }
 
 .suppilier_header .reload_suppilier .reload_suppilier_btn:hover {
+    background-color: #fff6;
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.suppilier_header .reload_suppilier .add_suppilier_btn {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background: #fff6 url(../imgs/sm_5afbe35ff3ec9.jpg) center / 100% no-repeat;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.suppilier_header .reload_suppilier .add_suppilier_btn:hover {
     background-color: #fff6;
     transform: scale(1.15);
     cursor: pointer;

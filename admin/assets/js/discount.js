@@ -184,7 +184,7 @@ function SearchDiscount() {
 }
 
 function ReLoadCategory() {
-  var reload = document.querySelector("#discount_container .reload_discount");
+  var reload = document.querySelector("#discount_container .reload_category_btn");
   reload.addEventListener("click", () => {
     document
       .querySelector("#discount_container .discount_table tbody")
@@ -192,6 +192,7 @@ function ReLoadCategory() {
     LoadDiscount()
       .then(() => {
         console.log(`Load discount table complete`);
+        AddDiscount() ;
         EditDiscount();
         DeleteDiscount();
         searchTable();
@@ -202,10 +203,121 @@ function ReLoadCategory() {
   });
 }
 
+function AddDiscount() {
+  var add = document.querySelector(".add_discount_btn");
+
+  add.addEventListener("click", () => {
+    // ---------------------------- Load form -------------------------------------------------//
+    const doc = document.querySelector(".main");
+    if (doc.querySelector("#form_popup") !== null) {
+      let rm = doc.querySelector("#form_popup");
+      doc.removeChild(rm);
+    }
+
+    // console.log(data);
+    var html = document.createElement("form");
+    html.enctype = "multipart/form-data";
+    html.id = "form_popup";
+    html.innerHTML = ` <div class="close">&times;</div>
+    <div class="form_profile" >
+        
+        <div class="form_ele">
+            <input type="hidden" name="id" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="price_per">price_per</label>
+            <input type="text" name="price_per" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="product_id">product_id</label>
+            <input type="text" name="product_id" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="start_date">start_date</label>
+            <input type="datetime-local" name="start_date" id="" value="">
+        </div>  
+        <div class="form_ele">
+            <label for="end_date">end_date</label>
+            <input type="datetime-local" name="end_date" id="" value="">
+        </div>    
+        <div class="form_footer">
+            <Button class="add" disabled style="pointer-events: none">Add</Button>
+            <Button class="cancel" type="button">Cancel</Button>
+        </div> 
+    </div>
+             `;
+
+    // ---------------------------- Show form popup ---------------------------------------/
+    document.querySelector(".main").appendChild(html);
+
+    // ---------------------------- Disable save button -------------------------------------------------//
+
+    var a = doc.querySelector("#form_popup");
+    a.addEventListener("input", () => {
+      let save = a.querySelector(".add");
+      save.disabled = false;
+      save.style.pointerEvents = "auto";
+    });
+
+    // ---------------------------- Close produce profile -------------------------------------------------//
+    var close = document.querySelector("#form_popup .close");
+    var cancel = document.querySelector("#form_popup .cancel");
+    var form_profile = document.querySelector("#form_popup");
+
+    close.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    cancel.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    setTimeout(() => {
+      window.addEventListener("click", function RmCart(event) {
+        let form_popup = this.document.querySelector("#form_popup") || null;
+        if (
+          form_popup &&
+          event.target !== form_popup &&
+          !form_popup.contains(event.target)
+        ) {
+          document.querySelector(".main").removeChild(form_popup);
+          window.removeEventListener("click", RmCart);
+        } else if (form_popup === null) {
+          window.removeEventListener("click", RmCart);
+        }
+      });
+    }, 100);
+
+    // ---------------------------- save produce profile -------------------------------------------------//
+    var form = document.querySelector("#form_popup");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      fetch("../api/discount/create.php", {
+        method: "post",
+        body: fd,
+      })
+        .then((res) => res.text())
+        .then((res) => {
+          alert("Tạo đã tạo thành công");
+          console.log(res);
+          close.click();
+        })
+        .catch((err) => console.log(err));
+    });
+
+  });
+}
+
 //---------------------------- Active functions -------------------------------------//
 LoadDiscount()
   .then(() => {
     console.log(`Load discount table complete`);
+    AddDiscount() ;
     EditDiscount();
     DeleteDiscount();
     SearchDiscount();

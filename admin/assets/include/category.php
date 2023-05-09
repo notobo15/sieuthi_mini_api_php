@@ -7,6 +7,7 @@
         </div>
         <div class="reload_category">
             <label for="" class="reload_category_btn" title=""></label>
+            <label for="" class="add_category_btn" title=""></label>
         </div>
     </section>
     <section class="category_table">

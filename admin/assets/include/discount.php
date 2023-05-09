@@ -7,6 +7,8 @@
         </div>
         <div class="reload_discount">
             <label for="" class="reload_discount_btn" title=""></label>
+            <label for="" class="add_discount_btn" title=""></label>
+
         </div>
     </section>
     <section class="discount_table">

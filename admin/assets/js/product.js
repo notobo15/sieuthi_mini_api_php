@@ -29,15 +29,12 @@ function LoadProduct() {
                 </td>
                 <td>${data.quantity}</td>
                 <td>
-                    <button class="product_edit" value="${
-                      data.id
-                    }"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="product_view" value="${
-                      data.id
-                    }"><i class="fa-solid fa-eye"></i></button>
-                    <button class="product_delete" value="${
-                      data.id
-                    }"><i class="fa-solid fa-trash"></i></button>
+                    <button class="product_edit" value="${data.id
+          }"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="product_view" value="${data.id
+          }"><i class="fa-solid fa-eye"></i></button>
+                    <button class="product_delete" value="${data.id
+          }"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>`;
       });
@@ -125,9 +122,8 @@ function EditProduct() {
           type: "GET",
           success: function (result) {
             result.forEach((item) => {
-              html_discount += `<option value="${item.id}" ${
-                data.price_per == item.price_per ? `selected` : ``
-              }>${item.name}</option>`;
+              html_discount += `<option value="${item.id}" ${data.price_per == item.price_per ? `selected` : ``
+                }>${item.name}</option>`;
             });
           },
         });
@@ -630,8 +626,43 @@ function ReLoadProduct() {
       AddProduct();
       DeleteProduct();
       searchProduct();
+      SortByTitle() 
     });
   });
+}
+
+function SortByTitle() {
+  const table_rows = document.querySelectorAll('#product_container tbody tr'),
+    table_headings = document.querySelectorAll('#product_container thead th');
+  table_headings.forEach((head, i) => {
+    let sort_asc = true;
+    head.onclick = () => {
+      table_headings.forEach(head => head.classList.remove('active'));
+      head.classList.add('active');
+
+      document.querySelectorAll('#product_container td').forEach(td => td.classList.remove('active'));
+      table_rows.forEach(row => {
+        row.querySelectorAll('#product_container td')[i].classList.add('active');
+      })
+
+      head.classList.toggle('asc', sort_asc);
+      sort_asc = head.classList.contains('asc') ? false : true;
+
+      sortTable(i, sort_asc);
+    }
+  })
+}
+
+
+function sortTable(column, sort_asc) {
+  const table_rows = document.querySelectorAll('#product_container tbody tr');
+  [...table_rows].sort((a, b) => {
+      let first_row = a.querySelectorAll('#product_container td')[column].textContent,
+          second_row = b.querySelectorAll('#product_container td')[column].textContent;
+
+      return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
+  })
+      .map(sorted_row => document.querySelector('#product_container tbody').appendChild(sorted_row));
 }
 
 // -------------------------- Main -----------------------------------//
@@ -641,6 +672,7 @@ LoadProduct().then(() => {
   AddProduct();
   DeleteProduct();
   searchProduct();
+  SortByTitle() 
 });
 
 ReLoadProduct();

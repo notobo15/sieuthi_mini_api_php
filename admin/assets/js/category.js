@@ -235,7 +235,7 @@ function SearchCategory() {
 }
 
 function ReLoadCategory() {
-  var reload = document.querySelector("#category_container .reload_category");
+  var reload = document.querySelector("#category_container .reload_category_btn");
   reload.addEventListener("click", () => {
     document
       .querySelector("#category_container .category_table tbody")
@@ -243,6 +243,7 @@ function ReLoadCategory() {
     LoadCategory()
       .then(() => {
         console.log(`Load category table complete`);
+        AddCategory();
         EditCategory();
         ViewCategory();
         DeleteCategory();
@@ -254,10 +255,110 @@ function ReLoadCategory() {
   });
 }
 
+function AddCategory() {
+  var add = document.querySelector(".add_category_btn");
+
+  add.addEventListener("click", () => {
+    // ---------------------------- Load form -------------------------------------------------//
+    const doc = document.querySelector(".main");
+    if (doc.querySelector("#form_popup") !== null) {
+      let rm = doc.querySelector("#form_popup");
+      doc.removeChild(rm);
+    }
+
+    // console.log(data);
+    var html = document.createElement("form");
+    html.enctype = "multipart/form-data";
+    html.id = "form_popup";
+    html.innerHTML = `
+    <div class="close">&times;</div>
+                <div class="form_profile" >
+                    
+                    <div class="form_ele">
+                        <input type="hidden" name="id" id="category_id" value="">
+                    </div>
+                    <div class="form_ele">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" value="">
+                    </div>
+                    <div class="form_ele">
+                        <label for="name_code">Name_code</label>
+                        <input type="text" name="name_code" id="name_code" value="">
+                    </div>  
+                    <div class="form_footer">
+                        <Button class="add" disabled style="pointer-events: none">Add</Button>
+                        <Button class="cancel" type="button">Cancel</Button>
+                    </div>    
+                </div>
+             `;
+
+    // ---------------------------- Show form popup ---------------------------------------/
+    document.querySelector(".main").appendChild(html);
+
+    // ---------------------------- Disable save button -------------------------------------------------//
+
+    var a = doc.querySelector("#form_popup");
+    a.addEventListener("input", () => {
+      let save = a.querySelector(".add");
+      save.disabled = false;
+      save.style.pointerEvents = "auto";
+    });
+
+    // ---------------------------- Close produce profile -------------------------------------------------//
+    var close = document.querySelector("#form_popup .close");
+    var cancel = document.querySelector("#form_popup .cancel");
+    var form_profile = document.querySelector("#form_popup");
+
+    close.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    cancel.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    setTimeout(() => {
+      window.addEventListener("click", function RmCart(event) {
+        let form_popup = this.document.querySelector("#form_popup") || null;
+        if (
+          form_popup &&
+          event.target !== form_popup &&
+          !form_popup.contains(event.target)
+        ) {
+          document.querySelector(".main").removeChild(form_popup);
+          window.removeEventListener("click", RmCart);
+        } else if (form_popup === null) {
+          window.removeEventListener("click", RmCart);
+        }
+      });
+    }, 100);
+
+    // ---------------------------- save produce profile -------------------------------------------------//
+    var form = document.querySelector("#form_popup");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      fetch("../api/category/create.php", {
+        method: "post",
+        body: fd,
+      })
+        .then((res) => res.text())
+        .then((res) => {
+          alert("Tạo đã tạo thành công");
+          console.log(res);
+          close.click();
+        })
+        .catch((err) => console.log(err));
+    });
+
+  });
+}
+
 //---------------------------- Active functions -------------------------------------//
 LoadCategory()
   .then(() => {
     console.log(`Load category table complete`);
+    AddCategory();
     EditCategory();
     ViewCategory();
     DeleteCategory();

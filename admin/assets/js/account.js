@@ -16,12 +16,10 @@ function LoadAccount() {
                     <td>${data.gender}</td>
                     <td>${data.group_id}</td>
                     <td class="user_setting">
-                            <button class="user_edit" value="${
-                              data.id
-                            }"><i class="fa-solid fa-hammer"></i></button>
-                            <button class="user_delete" value="${
-                              data.id
-                            }"><i class="fa-solid fa-trash"></i></button>
+                            <button class="user_edit" value="${data.id
+          }"><i class="fa-solid fa-hammer"></i></button>
+                            <button class="user_delete" value="${data.id
+          }"><i class="fa-solid fa-trash"></i></button>
                     </td>
                     </tr>`;
       });
@@ -83,69 +81,55 @@ function EditAccount() {
                     </div>
                     <div class="form_ele">
                         <label for="first_name">first_name</label>
-                        <input type="text" name="first_name" id="" value="${
-                          data.first_name
-                        }">
+                        <input type="text" name="first_name" id="" value="${data.first_name
+          }">
                     </div>
                     <div class="form_ele">
                         <label for="last_name">last_name</label>
-                        <input type="text" name="last_name" id="" value="${
-                          data.last_name
-                        }">
+                        <input type="text" name="last_name" id="" value="${data.last_name
+          }">
                     </div>
                     <div class="form_ele">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="" value="${
-                          data.phone
-                        }">
+                        <input type="text" name="phone" id="" value="${data.phone
+          }">
                     </div>
                     <div class="form_ele">
                         <label for="birth_date">birth_date</label>
-                        <input type="date" name="birth_date" id="" value="${
-                          data.birth_date
-                        }">
+                        <input type="date" name="birth_date" id="" value="${data.birth_date
+          }">
                     </div>
                     <div class="form_ele">
                         <label for="delivery_address">delivery_address</label>
-                        <input type="text" name="delivery_address" id="" value="${
-                          data.delivery_address
-                        }">
+                        <input type="text" name="delivery_address" id="" value="${data.delivery_address
+          }">
                     </div>
                     <div class="form_ele">
                         <label for="gender">gender</label>
                         <select name="gender">
-                            <option value="nam" ${
-                              data.gender == "nam" ? "selected" : ""
-                            }>Nam</option>
-                            <option value="nu" ${
-                              data.gender == "nu" ? "selected" : ""
-                            }>Nữ</option>
+                            <option value="nam" ${data.gender == "nam" ? "selected" : ""
+          }>Nam</option>
+                            <option value="nu" ${data.gender == "nu" ? "selected" : ""
+          }>Nữ</option>
                         </select>
                     </div>
-                    <input type="hidden" name="districtCode" id="" value="${
-                      data.districtCode
-                    }">
-                    <input type="hidden" name="wardCode" id="" value="${
-                      data.wardCode
-                    }">
-                    <input type="hidden" name="provinceCode" id="" value="${
-                      data.provinceCode
-                    }">
+                    <input type="hidden" name="districtCode" id="" value="${data.districtCode
+          }">
+                    <input type="hidden" name="wardCode" id="" value="${data.wardCode
+          }">
+                    <input type="hidden" name="provinceCode" id="" value="${data.provinceCode
+          }">
                     <div class="form_ele">
                     <label for="birth_date">birth_date</label>
                     <select name="birth_date" id ="birth_date">
-                            <option value="1" ${
-                              data.role_id == 1 ? "selected" : ""
-                            }>Admin</option>
-                            <option value="2" ${
-                              data.role_id == 2 ? "selected" : ""
-                            }>Quản lý</option>
-                            <option value="3" ${
-                              data.role_id == 3 ? "selected" : ""
-                            }>Thu Ngân</option>
-                            <option value="4" ${
-                              data.role_id == 4 ? "selected" : ""
-                            }>Bán Hàng</option>
+                            <option value="1" ${data.role_id == 1 ? "selected" : ""
+          }>Admin</option>
+                            <option value="2" ${data.role_id == 2 ? "selected" : ""
+          }>Quản lý</option>
+                            <option value="3" ${data.role_id == 3 ? "selected" : ""
+          }>Thu Ngân</option>
+                            <option value="4" ${data.role_id == 4 ? "selected" : ""
+          }>Bán Hàng</option>
 
                         </select>
                 </div>
@@ -254,22 +238,156 @@ function SearchAccount() {
   });
 }
 
+// ------------------------ Add user ------------------------ //
+
+function AddAccount() {
+  var add = document.querySelector(".user_add");
+
+  add.addEventListener("click", () => {
+    // ---------------------------- Load form -------------------------------------------------//
+    const doc = document.querySelector(".main");
+    if (doc.querySelector("#form_popup") !== null) {
+      let rm = doc.querySelector("#form_popup");
+      doc.removeChild(rm);
+    }
+
+    // console.log(data);
+    var html = document.createElement("form");
+    html.enctype = "multipart/form-data";
+    html.id = "form_popup";
+    html.innerHTML = `
+    <div class="close">&times;</div>
+    <div class="form_profile">
+        <div class="form_ele">
+            <input type="hidden" name="id" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="first_name">first_name</label>
+            <input type="text" name="first_name" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="last_name">last_name</label>
+            <input type="text" name="last_name" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="birth_date">birth_date</label>
+            <input type="date" name="birth_date" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="delivery_address">delivery_address</label>
+            <input type="text" name="delivery_address" id="" value="">
+        </div>
+        <div class="form_ele">
+            <label for="gender">gender</label>
+            <select name="gender">
+                <option value="nam">Nam</option>
+                <option value="nu">Nữ</option>
+            </select>
+        </div>
+        <input type="hidden" name="districtCode" id="" value="">
+        <input type="hidden" name="wardCode" id="" value="">
+        <input type="hidden" name="provinceCode" id="" value="">
+        <div class="form_ele">
+        <label for="birth_date">birth_date</label>
+        <select name="birth_date" id ="birth_date">
+                <option value="1">Admin</option>
+                <option value="2" >Quản lý</option>
+                <option value="3" >Thu Ngân</option>
+                <option value="4" >Bán Hàng</option>
+
+            </select>
+    </div>
+        <div class="form_footer">
+            <button class="add" disabled style="pointer-events: none" type="submit">Add</button>
+            <Button class="cancel" type="button">Cancel</Button>
+        </div>
+    </div>  
+             `;
+
+    // ---------------------------- Show form popup ---------------------------------------/
+    document.querySelector(".main").appendChild(html);
+
+    // ---------------------------- Disable save button -------------------------------------------------//
+
+    var a = doc.querySelector("#form_popup");
+    a.addEventListener("input", () => {
+      let save = a.querySelector(".add");
+      save.disabled = false;
+      save.style.pointerEvents = "auto";
+    });
+
+    // ---------------------------- Close produce profile -------------------------------------------------//
+    var close = document.querySelector("#form_popup .close");
+    var cancel = document.querySelector("#form_popup .cancel");
+    var form_profile = document.querySelector("#form_popup");
+
+    close.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    cancel.addEventListener("click", () => {
+      document.querySelector(".main").removeChild(form_profile);
+    });
+
+    setTimeout(() => {
+      window.addEventListener("click", function RmCart(event) {
+        let form_popup = this.document.querySelector("#form_popup") || null;
+        if (
+          form_popup &&
+          event.target !== form_popup &&
+          !form_popup.contains(event.target)
+        ) {
+          document.querySelector(".main").removeChild(form_popup);
+          window.removeEventListener("click", RmCart);
+        } else if (form_popup === null) {
+          window.removeEventListener("click", RmCart);
+        }
+      });
+    }, 100);
+
+    // ---------------------------- save produce profile -------------------------------------------------//
+    var form = document.querySelector("#form_popup");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      fetch("../api/accounts/create.php", {
+        method: "post",
+        body: fd,
+      })
+        .then((res) => res.text())
+        .then((res) => {
+          alert("Tạo đã tạo thành công");
+          console.log(res);
+          close.click();
+        })
+        .catch((err) => console.log(err));
+    });
+
+  });
+}
+
 // ------------------------ Active Function -------------------------------
 
 LoadAccount().then(() => {
-  EditAccount();
-  SearchAccount();
-  DeleteAccount();
-});
-
-function ReloadAccount() {
-  let reload = document.querySelector("#user_container .user_reload");
-  reload.addEventListener("click", () => {
-    LoadAccount().then(() => {
-      EditAccount();
-      SearchAccount();
-      DeleteAccount();
-    });
+    AddAccount();
+    EditAccount();
+    SearchAccount();
+    DeleteAccount();
   });
-}
-ReloadAccount();
+
+  function ReloadAccount() {
+    let reload = document.querySelector("#user_container .user_reload");
+    reload.addEventListener("click", () => {
+      LoadAccount().then(() => {
+        AddAccount();
+        EditAccount();
+        SearchAccount();
+        DeleteAccount();
+      });
+    });
+  }
+  ReloadAccount();
