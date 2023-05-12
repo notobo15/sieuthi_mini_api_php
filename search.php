@@ -69,8 +69,8 @@
               <div class="row pb-2 px-3 content-search-result">
               </div>
             </div>
-            <div class=" see-more-container py-2 my-2" style="height: fit-content;">
-              <ul class="pagination justify-content-center mb-0">
+            <div class=" see-more-container py-2 my-2 d-flex justify-content-center align-items-center" style="height: fit-content; list-style: none;">
+              <ul class="pagination pagination_footer justify-content-center mb-0">
                 <!-- <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                   </li> -->

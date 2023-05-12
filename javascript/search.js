@@ -40,32 +40,33 @@ $(document).ready(async function () {
   }
   function renderListProducts(data) {
     // key=${key}&cate=${cate}&page=${page}&sort=${sort}
-    $(".see-more-container").html("")
     $.ajax({
       type: "get",
       url: `api/product/search.php?${data}`,
       success: function (data) {
         console.log(data);
         if (data.totalNumber == 0) {
-          $(".see-more-container.py-2.my-2").html(
+          $(".content-search-result").html("");
+          console.log($(".see-more-container"));
+          $(".see-more-container").html(
             `<img src="./images/no-product-found.png" alt="" width='100%' class="img-not-found-product">`
           );
-        }
-        let products = data.products;
-        let htmls = "";
-        $(".heading-search").html(
-          `Kết quả tìm kiếm '<strong>${keyword}</strong>' cho: ${data.totalNumber} kết quả`
-        );
+        } else {
+          let products = data.products;
+          let htmls = "";
+          $(".heading-search").html(
+            `Kết quả tìm kiếm '<strong>${keyword}</strong>' cho: ${data.totalNumber} kết quả`
+          );
 
-        if (cate && key == "") {
-          let title = `<a href="index.php" style="font-size: 14px;">Trang chủ</a><span> &gt; </span><span style="font-size: 14px;">${data.category_name}</span>`;
-          $(".heading-search").html(title);
-        }
-        if (products.length !== "") {
-          // $(".total-product-result").text(data.length);
-        }
-        products.forEach((item) => {
-          htmls += `
+          if (cate && key == "") {
+            let title = `<a href="index.php" style="font-size: 14px;">Trang chủ</a><span> &gt; </span><span style="font-size: 14px;">${data.category_name}</span>`;
+            $(".heading-search").html(title);
+          }
+          if (products.length !== "") {
+            // $(".total-product-result").text(data.length);
+          }
+          products.forEach((item) => {
+            htmls += `
             <div class="col-md-3 col-sm-6 col-6 p-0 ">
               <div class="product-box">
                 <a href="./product.php?id=${item.id}">
@@ -105,29 +106,30 @@ $(document).ready(async function () {
               </div>
             </div>
             `;
-        });
-        $(".content-search-result").html(htmls);
-        let prevPage = +page - 1;
-        let nextPage = +page + 1;
-        let prev = `search.php?${key}&cate=${cate}&page=${prevPage}`;
-        let next = `search.php?${key}&cate=${cate}&page=${nextPage}`;
-        let btn_pagination = `<li class="page-item ${
-          prevPage <= 0 ? "disabled" : ""
-        }">
+          });
+          $(".content-search-result").html(htmls);
+          let prevPage = +page - 1;
+          let nextPage = +page + 1;
+          let prev = `search.php?${key}&cate=${cate}&page=${prevPage}`;
+          let next = `search.php?${key}&cate=${cate}&page=${nextPage}`;
+          let btn_pagination = `<li class="page-item ${
+            prevPage <= 0 ? "disabled" : ""
+          }">
                       <a class="page-link" href="${prev}" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-chevron-left"></i></a>
                     </li>`;
-        for (let index = 1; index <= data.totalPage; index++) {
+          for (let index = 1; index <= data.totalPage; index++) {
+            btn_pagination += `<li class="page-item ${
+              index == page ? "active" : ""
+            }"><a class="page-link" href="search.php?key=${key}&cate=${cate}&page=${index}">${index}</a></li>`;
+          }
           btn_pagination += `<li class="page-item ${
-            index == page ? "active" : ""
-          }"><a class="page-link" href="search.php?key=${key}&cate=${cate}&page=${index}">${index}</a></li>`;
-        }
-        btn_pagination += `<li class="page-item ${
-          nextPage > data.totalPage ? "disabled" : ""
-        }">
+            nextPage > data.totalPage ? "disabled" : ""
+          }">
         <a class="page-link" href="${next}"><i class="fa-solid fa-chevron-right"></i></a>
       </li>`;
-
-        $(".pagination").html(btn_pagination);
+          console.log($(".see-more-container"));
+          $(".see-more-container").html(btn_pagination);
+        }
       },
     });
   }
@@ -138,7 +140,7 @@ $(document).ready(async function () {
   let sort = new URL(location.href).searchParams.get("sort") || "";
   key = toNonAccentVietnamese(keyword);
   await renderListProducts(`key=${key}&cate=${cate}&page=${page}&sort=${sort}`);
-  
+
   await renderCategory(cate);
   $(".form-filter-price").change(async function () {
     showLoading();
@@ -152,10 +154,9 @@ $(document).ready(async function () {
   $(".form-filter-category").change(function () {
     let cate = $(".form-filter-category").val();
     if (cate == 0) {
-    renderListProducts(`key=${key}&cate=&page=${page}&sort=${sort}`);
+      renderListProducts(`key=${key}&cate=&page=${page}&sort=${sort}`);
     } else {
       renderListProducts(`key=${key}&cate=${cate}&page=${page}&sort=${sort}`);
-
     }
   });
 

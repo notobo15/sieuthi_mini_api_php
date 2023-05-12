@@ -3,11 +3,11 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-3">
 
         <div class="col">
-          <div class="card p-3 bg-white">
+          <div class="card p-3 shadow-lg" style="background: #bb73b6">
             <div class="row justify-content-center align-items-center">
               <div class="col-8">
                 <h5 class="text-center">Khánh Hàng</h5>
-                <h5 class="text-danger total-customer text-center">0</h5>
+                <h5 class="text-light total-customer text-center">0</h5>
               </div>
               <div class="col-4 fs-1 text-center">
                 <i class="fa-solid fa-people-group"></i>
@@ -16,11 +16,11 @@
           </div>
         </div>
         <div class="col">
-          <div class="card p-3 bg-white">
+          <div class="card p-3 shadow-lg" style="background: #ffbd07">
             <div class="row justify-content-center align-items-center">
               <div class="col-8">
                 <h5 class="text-center">Đơn Hàng</h5>
-                <h5 class="text-danger total-order text-center">0</h5>
+                <h5 class="text-light total-order text-center">0</h5>
               </div>
               <div class="col-4 fs-1 text-center">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -29,11 +29,11 @@
           </div>
         </div>
         <div class="col">
-          <div class="card p-3 bg-white">
+          <div class="card p-3 shadow-lg" style="background: #01b9ea">
             <div class="row justify-content-center align-items-center">
               <div class="col-8">
                 <h5 class="text-center">Nhân Viên</h5>
-                <h5 class="text-danger total-employee text-center">0</h5>
+                <h5 class="text-light total-employee text-center">0</h5>
               </div>
               <div class="col-4 fs-1 text-center">
                 <i class="fa-solid fa-user-group"></i>
@@ -42,11 +42,11 @@
           </div>
         </div>
         <div class="col">
-          <div class="card p-3 bg-white">
+          <div class="card p-3 shadow-lg" style="background: #97cc69">
             <div class="row justify-content-center align-items-center">
               <div class="col-8">
                 <h5 class="text-center ">Danh Thu</h5>
-                <h5 class="text-danger total-price text-center">0</h5>
+                <h5 class="text-light total-price text-center">0</h5>
               </div>
               <div class="col-4 fs-1 text-center">
                 <i class="fa-solid fa-money-bill-trend-up"></i>
@@ -102,6 +102,19 @@
             <option value="2022">2022</option>
             <option value="2023" selected>2023</option>
           </select>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-5">
+              <input type="date" class="form-control" name="" id="start_date">
+            </div>
+            <div class="col-5">
+              <input type="date" class="form-control" name="" id="end_date">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-outline-primary btn_search_date"><i class="fs-5 fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </div>
         </div>
         <div class="col-12 p-4 mt-5 border bg-white">
           <canvas id="sumQuantitySell"></canvas>
@@ -218,12 +231,73 @@
       //     }
       //   }
       // });
-
+      function formatDateDD_MM_YYYY(date) {
+        return ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear()
+      }
 
       function priceToVND(n) {
         let res = parseFloat(n).toLocaleString(`de-DE`)
         return `${res} đ`
       }
+      $(".btn_search_date").click(async function() {
+        var get_all_orders = []
+        await $.ajax({
+          url: "../api/accounts/orders/get_all.php",
+          type: "GET",
+          success: function(data) {
+            get_all_orders = data
+          }
+        })
+        let start = $("#start_date").val()
+        let end = $("#end_date").val()
+        start = new Date(start);
+        end = new Date(end);
+        console.log(start);
+        console.log(end);
+        if (start > end) {
+          alert("Ngày bắt đầu phải nhỏ hơn ngày kết thúc")
+        } else if (start < end) {
+          //calculate total number of seconds between two dates  
+          var total_seconds = Math.abs(end - start) / 1000;
+
+          //calculate days difference by dividing total seconds in a day  
+          var days_difference = Math.floor(total_seconds / (60 * 60 * 24));
+          console.log(days_difference);
+          if (days_difference > 14) {
+            console.log(alert("Không quá 14 ngày"));
+          } else {
+            let x = []
+            let y = []
+            let temp = start;
+            for (let index = 0; index <= days_difference; index++) {
+              
+              x.push(await formatDateDD_MM_YYYY(temp))
+              let total = 0
+              console.log(get_all_orders);
+              get_all_orders.forEach((item) => {
+                if (item.order_date.includes(temp.toISOString().slice(0, 10))) {
+                  total += +item.totalPrice;
+                }
+              })
+              y.push(total)
+              total = 0
+              console.log(temp);
+              let nextDate = new Date()
+              nextDate.setDate(temp.getDate() + 1);
+              temp = nextDate
+            }
+            console.log(x);
+            console.log(y);
+
+            chart.data.datasets[0].data = y
+            chart.data.labels = x
+            chart.update()
+
+          }
+        }
+
+
+      })
 
       function countOrder() {
         $.ajax({
@@ -342,14 +416,16 @@
               let tuan2 = 0
               let tuan3 = 0
               let tuan4 = 0
+              console.log("data : ", data);
               let result = data.forEach(function(item) {
                 let date1 = new Date(item.order_date.replace(/-/g, '/'));
+                console.log(date1.getDate());
                 if ((date1.getMonth() + 1) == month && date1.getFullYear() == year) {
-                  if (date1.getDay() > 0 && date1.getDay() <= 7) {
+                  if (date1.getDate() > 0 && date1.getDate() <= 7) {
                     tuan1 += +item.totalPrice;
-                  } else if (date1.getDay() >= 8 && date1.getDay() <= 15) {
+                  } else if (date1.getDate() >= 8 && date1.getDate() <= 15) {
                     tuan2 += +item.totalPrice;
-                  } else if (date1.getDay() >= 16 && date1.getDay() <= 22) {
+                  } else if (date1.getDate() >= 16 && date1.getDate() <= 22) {
                     tuan3 += +item.totalPrice;
                   } else {
                     tuan4 += +item.totalPrice;

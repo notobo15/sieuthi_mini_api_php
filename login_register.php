@@ -15,14 +15,14 @@
   <link rel="stylesheet" href="./css/login_register.css" />
   <!-- ===== CSS ===== -->
 
-  <title>Login & Registration Form</title>
+  <title>Đăng Nhập</title>
 </head>
 
 <body>
   <div class="container">
     <div class="forms">
       <div class="form login">
-        <span class="title">Login</span>
+        <span class="title">Đăng Nhập</span>
         <form action="" method="post" id="form-login">
           <div class="input-field">
             <input id="username" name="name" type="text" placeholder="Enter your username" required />
@@ -39,8 +39,8 @@
         </form>
 
         <div class="login-signup">
-          <span class="text">Not a member?
-            <a href="#" class="text signup-link">Signup Now</a>
+          <span class="text">Nếu Bạn Chưa Có Tài Khoản
+            <a href="#" class="text signup-link">Đăng Ký Ngay</a>
           </span>
         </div>
 
@@ -49,7 +49,7 @@
 
       <!-- Registration Form -->
       <div class="form signup">
-        <span class="title">Registration</span>
+        <span class="title">Đăng Ký</span>
         <form action="" method="post" id="form-signup">
           <div class="flex-box">
             <div class="input-field">
@@ -81,13 +81,13 @@
             <i class="uil uil-eye-slash showHidePw"></i>
           </div>
           <div class="input-field button">
-            <input type="submit" value="Signup" />
+            <input type="submit" value="Đăng Ký" />
           </div>
         </form>
 
         <div class="login-signup">
-          <span class="text">Already a member?
-            <a href="#" class="text login-link">Login Now</a>
+          <span class="text">Bạn Đã Có Tài Khoản?
+            <a href="#" class="text login-link">Đăng Nhập Ngay</a>
           </span>
         </div>
         <div id="err_register" class="error"></div>

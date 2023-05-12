@@ -1,13 +1,13 @@
 <?php
-// session_start();
+session_start();
 
-// if (empty($_SESSION['account'])) {
-//     header("Location: ../login_register.php");
-// } else {
-//     if ($_SESSION['account']['group_id'] == 5) {
-//         header("Location: ../404.php");
-//     }
-// }
+if (empty($_SESSION['account'])) {
+    header("Location: ../login_register.php");
+} else {
+    if ($_SESSION['account']['group_id'] == 5) {
+        header("Location: ../404.php");
+    }
+}
 
 
 ?>
