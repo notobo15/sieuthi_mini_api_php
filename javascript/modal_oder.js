@@ -32,7 +32,7 @@ function renderOrder() {
       data.forEach((item) => {
         // total += item.quantity * item.price;
         html += `
-        <tr>
+        <tr class="bg-light">
             <td data-th="Mã đơn hàng :" class="my-3">
                 <strong class="text-danger MDH">${item.id}</strong>
             </td>

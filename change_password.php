@@ -1,3 +1,4 @@
+<?php if (empty($_SESSION['account'])) header("Location: ./login_register.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 

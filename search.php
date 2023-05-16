@@ -47,7 +47,7 @@
               <div style="height: auto;" class="title-grounpfeature my-3 mx-3 pt-1 row  d-flex justify-content-between align-items-center">
                 <div class="col-12 col-sm-8">
                   <div class="row">
-                    <div class="col-8"><span class="fs-6 text-black heading-search"></span></div>
+                    <div class="col-12 col-lg-8"><span class="fs-6 text-black heading-search"></span></div>
                     <?php if (!isset($_GET['cate'])) : ?>
                       <div class="col-4"><select class="form-filter-category form-select"></select></div>
                     <?php endif; ?>
@@ -99,7 +99,7 @@
 <!-- <script src="./javascript/test_javascript.js"></script> -->
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
-<!-- <script src="./javascript/menu.js"></script> -->
+<script src="./javascript/menu.js"></script>
 <!-- <script src="./javascript/modal_card.js"></script> -->
 <!-- <script src="./javascript/modal_oder.js"></script> -->
 <script src="./javascript/search.js"></script>

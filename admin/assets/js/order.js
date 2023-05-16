@@ -9,6 +9,7 @@ function LoadOrder() {
       // orders.reverse();
       let html = ``;
       console.log(orders);
+
       for (const order of orders) {
         html += `<tr>
                 <td>${order.id}</td>

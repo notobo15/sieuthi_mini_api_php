@@ -17,15 +17,18 @@
                                     echo ($fullname);  ?></span>
             </a>
         </li>
-        <li>
-            <a href="#dashboard_container">
-                <span class="icon">
-                    <ion-icon name="bar-chart-outline"></ion-icon>
-                </span>
-                <span class="title">Trang Chủ</span>
-            </a>
-        </li>
+        <?php if (($_SESSION['account']['group_id']) ==  1 || ($_SESSION['account']['group_id']) ==  2) : ?>
 
+            <li>
+                <a href="#dashboard_container">
+                    <span class="icon">
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                    </span>
+                    <span class="title">Trang Chủ</span>
+                </a>
+            </li>
+
+        <?php endif; ?>
         <li>
             <a href="#user_container">
                 <span class="icon">
@@ -60,22 +63,26 @@
                 <span class="title">Category</span>
             </a>
         </li>
-        <li>
-            <a href="#discount_container">
-                <span class="icon">
-                    <ion-icon name="card-outline"></ion-icon>
-                </span>
-                <span class="title">Discount</span>
-            </a>
-        </li>
-        <li>
-            <a href="#suppilier_container">
-                <span class="icon">
-                    <ion-icon name="business-outline"></ion-icon>
-                </span>
-                <span class="title">Suppilier</span>
-            </a>
-        </li>
+        <?php if (($_SESSION['account']['group_id']) ==  1 || ($_SESSION['account']['group_id']) ==  2) : ?>
+
+            <li>
+                <a href="#discount_container">
+                    <span class="icon">
+                        <ion-icon name="card-outline"></ion-icon>
+                    </span>
+                    <span class="title">Discount</span>
+                </a>
+            </li>
+            <li>
+                <a href="#suppilier_container">
+                    <span class="icon">
+                        <ion-icon name="business-outline"></ion-icon>
+                    </span>
+                    <span class="title">Suppilier</span>
+                </a>
+            </li>
+        <?php endif; ?>
+
         <!-- <li>
             <a href="#permission_container">
                 <span class="icon">
@@ -85,21 +92,21 @@
             </a>
         </li> -->
 
-        
-            <li onclick="return logout()">
-                <a href="#">
-                    <span class="icon">
-                        <ion-icon name="log-out-outline"></ion-icon>
-                    </span>
-                    <span class="title">Log out</span>
-                </a>
-            </li>
-            <script>
-                function logout() {
-                    if (confirm("Bạn Chắc Chắn Muốn Đăng Xuất?")) {
-                        location.assign("../index.php")
-                    }
+
+        <li onclick="return logout()">
+            <a href="#">
+                <span class="icon">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </span>
+                <span class="title">Log out</span>
+            </a>
+        </li>
+        <script>
+            function logout() {
+                if (confirm("Bạn Chắc Chắn Muốn Đăng Xuất?")) {
+                    location.assign("../index.php")
                 }
-            </script>
+            }
+        </script>
     </ul>
 </div>

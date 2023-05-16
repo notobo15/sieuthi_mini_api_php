@@ -190,14 +190,21 @@
       let chart = new Chart(ctx, {
         type: "line",
         data: {
-          fill: false,
           labels: xValues,
           datasets: [{
+            // tension: 0.1,
+            borderColor: 'rgb(75, 192, 192)',
+            fill: false,
             label: "",
             backgroundColor: barColors,
-            data: yValues
+            data: yValues,
           }]
         },
+        options: {
+          legend: {
+            display: false
+          }
+        }
 
       });
 
@@ -270,7 +277,7 @@
             let y = []
             let temp = start;
             for (let index = 0; index <= days_difference; index++) {
-              
+
               x.push(await formatDateDD_MM_YYYY(temp))
               let total = 0
               console.log(get_all_orders);

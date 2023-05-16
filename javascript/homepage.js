@@ -158,11 +158,11 @@ $(document).ready(async function () {
                       item.discountedPrice == null
                         ? `<span>${priceToVND(item.price)}</span>`
                         : `<div class="row">
-                        <div class="col-xl-6 col-lg-12 col-md-12 col-6">
+                        <div class="col-sm-6 col-lg-6 col-md-12 col-12">
                           <span id = "price_discoun">${priceToVND(item.discountedPrice)}</span>
                         </div>
-                        <div class="col-xl-6 col-lg-12 col-md-12 col-6">
-                          <span class="text-muted text-decoration-none" style="font-size: 16px; width: 70px;"><del>${priceToVND(
+                        <div class="col-sm-6 col-lg-6 col-md-12 col-12 text-end">
+                          <span class="text-muted text-decoration-none" style="font-size: 16px;"><del>${priceToVND(
                             item.price
                           )}</del></span>
                         </div>

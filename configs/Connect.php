@@ -9,8 +9,8 @@ class Connect
   public function __construct()
   {
     $this->con = mysqli_connect($this->host, $this->user, $this->password);
-    mysql_select_db($this->db_name, $this->con);
-	mysql_query("SET NAMES 'utf8'", $this->con);
+    // mysql_select_db($this->db_name, $this->con);
+	// $a = mysql_query("SET NAMES 'utf8'", $this->con);la
   }
   public function checkConnect()
   {

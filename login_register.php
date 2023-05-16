@@ -27,6 +27,7 @@
           <div class="input-field">
             <input id="username" name="name" type="text" placeholder="Enter your username" required />
             <i class="uil uil-user"></i>
+
           </div>
           <div class="input-field">
             <input id="password" type="password" class="password" name="password" placeholder="Enter your password" required />
@@ -74,11 +75,13 @@
           <div class="input-field">
             <input id="password_rg" type="password" class="password" placeholder="Create a password" required />
             <i class="uil uil-lock icon"></i>
+            <!-- <i class="uil uil-eye-slash showHidePw"></i> -->
+
           </div>
           <div class="input-field">
             <input id="password_rg_confirm" type="password" class="password" placeholder="Confirm a password" required />
             <i class="uil uil-lock icon"></i>
-            <i class="uil uil-eye-slash showHidePw"></i>
+            <!-- <i class="uil uil-eye-slash showHidePw"></i> -->
           </div>
           <div class="input-field button">
             <input type="submit" value="Đăng Ký" />

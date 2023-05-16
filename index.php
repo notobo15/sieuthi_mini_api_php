@@ -79,9 +79,9 @@
 <!-- <script src="./javascript/test_javascript.js"></script> -->
 <!-- <script src="./javascript/modal_info_product.js"></script> -->
 <!-- <script src="./javascript/GrounpFeature.js"></script> -->
-<!-- <script src="./javascript/menu.js"></script> -->
+<script src="./javascript/menu.js"></script>
 <script src="./javascript/modal_card.js"></script>
-<script src="./javascript/modal_oder.js"></script>  
+<script src="./javascript/modal_oder.js"></script>
 <script src="./javascript/homepage.js"></script>
 
 

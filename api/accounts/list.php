@@ -7,7 +7,9 @@ require_once "../../models/Account.php";
 $db = new ConnectDB();
 $conn = $db->getConnect();
 $account = new Account($conn);
+/* 
 
+*/
 
 
 $result = $account->getList();

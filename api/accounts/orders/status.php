@@ -2,7 +2,7 @@
 require_once "../../../configs/ConnectDB.php";
 require_once "../../../configs/headers.php";
 require_once "../../../models/Order.php";
-require_once "../../../auth/auth.php";
+// require_once "../../../auth/auth.php";
 
 $db = new ConnectDB();
 $conn = $db->getConnect();

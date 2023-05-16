@@ -96,7 +96,7 @@ $(document).ready(async function () {
                         item.discountedPrice == null
                           ? `<span>${priceToVND(item.price)}</span>`
                           : `<span>${priceToVND(item.discountedPrice)}</span>
-                      <span class="text-muted text-decoration-none" style="font-size: 14px;"><del>${priceToVND(
+                      <span class="text-muted text-decoration-none" style="font-size: 13px;"><del>${priceToVND(
                         item.price
                       )}</del></span>`
                       }
