@@ -18,7 +18,7 @@ if ($product->getSingleById($id)) {
     'id' => $product->id,
     'name' => $product->name,
     'desc' => $product->desc,
-    'price' => $product->price,
+    'price' => (int)$product->price,
     'img' => $product->img,
     'mass' => $product->mass,
     'ingredient' => $product->ingredient,
@@ -45,6 +45,6 @@ if ($product->getSingleById($id)) {
   $arr['category_name'] = $Category->name;
   print_r(json_encode($arr));
 } else {
-  http_response_code(200);
-  print_r(json_encode(array("message" => "not found")));
+  http_response_code(404);
+  print_r(json_encode(array("status" => 0, "message" => "Product not found")));
 }

@@ -53,9 +53,9 @@ class Product
   }
   public function getSingleById($id)
   {
-    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id where T1.id = ? and T1.isDeleted = 0;";
+    $query = 'SELECT T1.*, T3.price_per, T1.price - (T3.price_per / 100 * T1.price) as `discountedPrice` FROM ' . $this->table_name . " T1 LEFT JOIN discount_product T2 ON T2.product_id =T1.id LEFT JOIN discount T3 ON T3.id = T2.discount_id where T1.id = '{$id}' and T1.isDeleted = 0;";
     $stm = $this->con->prepare($query);
-    $stm->bindParam(1, $id);
+    //  $stm->bindParam(1, $id);
     if ($stm->execute()) {
       while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
         $this->id = $row['id'];
@@ -122,7 +122,7 @@ class Product
     $stmt->bindParam(':desc', $this->desc);
     $stmt->bindParam(':expiredAt', $this->expiredAt);
     if ($stmt->execute()) {
-      return true;
+      return $this->con->lastInsertId();
     }
 
     return false;
@@ -163,7 +163,6 @@ class Product
     $stmt->bindParam(':desc', $this->desc);
     $stmt->bindParam(':expiredAt', $this->expiredAt);
     $stmt->bindParam(':id', $this->id);
-    print_r($this);
     if ($stmt->execute() && $stmt->rowCount() > 0) {
       return true;
     } else {

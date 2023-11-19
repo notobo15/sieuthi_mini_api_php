@@ -42,7 +42,7 @@ $(document).ready(function () {
     console.log(name, password);
     let check = checkLogin();
     let fd = new FormData();
-    fd.append("name", name);
+    fd.append("username", name);
     fd.append("password", password);
     console.log(check);
     if (check) {

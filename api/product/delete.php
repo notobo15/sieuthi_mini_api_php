@@ -15,8 +15,8 @@ $Product = new Product($conn);
 $Product->id = $_POST['id'];
 if ($Product->delete()) {
   http_response_code(200);
-  print_r(json_encode(array("message" => "delete success")));
+  print_r(json_encode(array("status" => 1, "message" => "Product deleted successfully.")));
 } else {
-  http_response_code(400);
-  print_r(json_encode(array("message" => "not found")));
+  http_response_code(404);
+  print_r(json_encode(array("status" => 0, "message" => "Product not found")));
 }

@@ -9,8 +9,10 @@ include_once '../../models/Product.php';
 $db = new ConnectDB();
 $conn = $db->getConnect();
 $Product = new Product($conn);
-require_once "../../configs/uploadImage.php";
-
+if (isset($_FILES["img"])) {
+  $Product->img = $image_file["name"];
+  require_once "../../configs/uploadImage.php";
+}
 if (empty($_POST['name'])) {
   http_response_code(400);
   die(json_encode(array("message" => "name is require")));
@@ -32,7 +34,7 @@ $Product->desc = $_POST['desc'];
 $Product->price = $_POST['price'];
 $Product->howToUse = $_POST['howToUse'];
 $Product->preserve = $_POST['preserve'];
-$Product->img = $image_file["name"];
+
 $Product->mass = $_POST['mass'];
 $Product->ingredient = $_POST['ingredient'];
 $Product->trademark = $_POST['trademark'];
@@ -42,9 +44,15 @@ $Product->quantity = $_POST['quantity'];
 $Product->expiredAt = $_POST['expiredAt'];
 
 // print_r($Product);
-if ($Product->create()) {
+$id = $Product->create();
+if ($id) {
+  $Product->id = $id;
+  http_response_code(201);
   echo json_encode(
-    array('message' => 'Product Created')
+    array(
+      "status" => 1,  'message' => 'New Product Created',
+      "data" => array("id" => (int) $Product->id, "name" => $Product->name, "price" => $Product->price)
+    )
   );
 } else {
   echo json_encode(
