@@ -43,7 +43,7 @@ CREATE TABLE `account` (
   `wardCode` varchar(255) DEFAULT NULL,
   `delivery_address` varchar(255) DEFAULT NULL,
   `group_id` int(11) DEFAULT 5,
-  `isDeleted` bit(1) DEFAnotobo_sieuthiminiULT b'0',
+  `isDeleted` bit(1) DEFAULT b'0',
   `createAt` datetime DEFAULT CURRENT_TIMESTAMP(),
   `modifiedAt` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB AVG_ROW_LENGTH=2978 DEFAULT CHARSET=utf8mb4;
