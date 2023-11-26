@@ -125,9 +125,10 @@ class Account
 
         $q = 'SELECT T1.code_name FROM permission T1 
         JOIN groups_permission T2 ON T1.per_id = T2.permission_id
-          JOIN groups T3 ON T3.group_id = T2.group_id
+          JOIN `groups` T3 ON T3.group_id = T2.group_id
           JOIN account T4 ON T3.group_id = T4.group_id
         WHERE T4.id = ?;';
+
         $stm2 = $this->con->prepare($q);
         $stm2->bindParam(1, $this->id);
         if ($stm2->execute()) {
